@@ -1340,16 +1340,25 @@ async function initCharts() {
   let rateDate = null;
 
   /* Fetch live data in parallel from Vercel proxy */
-  try {
-    const [wtiRes, rateRes] = await Promise.all([
-      fetch('/api/market?type=wti'),
-      fetch('/api/market?type=rates')
-    ]);
-    if (wtiRes.ok)  { const d = await wtiRes.json();  if (d.value && !isNaN(d.value)) { wtiSpot  = d.value; wtiDate  = d.date; } }
-    if (rateRes.ok) { const d = await rateRes.json(); if (d.value && !isNaN(d.value)) { rateSpot = d.value; rateDate = d.date; } }
-  } catch(e) {
-    console.warn('Market data unavailable — using fallback values.', e);
+ try {
+  const wtiRes = await fetch('/api/market?type=wti');
+  if (wtiRes.ok) {
+    const d = await wtiRes.json();
+    if (d.value && !isNaN(d.value)) { wtiSpot = d.value; wtiDate = d.date; }
   }
+} catch(e) {
+  console.warn('WTI data unavailable — using fallback.', e);
+}
+
+try {
+  const rateRes = await fetch('/api/market?type=rates');
+  if (rateRes.ok) {
+    const d = await rateRes.json();
+    if (d.value && !isNaN(d.value)) { rateSpot = d.value; rateDate = d.date; }
+  }
+} catch(e) {
+  console.warn('Rates data unavailable — using fallback.', e);
+}
 
   /* Write timestamps */
   const wtiEl   = document.getElementById('wti-updated');
