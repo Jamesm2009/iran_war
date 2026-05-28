@@ -1,21 +1,24 @@
 /**
- * Vercel Serverless Function — Market Data Proxy
+ * Vercel Serverless Function — Market Data Proxy with 24hr Cache
  *
  * Fetches live WTI crude and US 10-year Treasury yield
  * from Alpha Vantage using a server-side environment variable.
  *
+ * Caching strategy:
+ *   - Vercel CDN caches each response for 24 hours (s-maxage=86400)
+ *   - Alpha Vantage is called at most ONCE per day per endpoint
+ *   - All page loads within 24hrs share the cached response
+ *   - Free tier (25 calls/day) is effectively unlimited for normal use
+ *
  * Setup:
- * In Vercel dashboard → Settings → Environment Variables add:
+ *   Vercel dashboard → Settings → Environment Variables:
  *   Name:  ALPHA_VANTAGE_KEY
- *   Value: your key from alphavantage.co (free, instant)
+ *   Value: your key from alphavantage.co
  *   Environments: Production, Preview, Development (tick all)
  *
- * Called from the HTML as:
- *   /api/market?type=wti    → returns WTI spot price + date
- *   /api/market?type=rates  → returns 10yr yield + date
- *
- * Free tier limit: 25 calls/day (~12 page loads).
- * Charts fall back to hardcoded values gracefully if limit hit.
+ * Endpoints:
+ *   /api/market?type=wti    → WTI spot price + date
+ *   /api/market?type=rates  → 10yr Treasury yield + date
  */
 
 export default async function handler(req, res) {
@@ -29,7 +32,6 @@ export default async function handler(req, res) {
 
   const key = process.env.ALPHA_VANTAGE_KEY;
 
-  // Alpha Vantage endpoints
   const endpoints = {
     wti:   `https://www.alphavantage.co/query?function=WTI&interval=daily&apikey=${key}`,
     rates: `https://www.alphavantage.co/query?function=TREASURY_YIELD&interval=daily&maturity=10year&apikey=${key}`
@@ -43,10 +45,10 @@ export default async function handler(req, res) {
     const response = await fetch(endpoints[type]);
     const data = await response.json();
 
-    // Alpha Vantage returns an Information key when rate-limited
+    // Alpha Vantage returns Information or Note keys when rate-limited
     if (data['Information'] || data['Note']) {
       return res.status(429).json({
-        error: 'Alpha Vantage rate limit reached (25 calls/day on free tier). Charts using fallback values.',
+        error: 'Alpha Vantage rate limit reached. Charts using fallback values.',
         detail: data['Information'] || data['Note']
       });
     }
@@ -56,10 +58,18 @@ export default async function handler(req, res) {
       return res.status(502).json({ error: 'No data returned from Alpha Vantage.' });
     }
 
-    return res.status(200).json({
+    const payload = {
       value: parseFloat(latest.value),
       date:  latest.date
-    });
+    };
+
+    // Cache at Vercel CDN edge for 24 hours.
+    // s-maxage = CDN cache duration (86400s = 24hrs)
+    // stale-while-revalidate = serve stale for up to 1hr while
+    // fetching fresh data in background — keeps responses instant.
+    res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=3600');
+
+    return res.status(200).json(payload);
 
   } catch (err) {
     return res.status(500).json({ error: err.message });
