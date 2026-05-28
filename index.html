@@ -1329,38 +1329,160 @@ async function runAI() {
 }
 
 /* ── CHARTS ── */
-function initCharts() {
+/* ── REPLACEMENT initCharts() ──────────────────────────────────────────
+   Paste this in place of the existing initCharts() function.
+   Fetches live WTI spot and 10-yr Treasury yield via /api/market.
+   Falls back to hardcoded values gracefully if API is unavailable.
+   Approximate forward curves are built from each spot anchor.
+─────────────────────────────────────────────────────────────────────── */
+
+async function initCharts() {
   const gridCol   = 'rgba(0,0,0,0.05)';
   const tickStyle = { font:{ family:'JetBrains Mono', size:11 }, color:'#9c8572' };
 
-  // WTI Futures
+  /* ── Fallback values (used if API unavailable or rate-limited) ── */
+  let wtiSpot  = 91;    // $/bbl
+  let rateSpot = 4.69;  // %
+  let wtiDate  = null;
+  let rateDate = null;
+
+  /* ── Fetch live data in parallel ── */
+  try {
+    const [wtiRes, rateRes] = await Promise.all([
+      fetch('/api/market?type=wti'),
+      fetch('/api/market?type=rates')
+    ]);
+
+    if (wtiRes.ok) {
+      const d = await wtiRes.json();
+      if (d.value && !isNaN(d.value)) { wtiSpot = d.value; wtiDate = d.date; }
+    }
+    if (rateRes.ok) {
+      const d = await rateRes.json();
+      if (d.value && !isNaN(d.value)) { rateSpot = d.value; rateDate = d.date; }
+    }
+  } catch (e) {
+    console.warn('Market data unavailable — using fallback values.', e);
+  }
+
+  /* ── Update "last updated" timestamps ── */
+  const wtiUpdatedEl   = document.getElementById('wti-updated');
+  const ratesUpdatedEl = document.getElementById('rates-updated');
+
+  if (wtiUpdatedEl) {
+    wtiUpdatedEl.textContent = wtiDate
+      ? `Spot price · Alpha Vantage · As of ${wtiDate} · Forward curve estimated`
+      : 'Live data unavailable · Showing editorial estimate';
+  }
+  if (ratesUpdatedEl) {
+    ratesUpdatedEl.textContent = rateDate
+      ? `10-year yield · Alpha Vantage · As of ${rateDate} · Forward curve estimated`
+      : 'Live data unavailable · Showing editorial estimate';
+  }
+
+  /* ── Build approximate WTI forward curve from spot ──────────────
+     Reflects current mild contango (market pricing in slow recovery).
+     Adjust the multipliers if the forward curve shape changes materially.
+  ────────────────────────────────────────────────────────────────── */
+  const wtiFwd = [
+    wtiSpot,
+    +(wtiSpot * 1.015).toFixed(1),
+    +(wtiSpot * 1.025).toFixed(1),
+    +(wtiSpot * 1.032).toFixed(1),
+    +(wtiSpot * 1.040).toFixed(1),
+    +(wtiSpot * 1.035).toFixed(1),
+    +(wtiSpot * 1.025).toFixed(1)
+  ];
+
+  /* ── Build approximate yield curve from 10yr anchor ────────────
+     Reflects current flattish/mildly inverted curve shape.
+     Adjust if curve shape changes significantly.
+  ────────────────────────────────────────────────────────────────── */
+  const rateCurve = [
+    +(rateSpot * 0.955).toFixed(2),  // spot proxy (short end)
+    +(rateSpot * 0.975).toFixed(2),  // 1yr
+    +(rateSpot * 0.990).toFixed(2),  // 2yr
+    +(rateSpot * 0.998).toFixed(2),  // 5yr
+    +rateSpot.toFixed(2)             // 10yr (anchor)
+  ];
+
+  /* ── Dynamic y-axis ceiling for WTI ── */
+  const wtiMax = Math.max(130, Math.ceil(Math.max(...wtiFwd) * 1.1 / 10) * 10);
+
+  /* ── WTI Chart ── */
   const wtiCtx = document.getElementById('wtiChart');
   if (wtiCtx) new Chart(wtiCtx, {
-    type:'line', data:{
-      labels:['Now','1m','2m','3m','6m','9m','12m'],
-      datasets:[
-        { label:'Current curve', data:[91,93,95,97,99,97,94], borderColor:'#2e6da4', backgroundColor:'rgba(46,109,164,0.07)', borderWidth:2.5, pointRadius:3, fill:true, tension:0.35 },
-        { label:'Pre-war baseline', data:[67,67,67,67,67,67,67], borderColor:'#c4b09a', borderDash:[5,5], borderWidth:1.5, pointRadius:0, fill:false },
-        { label:'Pain threshold ($100)', data:[100,100,100,100,100,100,100], borderColor:'rgba(192,57,43,0.45)', borderDash:[3,3], borderWidth:1.5, pointRadius:0, fill:false }
+    type: 'line',
+    data: {
+      labels: ['Now','1m','2m','3m','6m','9m','12m'],
+      datasets: [
+        {
+          label: 'Current (spot + est. contango)',
+          data: wtiFwd,
+          borderColor: '#2e6da4',
+          backgroundColor: 'rgba(46,109,164,0.07)',
+          borderWidth: 2.5, pointRadius: 3, fill: true, tension: 0.35
+        },
+        {
+          label: 'Pre-war baseline ($67–69)',
+          data: [67,67,67,67,67,67,67],
+          borderColor: '#c4b09a', borderDash: [5,5],
+          borderWidth: 1.5, pointRadius: 0, fill: false
+        },
+        {
+          label: 'Pain threshold ($100)',
+          data: [100,100,100,100,100,100,100],
+          borderColor: 'rgba(192,57,43,0.45)', borderDash: [3,3],
+          borderWidth: 1.5, pointRadius: 0, fill: false
+        }
       ]
     },
-    options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{mode:'index',intersect:false} },
-      scales:{ x:{ grid:{color:gridCol}, ticks:tickStyle }, y:{ grid:{color:gridCol}, ticks:{...tickStyle,callback:v=>'$'+v}, min:50, max:120 } } }
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
+      scales: {
+        x: { grid: { color: gridCol }, ticks: tickStyle },
+        y: { grid: { color: gridCol }, ticks: { ...tickStyle, callback: v => '$' + v }, min: 50, max: wtiMax }
+      }
+    }
   });
 
-  // Rate curve
+  /* ── Rates Chart ── */
   const rateCtx = document.getElementById('ratesChart');
   if (rateCtx) new Chart(rateCtx, {
-    type:'line', data:{
-      labels:['Spot','1yr','2yr','5yr','10yr'],
-      datasets:[
-        { label:'Current', data:[4.69,4.8,4.82,4.74,4.65], borderColor:'#1a3356', backgroundColor:'rgba(26,51,86,0.06)', borderWidth:2.5, pointRadius:3, fill:true, tension:0.3 },
-        { label:'Pre-war', data:[4.2,4.2,4.2,4.2,4.2], borderColor:'#c4b09a', borderDash:[5,5], borderWidth:1.5, pointRadius:0, fill:false },
-        { label:'Crisis threshold (5%)', data:[5,5,5,5,5], borderColor:'rgba(192,57,43,0.45)', borderDash:[3,3], borderWidth:1.5, pointRadius:0, fill:false }
+    type: 'line',
+    data: {
+      labels: ['Spot','1yr','2yr','5yr','10yr'],
+      datasets: [
+        {
+          label: 'Current yield curve (est.)',
+          data: rateCurve,
+          borderColor: '#1a3356',
+          backgroundColor: 'rgba(26,51,86,0.06)',
+          borderWidth: 2.5, pointRadius: 3, fill: true, tension: 0.3
+        },
+        {
+          label: 'Pre-war avg (~4.2%)',
+          data: [4.2,4.2,4.2,4.2,4.2],
+          borderColor: '#c4b09a', borderDash: [5,5],
+          borderWidth: 1.5, pointRadius: 0, fill: false
+        },
+        {
+          label: 'Crisis threshold (5%)',
+          data: [5,5,5,5,5],
+          borderColor: 'rgba(192,57,43,0.45)', borderDash: [3,3],
+          borderWidth: 1.5, pointRadius: 0, fill: false
+        }
       ]
     },
-    options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{mode:'index',intersect:false} },
-      scales:{ x:{ grid:{color:gridCol}, ticks:tickStyle }, y:{ grid:{color:gridCol}, ticks:{...tickStyle,callback:v=>v+'%'}, min:3.5, max:5.5 } } }
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
+      scales: {
+        x: { grid: { color: gridCol }, ticks: tickStyle },
+        y: { grid: { color: gridCol }, ticks: { ...tickStyle, callback: v => v + '%' }, min: 3.5, max: 5.5 }
+      }
+    }
   });
 }
 </script>
