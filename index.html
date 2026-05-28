@@ -955,7 +955,7 @@ const DATA = {
 /* ══════════════════════════════════════════
    INIT
 ══════════════════════════════════════════ */
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   renderHeroMetrics();
   renderPriceMoves();
   renderConclusions();
@@ -964,7 +964,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderRiskRegister();
   renderChangelog();
   renderFilters();
-  initCharts();
+  await initCharts();
   initScrollFAB();
 });
 
