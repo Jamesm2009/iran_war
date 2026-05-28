@@ -266,8 +266,6 @@ strong { font-weight: 600; }
 .chart-subtitle { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--brown-text); letter-spacing: 0.06em; margin-bottom: 12px; }
 .chart-canvas { height: 190px; position: relative; }
 .chart-note-item { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: 0.05em; margin-top: 6px; }
- <div id="wti-updated" style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--brown-light);margin-top:6px;"></div>
- <div id="rates-updated" style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--brown-light);margin-top:6px;"></div>
 
 /* Scenarios */
 .scenarios-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
@@ -511,7 +509,25 @@ footer strong { color: var(--blue-light); }
   <div class="callout info mb-2">
     <div class="callout-icon">ℹ</div>
     <div>Futures curves show where markets <em>expect</em> prices to be — more useful than spot for impact assessment. Pain thresholds mark where structural decisions become unavoidable.</div>
-   </div>
+  </div>
+  <div class="grid-2 mb-2">
+    <div class="chart-card">
+      <div class="chart-title">WTI Crude — Futures Curve</div>
+      <div class="chart-subtitle">Front month through 12-month forward · $/barrel</div>
+      <div class="chart-canvas"><canvas id="wtiChart"></canvas></div>
+      <div class="chart-note-item"><span class="rdot critical"></span><span class="mono" style="font-size:var(--fs-xs);color:var(--risk-critical)">$100+ = EU industrial curtailments begin</span></div>
+      <div class="chart-note-item"><span class="rdot high"></span><span class="mono" style="font-size:var(--fs-xs);color:var(--risk-high)">Pre-war average ~$67–69/bbl</span></div>
+      <div id="wti-updated" style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--brown-light);margin-top:6px;letter-spacing:0.05em;"></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">US 10-Year Treasury — Yield Curve</div>
+      <div class="chart-subtitle">Spot through 10-year horizon · % yield</div>
+      <div class="chart-canvas"><canvas id="ratesChart"></canvas></div>
+      <div class="chart-note-item"><span class="rdot critical"></span><span class="mono" style="font-size:var(--fs-xs);color:var(--risk-critical)">5.0%+ = bond vigilante / Fed forced</span></div>
+      <div class="chart-note-item"><span class="rdot elevated"></span><span class="mono" style="font-size:var(--fs-xs);color:var(--risk-elevated)">Pre-war avg ~4.2%</span></div>
+      <div id="rates-updated" style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--brown-light);margin-top:6px;letter-spacing:0.05em;"></div>
+    </div>
+  </div>
   <div class="card mb-3">
     <div class="card-title">Price Movement Since Conflict Began (Feb 28, 2026)</div>
     <div id="price-moves" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:0.75rem;"></div>
@@ -1313,61 +1329,35 @@ async function runAI() {
 }
 
 /* ── CHARTS ── */
-/* ── REPLACEMENT initCharts() ──────────────────────────────────────────
-   Paste this in place of the existing initCharts() function.
-   Fetches live WTI spot and 10-yr Treasury yield via /api/market.
-   Falls back to hardcoded values gracefully if API is unavailable.
-   Approximate forward curves are built from each spot anchor.
-─────────────────────────────────────────────────────────────────────── */
-
 async function initCharts() {
   const gridCol   = 'rgba(0,0,0,0.05)';
   const tickStyle = { font:{ family:'JetBrains Mono', size:11 }, color:'#9c8572' };
 
-  /* ── Fallback values (used if API unavailable or rate-limited) ── */
-  let wtiSpot  = 91;    // $/bbl
-  let rateSpot = 4.69;  // %
+  /* Fallback values — used if API unavailable or rate-limited */
+  let wtiSpot  = 91;
+  let rateSpot = 4.69;
   let wtiDate  = null;
   let rateDate = null;
 
-  /* ── Fetch live data in parallel ── */
+  /* Fetch live data in parallel from Vercel proxy */
   try {
     const [wtiRes, rateRes] = await Promise.all([
       fetch('/api/market?type=wti'),
       fetch('/api/market?type=rates')
     ]);
-
-    if (wtiRes.ok) {
-      const d = await wtiRes.json();
-      if (d.value && !isNaN(d.value)) { wtiSpot = d.value; wtiDate = d.date; }
-    }
-    if (rateRes.ok) {
-      const d = await rateRes.json();
-      if (d.value && !isNaN(d.value)) { rateSpot = d.value; rateDate = d.date; }
-    }
-  } catch (e) {
+    if (wtiRes.ok)  { const d = await wtiRes.json();  if (d.value && !isNaN(d.value)) { wtiSpot  = d.value; wtiDate  = d.date; } }
+    if (rateRes.ok) { const d = await rateRes.json(); if (d.value && !isNaN(d.value)) { rateSpot = d.value; rateDate = d.date; } }
+  } catch(e) {
     console.warn('Market data unavailable — using fallback values.', e);
   }
 
-  /* ── Update "last updated" timestamps ── */
-  const wtiUpdatedEl   = document.getElementById('wti-updated');
-  const ratesUpdatedEl = document.getElementById('rates-updated');
+  /* Write timestamps */
+  const wtiEl   = document.getElementById('wti-updated');
+  const ratesEl = document.getElementById('rates-updated');
+  if (wtiEl)   wtiEl.textContent   = wtiDate  ? `Spot price · Alpha Vantage · As of ${wtiDate} · Forward curve estimated`  : 'Live data unavailable · Showing editorial estimate';
+  if (ratesEl) ratesEl.textContent = rateDate ? `10-year yield · Alpha Vantage · As of ${rateDate} · Forward curve estimated` : 'Live data unavailable · Showing editorial estimate';
 
-  if (wtiUpdatedEl) {
-    wtiUpdatedEl.textContent = wtiDate
-      ? `Spot price · Alpha Vantage · As of ${wtiDate} · Forward curve estimated`
-      : 'Live data unavailable · Showing editorial estimate';
-  }
-  if (ratesUpdatedEl) {
-    ratesUpdatedEl.textContent = rateDate
-      ? `10-year yield · Alpha Vantage · As of ${rateDate} · Forward curve estimated`
-      : 'Live data unavailable · Showing editorial estimate';
-  }
-
-  /* ── Build approximate WTI forward curve from spot ──────────────
-     Reflects current mild contango (market pricing in slow recovery).
-     Adjust the multipliers if the forward curve shape changes materially.
-  ────────────────────────────────────────────────────────────────── */
+  /* Build WTI forward curve from spot (mild contango) */
   const wtiFwd = [
     wtiSpot,
     +(wtiSpot * 1.015).toFixed(1),
@@ -1378,95 +1368,49 @@ async function initCharts() {
     +(wtiSpot * 1.025).toFixed(1)
   ];
 
-  /* ── Build approximate yield curve from 10yr anchor ────────────
-     Reflects current flattish/mildly inverted curve shape.
-     Adjust if curve shape changes significantly.
-  ────────────────────────────────────────────────────────────────── */
+  /* Build yield curve from 10yr anchor (flattish) */
   const rateCurve = [
-    +(rateSpot * 0.955).toFixed(2),  // spot proxy (short end)
-    +(rateSpot * 0.975).toFixed(2),  // 1yr
-    +(rateSpot * 0.990).toFixed(2),  // 2yr
-    +(rateSpot * 0.998).toFixed(2),  // 5yr
-    +rateSpot.toFixed(2)             // 10yr (anchor)
+    +(rateSpot * 0.955).toFixed(2),
+    +(rateSpot * 0.975).toFixed(2),
+    +(rateSpot * 0.990).toFixed(2),
+    +(rateSpot * 0.998).toFixed(2),
+    +rateSpot.toFixed(2)
   ];
 
-  /* ── Dynamic y-axis ceiling for WTI ── */
   const wtiMax = Math.max(130, Math.ceil(Math.max(...wtiFwd) * 1.1 / 10) * 10);
 
-  /* ── WTI Chart ── */
+  /* WTI Chart */
   const wtiCtx = document.getElementById('wtiChart');
   if (wtiCtx) new Chart(wtiCtx, {
-    type: 'line',
-    data: {
-      labels: ['Now','1m','2m','3m','6m','9m','12m'],
-      datasets: [
-        {
-          label: 'Current (spot + est. contango)',
-          data: wtiFwd,
-          borderColor: '#2e6da4',
-          backgroundColor: 'rgba(46,109,164,0.07)',
-          borderWidth: 2.5, pointRadius: 3, fill: true, tension: 0.35
-        },
-        {
-          label: 'Pre-war baseline ($67–69)',
-          data: [67,67,67,67,67,67,67],
-          borderColor: '#c4b09a', borderDash: [5,5],
-          borderWidth: 1.5, pointRadius: 0, fill: false
-        },
-        {
-          label: 'Pain threshold ($100)',
-          data: [100,100,100,100,100,100,100],
-          borderColor: 'rgba(192,57,43,0.45)', borderDash: [3,3],
-          borderWidth: 1.5, pointRadius: 0, fill: false
-        }
+    type:'line',
+    data:{
+      labels:['Now','1m','2m','3m','6m','9m','12m'],
+      datasets:[
+        { label:'Current (spot + est. contango)', data:wtiFwd, borderColor:'#2e6da4', backgroundColor:'rgba(46,109,164,0.07)', borderWidth:2.5, pointRadius:3, fill:true, tension:0.35 },
+        { label:'Pre-war baseline ($67–69)',       data:[67,67,67,67,67,67,67], borderColor:'#c4b09a', borderDash:[5,5], borderWidth:1.5, pointRadius:0, fill:false },
+        { label:'Pain threshold ($100)',           data:[100,100,100,100,100,100,100], borderColor:'rgba(192,57,43,0.45)', borderDash:[3,3], borderWidth:1.5, pointRadius:0, fill:false }
       ]
     },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
-      scales: {
-        x: { grid: { color: gridCol }, ticks: tickStyle },
-        y: { grid: { color: gridCol }, ticks: { ...tickStyle, callback: v => '$' + v }, min: 50, max: wtiMax }
-      }
-    }
+    options:{ responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false}, tooltip:{mode:'index',intersect:false} },
+      scales:{ x:{ grid:{color:gridCol}, ticks:tickStyle }, y:{ grid:{color:gridCol}, ticks:{...tickStyle,callback:v=>'$'+v}, min:50, max:wtiMax } } }
   });
 
-  /* ── Rates Chart ── */
+  /* Rates Chart */
   const rateCtx = document.getElementById('ratesChart');
   if (rateCtx) new Chart(rateCtx, {
-    type: 'line',
-    data: {
-      labels: ['Spot','1yr','2yr','5yr','10yr'],
-      datasets: [
-        {
-          label: 'Current yield curve (est.)',
-          data: rateCurve,
-          borderColor: '#1a3356',
-          backgroundColor: 'rgba(26,51,86,0.06)',
-          borderWidth: 2.5, pointRadius: 3, fill: true, tension: 0.3
-        },
-        {
-          label: 'Pre-war avg (~4.2%)',
-          data: [4.2,4.2,4.2,4.2,4.2],
-          borderColor: '#c4b09a', borderDash: [5,5],
-          borderWidth: 1.5, pointRadius: 0, fill: false
-        },
-        {
-          label: 'Crisis threshold (5%)',
-          data: [5,5,5,5,5],
-          borderColor: 'rgba(192,57,43,0.45)', borderDash: [3,3],
-          borderWidth: 1.5, pointRadius: 0, fill: false
-        }
+    type:'line',
+    data:{
+      labels:['Spot','1yr','2yr','5yr','10yr'],
+      datasets:[
+        { label:'Current yield curve (est.)', data:rateCurve, borderColor:'#1a3356', backgroundColor:'rgba(26,51,86,0.06)', borderWidth:2.5, pointRadius:3, fill:true, tension:0.3 },
+        { label:'Pre-war avg (~4.2%)',         data:[4.2,4.2,4.2,4.2,4.2], borderColor:'#c4b09a', borderDash:[5,5], borderWidth:1.5, pointRadius:0, fill:false },
+        { label:'Crisis threshold (5%)',       data:[5,5,5,5,5], borderColor:'rgba(192,57,43,0.45)', borderDash:[3,3], borderWidth:1.5, pointRadius:0, fill:false }
       ]
     },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
-      scales: {
-        x: { grid: { color: gridCol }, ticks: tickStyle },
-        y: { grid: { color: gridCol }, ticks: { ...tickStyle, callback: v => v + '%' }, min: 3.5, max: 5.5 }
-      }
-    }
+    options:{ responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false}, tooltip:{mode:'index',intersect:false} },
+      scales:{ x:{ grid:{color:gridCol}, ticks:tickStyle }, y:{ grid:{color:gridCol}, ticks:{...tickStyle,callback:v=>v+'%'}, min:3.5, max:5.5 } } }
   });
 }
 </script>
