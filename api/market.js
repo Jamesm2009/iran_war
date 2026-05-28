@@ -1,5 +1,5 @@
 /**
- * Vercel Serverless Function — Market Data Proxy with 24hr Cache
+ * Vercel Serverless Function — Market Data Proxy with 24hr Cache v2
  *
  * Fetches live WTI crude and US 10-year Treasury yield
  * from Alpha Vantage using a server-side environment variable.
