@@ -258,7 +258,7 @@ strong { font-weight: 600; }
 .ai-event { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--cream-border); font-size: var(--fs-base); line-height: 1.6; }
 .ai-event:last-child { border-bottom: none; padding-bottom: 0; }
 .ai-event-num { font-family: var(--font-mono); font-size: var(--fs-sm); font-weight: 700; color: var(--blue-mid); flex-shrink: 0; padding-top: 3px; min-width: 20px; }
-.ai-event-text { flex: 1; min-width: 0; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; }
+.ai-event-text { flex: 1; min-width: 0; }
 .ai-disclaimer { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--brown-light); letter-spacing: 0.05em; padding: 8px 16px; background: var(--cream-surface); border-top: 1px solid var(--cream-border); }
 
 /* Charts */
@@ -1306,61 +1306,94 @@ document.querySelectorAll('.ai-filter-btn').forEach(btn => {
   });
 });
 const filterPrompts = {
-  all:      "List the 3 most significant developments in the 2026 Iran war and its global economic impact in the last 48 hours. Format: '1. HEADLINE: Three sentence implication]. 2. ... 3. ...'",
-  military: "List the 3 most significant military escalation events in the 2026 Iran war in the last 48 hours. Format: '1. HEADLINE: Three sentence implication]. 2. ... 3. ...'",
-  diplomacy:"List the 3 most significant diplomatic or deal-related developments in 2026 Iran war negotiations in the last 48 hours.Format: '1. HEADLINE: Three sentence implication]. 2. ... 3. ...'",
-  economic: "List the 3 most significant oil market, interest rates or economic developments related to the 2026 Iran war in the last 48 hours. Format: '1. HEADLINE: Three sentence implication]. 2. ... 3. ...'",
-  vectors:  "List the 3 most significant new or novel attack vectors, tactics, or geographic escalations in the 2026 Iran conflict in the last 48 hours. Format: '1. HEADLINE: Three sentence implication]. 2. ... 3. ...'"
+  all:
+    "Search for the latest news on the 2026 Iran war and Hormuz crisis. Then give me the 3 most significant developments from the last 48 hours affecting the conflict or global economy. For each: one sentence on what happened, one sentence on the strategic or economic implication. If recent search results are limited, draw on the most current information available to you.",
+  military:
+    "Search for the latest military news on the 2026 Iran war. Then give me the 3 most significant military or security developments from the last 48 hours — strikes, IRGC actions, US responses, or new fronts. For each: one sentence on what happened, one sentence on the implication. If recent results are limited, include the most relevant recent military developments you can find.",
+  diplomacy:
+    "Search for the latest diplomatic news on the 2026 Iran war negotiations. Then give me the 3 most significant diplomatic or political developments from the last 48 hours — deal signals, key statements, MOU updates, or back-channel reports. For each: one sentence on what happened, one sentence on the implication. If recent results are limited, include the most relevant recent diplomatic developments.",
+  economic:
+    "Search for the latest economic and market news related to the 2026 Iran war. Then give me the 3 most significant market or economic developments from the last 48 hours — oil price moves, bond yields, inflation data, or sector impacts. For each: one sentence on what happened, one sentence on the implication. If recent results are limited, include the most relevant recent economic developments.",
+  vectors:
+    "Search for the latest news on new tactics or escalations in the 2026 Iran conflict. Then give me the 3 most significant new attack vectors, tactics, or geographic escalations from the last 48 hours. For each: one sentence on what happened, one sentence on the implication. If recent results are limited, include the most relevant recent escalation developments."
 };
+
 async function runAI() {
-  const btn  = document.getElementById('ai-run-btn');
+  const btn = document.getElementById('ai-run-btn');
   const body = document.getElementById('ai-body');
-  btn.disabled = true; btn.textContent = 'Retrieving...';
+  btn.disabled = true;
+  btn.textContent = 'Retrieving...';
   body.innerHTML = `<div class="ai-loading"><div class="ai-spinner"></div><span>Searching for latest developments...</span></div>`;
+
   try {
-    const res  = await fetch("/api/claude", {
-      method:"POST", headers:{"Content-Type":"application/json"},
+    const res = await fetch("/api/claude", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        model:"claude-sonnet-4-20250514", max_tokens:800,
-        tools:[{type:"web_search_20250305",name:"web_search"}],
-        system:"You are an intelligence analyst for an executive briefing on the 2026 Iran War. Be concise — each item must be a single headline followed by exactly 2 sentences of implication. Use a strict numbered list format: '1. HEADLINE: Implication sentence one. Implication sentence two.' Never use bullet points, sub-bullets, bold text, or markdown. No preamble or conclusion.",
-        messages:[{role:"user",content: filterPrompts[activeAIFilter]||filterPrompts.all}]
+      model: "claude-sonnet-4-20250514",
+      max_tokens: 1200,
+      tools: [{ type: "web_search_20250305", name: "web_search" }],
+      system: `You are an intelligence analyst for an executive briefing on the 2026 Iran War.
+Always return exactly 3 numbered items. Never return fewer.
+Each item: one sentence stating what happened, one sentence on the strategic or economic implication.
+Format strictly as:
+1. [What happened]. [Implication].
+2. [What happened]. [Implication].
+3. [What happened]. [Implication].
+No bullet points. No bold. No markdown. No preamble. No conclusion.`,
+        messages: [{ role: "user", content: filterPrompts[activeAIFilter] || filterPrompts.all }]
       })
     });
+
     const data = await res.json();
-    const text = data.content?.filter(b=>b.type==='text').map(b=>b.text).join('\n') || '';
-    if (!text.trim()) {
-      body.innerHTML=`<div class="ai-loading" style="color:var(--risk-high);">No results. Try again.</div>`;
-    } else {
-      // Parse numbered items — split on line-start numbers
-      const lines = text.split('\n').filter(l=>l.trim());
-      const items = []; let cur = '';
-      lines.forEach(l => {
-        if (/^[1-3][\.\)]\s/.test(l.trim())) {
-          if (cur) items.push(cur.trim());
-          cur = l.replace(/^[1-3][\.\)]\s*/,'').trim();
-        } else {
-          cur += ' ' + l.trim();
-        }
-      });
-      if (cur.trim()) items.push(cur.trim());
-      const finalItems = items.length ? items.slice(0,3) : [text.trim()];
-      body.innerHTML = finalItems.map((item, i) => {
-        // Split headline from body on first colon
-        const colonIdx = item.indexOf(':');
-        const headline = colonIdx > -1 ? `<strong>${item.slice(0, colonIdx).trim()}</strong>` : '';
-        const detail   = colonIdx > -1 ? item.slice(colonIdx + 1).trim() : item;
-        return `
-        <div class="ai-event">
-          <div class="ai-event-num">${String(i+1).padStart(2,'0')}</div>
-          <div class="ai-event-text">${headline}${headline ? ': ' : ''}${detail}</div>
-        </div>`;
-      }).join('');
+
+    // Collect all text blocks including after tool use
+    const textBlocks = data.content
+      ?.filter(b => b.type === 'text')
+      .map(b => b.text)
+      .join('\n') || '';
+
+    if (!textBlocks.trim()) {
+      body.innerHTML = `<div class="ai-loading" style="color:var(--risk-high);">No results returned — try again or select All Events.</div>`;
+      btn.disabled = false;
+      btn.textContent = 'Refresh';
+      return;
     }
-  } catch(err) {
-    body.innerHTML = `<div class="ai-loading" style="color:var(--risk-high);">Error — check connection and try again.</div>`;
+
+    // Parse numbered items flexibly
+    const items = [];
+    const lines = textBlocks.split('\n').filter(l => l.trim());
+    let current = '';
+
+    lines.forEach(l => {
+      const trimmed = l.trim();
+      if (/^[1-3][\.\)]\s/.test(trimmed)) {
+        if (current.trim()) items.push(current.trim());
+        current = trimmed.replace(/^[1-3][\.\)]\s*/, '');
+      } else if (current) {
+        current += ' ' + trimmed;
+      }
+    });
+    if (current.trim()) items.push(current.trim());
+
+    // Fallback: if parsing found nothing, show raw text split by sentence
+    const finalItems = items.length >= 1
+      ? items.slice(0, 3)
+      : textBlocks.split(/\n\n+/).filter(s => s.trim()).slice(0, 3);
+
+    body.innerHTML = finalItems.map((item, i) => `
+      <div class="ai-event">
+        <div class="ai-event-num">${String(i + 1).padStart(2, '0')}</div>
+        <div class="ai-event-text">${item}</div>
+      </div>`).join('');
+
+  } catch (err) {
+    body.innerHTML = `<div class="ai-loading" style="color:var(--risk-high);">Connection error — check network and try again.</div>`;
+    console.error('AI panel error:', err);
   }
-  btn.disabled = false; btn.textContent = 'Refresh';
+
+  btn.disabled = false;
+  btn.textContent = 'Refresh';
 }
 
 /* ── CHARTS ── */
