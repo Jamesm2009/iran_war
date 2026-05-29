@@ -121,9 +121,9 @@ strong { font-weight: 600; }
 .reader-label { font-family: var(--font-mono); font-size: var(--fs-xs); color: rgba(218,234,248,0.55); letter-spacing: 0.1em; text-transform: uppercase; }
 .reader-btn {
   background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 20px; color: rgba(218,234,248,0.75); cursor: pointer;
+  border-radius: 10px; color: rgba(218,234,248,0.75); cursor: pointer;
   font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: 0.08em;
-  padding: 5px 14px; text-transform: uppercase; transition: all 0.2s;
+  padding: 5px 10px; text-transform: uppercase; transition: all 0.2s;
 }
 .reader-btn:hover, .reader-btn.active { background: rgba(255,255,255,0.2); border-color: rgba(218,234,248,0.6); color: #fff; }
 .hero-metrics { display: grid; grid-template-columns: repeat(6,1fr); gap: 10px; margin-bottom: 1.5rem; }
@@ -1306,11 +1306,11 @@ document.querySelectorAll('.ai-filter-btn').forEach(btn => {
   });
 });
 const filterPrompts = {
-  all:      "List the 3 most significant developments in the 2026 Iran war and its global economic impact in the last 48 hours. Format as a numbered list: 1. [headline]: [2-sentence implication]. 2. ... 3. ...",
-  military: "List the 3 most significant military escalation events in the 2026 Iran war in the last 48 hours. Format as a numbered list: 1. [headline]: [2-sentence implication]. 2. ... 3. ...",
-  diplomacy:"List the 3 most significant diplomatic or deal-related developments in 2026 Iran war negotiations in the last 48 hours. Format as a numbered list: 1. [headline]: [2-sentence implication]. 2. ... 3. ...",
-  economic: "List the 3 most significant market or economic developments related to the 2026 Iran war in the last 48 hours. Format as a numbered list: 1. [headline]: [2-sentence implication]. 2. ... 3. ...",
-  vectors:  "List the 3 most significant new or novel attack vectors, tactics, or geographic escalations in the 2026 Iran conflict in the last 48 hours. Format as a numbered list: 1. [headline]: [2-sentence implication]. 2. ... 3. ..."
+  all:      "List the 3 most significant developments in the 2026 Iran war and its global economic impact in the last 48 hours. Format: '1. HEADLINE: Three sentence implication]. 2. ... 3. ...'",
+  military: "List the 3 most significant military escalation events in the 2026 Iran war in the last 48 hours. Format: '1. HEADLINE: Three sentence implication]. 2. ... 3. ...'",
+  diplomacy:"List the 3 most significant diplomatic or deal-related developments in 2026 Iran war negotiations in the last 48 hours.Format: '1. HEADLINE: Three sentence implication]. 2. ... 3. ...'",
+  economic: "List the 3 most significant oil market, interest rates or economic developments related to the 2026 Iran war in the last 48 hours. Format: '1. HEADLINE: Three sentence implication]. 2. ... 3. ...'",
+  vectors:  "List the 3 most significant new or novel attack vectors, tactics, or geographic escalations in the 2026 Iran conflict in the last 48 hours. Format: '1. HEADLINE: Three sentence implication]. 2. ... 3. ...'"
 };
 async function runAI() {
   const btn  = document.getElementById('ai-run-btn');
