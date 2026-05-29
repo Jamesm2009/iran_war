@@ -45,7 +45,8 @@ Neither key is exposed to the browser. Both are read server-side by the Vercel f
 | Risk Register | 15-factor Likelihood × Impact scoring, sorted highest to lowest | When factors change |
 | Change Log | Full audit trail of every assessment update | Every assessment |
 | Sources | Methodology, update discipline checklist, source categories | Occasional |
-
+ Added diesel as qn additional layer for analysis.
+ 
 ### Live Data
 
 - **WTI crude spot price** — fetched from Alpha Vantage on page load, cached at Vercel CDN edge for 24 hours. All page loads within 24 hours share one API call.
