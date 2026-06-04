@@ -740,7 +740,7 @@ footer strong { color: var(--blue-light); }
   </div>
   <p style="font-size:var(--fs-base);color:var(--brown-text);margin-bottom:1.25rem;"><strong>Likelihood</strong> (1–5) × <strong>Impact breadth</strong> (1–5) = <strong>Score</strong> (max 25). Score ≥ 20 = Critical; 15–19 = High. Factors scoring below 15 are removed from active monitoring. Assessment 8: F13, F14, F17, F18 cut (all scored ≤ 12). Click any row to expand rationale.</p>
   <div class="grid-4 mb-3">
-    <div class="card" style="text-align:center;"><div style="font-family:var(--font-mono);font-size:var(--fs-2xl);font-weight:700;color:var(--blue-deep);">11</div><div style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--brown-text);letter-spacing:0.1em;text-transform:uppercase;">Active Factors</div></div>
+    <div class="card" style="text-align:center;"><div style="font-family:var(--font-mono);font-size:var(--fs-2xl);font-weight:700;color:var(--blue-deep);">13</div><div style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--brown-text);letter-spacing:0.1em;text-transform:uppercase;">Active Factors</div></div>
     <div class="card" style="text-align:center;"><div style="font-family:var(--font-mono);font-size:var(--fs-2xl);font-weight:700;color:var(--risk-critical);">8</div><div style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--brown-text);letter-spacing:0.1em;text-transform:uppercase;">Critical (Score ≥ 20)</div></div>
     <div class="card" style="text-align:center;"><div style="font-family:var(--font-mono);font-size:var(--fs-2xl);font-weight:700;color:var(--risk-high);">3</div><div style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--brown-text);letter-spacing:0.1em;text-transform:uppercase;">High (Score 15–19)</div></div>
     <div class="card" style="text-align:center;"><div style="font-family:var(--font-mono);font-size:var(--fs-2xl);font-weight:700;color:var(--brown-text);">4</div><div style="font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--brown-text);letter-spacing:0.1em;text-transform:uppercase;">Cut this assessment</div></div>
@@ -1060,7 +1060,7 @@ const DATA = {
     { date:"May 13", assessment:1, factor:"Original Assessment Published",
       detail:"Day 14: Brent ~$112, deal probability ~20%, ceasefire fragile but holding. 50+ searches, 100+ sources cited.",
       dir:"watch", scope:"All sections", sig:"watch" }
-  ]
+  ],
 
   conclusions: [
     { type:"critical", text:"Iran suspended Pakistan-mediated talks on Jun 1–2, while simultaneously the PSGA confirmed 300+ non-Iranian ships have transited Hormuz after paying tolls to Iran. This is not a contradiction — it is the strategy: Iran is monetising Hormuz as a revenue-generating asset while retaining instant revocation capability. Talks suspension and toll operation are compatible elements of the same posture. Scenario 3 is now the base case at 46%." },
@@ -1418,7 +1418,7 @@ const filterPrompts = {
     "Search for the latest news on new tactics or escalations in the 2026 Iran conflict. Then give me the 3 most significant new attack vectors, tactics, or geographic escalations from the last 48 hours. For each: one sentence on what happened, one sentence on the implication. If recent results are limited, include the most relevant recent escalation developments."
 };
 
-async async function runAI() {
+async function runAI() {
   const btn = document.getElementById('ai-run-btn');
   const body = document.getElementById('ai-body');
   btn.disabled = true;
