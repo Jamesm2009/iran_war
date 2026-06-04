@@ -1351,11 +1351,13 @@ function renderChangelog() {
     <div class="cl-entry">
       <div>
         <div class="cl-date">${e.date}</div>
-        <span class="badge b-neutral" style="margin-top:4px;font-size:var(--fs-xs);">A${e.assessment}</span><br>
-        <span class="badge b-info" style="margin-top:4px;font-size:var(--fs-xs);">${e.scope}</span>
+        <span class="badge b-neutral" style="margin-top:4px;font-size:var(--fs-xs);">A${e.assessment}</span>
       </div>
       <div>
-        <div class="cl-factor">${e.factor}</div>
+        <div class="cl-factor" style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
+          <span>${e.factor}</span>
+          <span class="badge b-info" style="font-size:var(--fs-xs);white-space:nowrap;">${e.scope}</span>
+        </div>
         <div class="cl-detail">${e.detail}</div>
       </div>
       <div style="text-align:right;flex-shrink:0;">
