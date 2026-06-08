@@ -2,7 +2,7 @@
 
 An interactive, periodically updated intelligence assessment covering the geopolitical and socio-economic impact of the 2026 Iran conflict across eight countries: **Canada · Colombia · UK · Germany · South Africa · Australia · USA · Ukraine**.
 
------
+---
 
 ## Repo Structure
 
@@ -15,70 +15,75 @@ An interactive, periodically updated intelligence assessment covering the geopol
 └── README.md           # This file
 ```
 
------
+---
 
 ## Environment Variables
 
 Set in **Vercel dashboard → Settings → Environment Variables**. Tick Production, Preview, and Development for each.
 
-|Variable           |Purpose                                  |Where to get it                                                       |
-|-------------------|-----------------------------------------|----------------------------------------------------------------------|
-|`ANTHROPIC_API_KEY`|Powers the AI intelligence panel         |[console.anthropic.com](https://console.anthropic.com)                |
-|`ALPHA_VANTAGE_KEY`|Live WTI crude and 10-year Treasury yield|[alphavantage.co](https://www.alphavantage.co/support/#api-key) — free|
+| Variable            | Purpose                                   | Where to get it                                                        |
+|---------------------|-------------------------------------------|------------------------------------------------------------------------|
+| `ANTHROPIC_API_KEY` | Powers the AI intelligence panel          | [console.anthropic.com](https://console.anthropic.com)                 |
+| `ALPHA_VANTAGE_KEY` | Live WTI crude and 10-year Treasury yield | [alphavantage.co](https://www.alphavantage.co/support/#api-key) — free |
 
 Neither key is exposed to the browser. Both are read server-side by the Vercel functions in `/api/`.
 
------
+---
 
 ## How the Briefing Works
 
-### Five Tabs (v8.0+)
+### Five Tabs
 
-|Tab                |Purpose                                                                                                     |Update frequency   |
-|-------------------|------------------------------------------------------------------------------------------------------------|-------------------|
-|Overview           |Strategic conclusions, strategic clocks, thematic analysis (expandable), market charts, AI panel (collapsed)|Every assessment   |
-|Scenarios          |Four scenario paths with 0–3, 3–6, 6–9 month horizons and dynamic probability filters                       |Every assessment   |
-|Country Impact     |Eight country cards with Sc2/Sc3 impact comparison bars                                                     |Every assessment   |
-|Risk Register      |Active risk factors with Likelihood × Impact scoring, sorted highest to lowest                              |When factors change|
-|Sources & Resources|Analysis framework, methodology, update checklist, source categories, change log                            |Every assessment   |
+| Tab              | Purpose                                                                                          | Update frequency        |
+|------------------|--------------------------------------------------------------------------------------------------|-------------------------|
+| Overview         | Strategic conclusions, thematic deep-dives (expandable), market charts                          | Every assessment        |
+| Scenarios        | Probability Cone Panel + four scenario cards with exact 90-day horizon windows and risk filters  | Every assessment        |
+| Country Impact   | Eight country cards with Sc2/Sc3 impact comparison bars; click for full modal detail            | Every assessment        |
+| Risk Register    | Likelihood × Impact scoring (max 25), sorted highest to lowest; expandable rationale rows       | When factors change     |
+| Sources & Resources | Methodology, update guide, source categories, full change log                                | Occasional              |
 
-**Note:** From v8.0, the Thematic Analysis (Energy, Food, Financial Stress) lives as expandable sections within the Overview tab, and the Change Log is a collapsible section within Sources & Resources. This reduces tab overload for readers who can get overwhelmed by volume.
+> **Note:** Thematic Analysis (Energy, Food & Agriculture, Financial Stress) is embedded in the Overview tab as expandable sections, not a separate tab. The Change Log is embedded in the Sources & Resources tab.
 
 ### Live Market Data
 
-- **WTI crude spot price** and **US 10-year Treasury yield** fetched from Alpha Vantage via `/api/market` on page load
-- Cached at Vercel CDN edge for 24 hours — all page loads share one API call per day
-- Forward curves beyond spot are estimated shapes — clearly noted on charts
-- Free tier (25 calls/day) is effectively unlimited with the cache in place
+- **WTI crude futures curve** — CME settles updated manually each assessment (embed actual settle prices in `wtiSettles` array)
+- **US 10-year Treasury yield** — FRED DGS10 fetched via `/api/market?type=fred-dgs10` on page load; falls back to editorial estimate if endpoint unavailable
+- Forward yields derived from CME ZN futures (ZNU6/ZNZ6) using modified duration ≈ 7.8; noted as implied, not spot
+- Alpha Vantage 24-hour CDN cache — 25 calls/day free tier is effectively unlimited with caching in place
+
+### Probability Cone Panel
+
+A standalone interactive fan chart above the scenario cards in the Scenarios tab. Shows four scenario probability trajectories across three 90-day horizon windows, with filter-adjustable uncertainty bands.
+
+**What it shows:** Central probability paths (solid lines) + analytical sensitivity range (shaded bands = all filters off vs all filters on). Not statistical confidence intervals — analytical sensitivity only.
+
+**Seven filter chips** activate risk factors that shift displayed probabilities and reshape the cone. Each chip has an **ⓘ lightbox** showing the factor's full rationale and per-scenario delta values.
+
+**Update cadence: every assessment (~2 weeks).** Three items to update:
+
+```javascript
+// 1. Current assessment probabilities
+const CONE_BASE = [5, 22, 62, 11];  // [Sc1, Sc2, Sc3, Sc4]
+
+// 2. Expected trajectory per scenario across three horizons (Now / Sep 2 / Dec 1)
+const CONE_SC_TRENDS = [
+  [5,  4,  3],   // Sc1 — Deal
+  [22, 18, 15],  // Sc2 — Stalemate
+  [62, 67, 71],  // Sc3 — Prolonged
+  [11, 11, 11]   // Sc4 — Collapse
+];
+
+// 3. Update "was X%" text in the four HTML probability card elements:
+// id="cm1" through id="cm4" — change the cone-prob-was span text
+```
+
+Filter chips and lightbox content (`CONE_FILTERS` array) only need updating when factor rationales or delta values change materially.
 
 ### AI Intelligence Panel
 
-Collapsed by default (v8.0+) to reduce cognitive load for casual readers. Click the banner to expand. Five focus filters shape targeted web search queries:
+Removed from Assessment 9 onwards — replaced by the structured pre-build intelligence review workflow documented below. The `/api/claude.js` serverless function remains in the repo for potential future use.
 
-|Filter                |What it searches for                             |
-|----------------------|-------------------------------------------------|
-|All Events            |Broadest scan — conflict + economic impact       |
-|Military / Strikes    |IRGC actions, US responses, new fronts, weapons  |
-|Diplomacy / Agreements|Deal signals, MOU updates, key statements        |
-|Market / Economic     |Oil, bonds, inflation, currencies, sector impacts|
-|New Attack Vectors    |Novel IRGC tactics, geographic escalations       |
-
-Each filter triggers a fresh Claude API call with web search enabled. Results are not cached.
-
------
-
-## Analysis Framework
-
-This briefing applies four analytical layers, in this order:
-
-1. **Structural constraints first.** What physically cannot happen regardless of diplomacy? Hormuz mine-clearing takes months. Munitions replenishment takes years. EU gas storage physics are fixed by October. These are hard boundaries, not preferences.
-1. **Incentive asymmetry.** Who has the shorter clock? Trump faces mid-July supply cliff + November midterms. The IRGC has no electoral clock, no bond market, no petrol constituency — and is monetising the stalemate. Clock asymmetry structurally favours Iran.
-1. **Four deal gaps — all must close simultaneously.** Uranium, Lebanon/Hezbollah, Hormuz control, frozen funds. Any single gap blocks Scenario 1. Lebanon is currently least bridgeable.
-1. **Scenario probability = base rate + risk filter sensitivity.** Probabilities are analyst judgement, not statistical modelling. Treat them as ordinal rankings rather than literal probabilities. The filter system shows directional sensitivity across scenarios.
-
-The Freedman framing (Foreign Affairs, May 27): Trump cannot win on stated terms, cannot leave without appearing to lose, and cannot resume strikes given munitions depletion and War Powers constraints. This “exit problem” explains why Sc2 + Sc3 together account for ~79% of assessed probability.
-
------
+---
 
 ## The DATA Object — Single Source of Truth
 
@@ -89,42 +94,51 @@ All editorial content lives in one `DATA` object near the bottom of `index.html`
 ```javascript
 DATA.meta           // Assessment number, day counter, date
 DATA.metrics        // Six hero metric cards (top of page)
-DATA.priceMoves     // War-start vs current price comparison
-DATA.scenarios      // Probabilities, time horizons, triggers
+DATA.priceMoves     // War-start vs current price comparison (four assets)
+DATA.scenarios      // Probabilities, 90-day horizons, triggers — CANONICAL PROBABILITY SOURCE
 DATA.filterMods     // Probability deltas per risk filter [sc1, sc2, sc3, sc4]
-DATA.filters        // Risk filter labels and impact descriptions (7 filters)
+DATA.filters        // Risk filter labels and impact descriptions (7 filters, f1–f7)
 DATA.countries      // Eight country assessments
-DATA.riskFactors    // Active risk factors (score ≥ 15) with L×I scores and rationale
+DATA.riskFactors    // Risk factors with L×I scores and rationale
 DATA.changeLog      // Audit trail — newest entry first
 DATA.conclusions    // Strategic conclusions on Overview tab
 ```
 
+**Separate from DATA** — the Probability Cone Panel has its own JavaScript constants at the top of the script block:
+
+```javascript
+CONE_BASE           // Current four probabilities — must match DATA.scenarios
+CONE_SC_TRENDS      // Trajectory arrays for the fan chart
+CONE_FILTERS        // Filter chip labels, impact text, and delta arrays
+```
+
 ### Critical Rules
 
-- **Scenario probabilities** exist only in `DATA.scenarios` — never repeated elsewhere
+- **Scenario probabilities** exist only in `DATA.scenarios` — never repeated elsewhere. `CONE_BASE` must be updated to match after every probability change.
 - **filterMods** deltas must sum to zero across each row (probability is redistributed, not created)
 - **changeLog** entries go at the top of the array — newest first
 - **assessment** number in `DATA.meta` increments with every material update
-- **Country impact figures** (inflation/GDP) are directional estimates ±~1pp — label them as such, not as point forecasts
-- **Risk factors scoring below 15** are removed from the active register each assessment cycle
+- **Horizon text** in `DATA.scenarios` uses exact calendar dates (Now → Sep 2, Sep 2 → Dec 1, Dec 1 → Mar 2) — not generic "0–3 months"
 
------
+---
 
 ## Editorial Review — Step by Step
 
-### Before You Start
+### Intelligence Review (Before Touching Code)
 
-1. Run the AI panel on the Overview tab with each filter to survey what has changed
-1. Check the four scenario trigger conditions against recent events
-1. Check the four deal gaps — have any materially moved?
-1. Review the market charts — is WTI above or below the $100 pain threshold? Is the 10-year yield approaching 5%?
-1. Check futures curve backwardation — is the Jul+1/Jul+2 spread widening or narrowing? (Widening = market pricing longer disruption)
+1. Gather intelligence package — ISW daily updates, Al Jazeera live blog, Axios, NBC National Security, HormuzLetter, KobeissiLetter, TheIranWatcher
+2. Run parallel web searches: corroborating evidence · contrary evidence · specific mechanism/deal-gap implication
+3. Review all four deal gaps — have any materially moved?
+4. Check scenario trigger conditions against recent events
+5. Check market signals — WTI above/below $100 pain threshold? 10-year yield approaching 5%?
 
 **Core question before updating anything:**
 
 > *Has the fundamental strategic picture changed, or have events confirmed the existing picture?*
 
------
+Produce a structured analytical memo covering recommended probability shifts (with explicit reasoning), risk factor changes, country card updates, and what to cut before adding. Confirm all changes before writing any code.
+
+---
 
 ### Update Sequence — Always Follow This Order
 
@@ -132,71 +146,69 @@ DATA.conclusions    // Strategic conclusions on Overview tab
 
 Everything else flows from the scenario balance.
 
-- Do any probabilities need to move? If yes, by how much and why?
-- Do all four still sum to 100%?
 - Move current `prob` to `was`, set the new `prob`, update `trend` arrow (▲ / ▼ / →)
-- Update `horizons` text for any scenario whose outlook has materially changed
+- All four must sum to 100%
+- Every movement requires stated reasoning
+- Update `horizons` text when the outlook materially changes — rewrite for what actually belongs in each time window, do not mechanically relabel old content
+- **Also update `CONE_BASE`** to match the new probabilities, and revise `CONE_SC_TRENDS` to reflect the updated trajectory
 
 ```javascript
-// Example: Scenario 3 moving from 46% to 50%
-{ id:3, prob:50, was:46, trend:"▲", ... }
+// Example: Scenario 3 moving from 48% to 62%
+{ id:3, prob:62, was:48, trend:"▲", ... }
+
+// And in CONE_BASE:
+const CONE_BASE = [5, 22, 62, 11];
 ```
 
 #### Step 2 — Risk Register
 
-For each active factor ask:
+For each factor ask:
 
 - Has the `l` (likelihood) score changed? (1–5)
 - Has the `i` (impact) score changed? (1–5)
+- Has `active` status changed?
 - Does the `rationale` text need updating?
-- Does any factor now score below 15? → Remove it
 
-**Threshold rule (v8.0+):** Factors scoring below 15 are cut from the active register. Factors scoring 15–19 = High; 20+ = Critical.
+Score ≥ 20 = Critical · 15–19 = High · < 15 = candidate for removal.
 
-**Adding a new factor:** Assign the next sequential ID. If score ≥ 20 (Critical), consider whether it also warrants a new `filterMods` row. Any new filterMods row must sum to zero.
+**Adding a new risk factor:** Assign the next sequential ID. If the factor scores 20+ (Critical) with scenario implications, add a corresponding row to `DATA.filterMods` and `DATA.filters`. The new `filterMods` row must sum to zero. Also add a new chip to `CONE_FILTERS` if appropriate.
 
 #### Step 3 — Thematic Deep Dives
 
-Three themes live in the Overview tab as expandable sections: **Energy**, **Food & Agriculture**, **Financial Stress**.
+Three themes embedded in the Overview tab: **Energy (crude + diesel/refined products)**, **Food & Agriculture**, **Financial Stress**.
 
 For each:
 
 - Is there new data that changes the analysis?
-- Has the TL;DR summary changed?
-- Update the freshness badge date
+- Has the TL;DR changed?
+- Update the freshness badge — `fresh-updated` with new date, or `fresh-unchanged` with last-reviewed date
 
-**Energy theme specific:** Always consider both crude and refined products (diesel, jet fuel) separately. Also check the futures curve — is backwardation widening or narrowing? Update the Futures vs Spot callout with fresh data when available.
-
-**Data credibility note:** Oil inventory figures have known reporting variance. Upgrade confidence language when multiple independent sources converge (IEA + EIA + Goldman Sachs + Bloomberg = high confidence). Single-source claims should be labelled accordingly.
+**Energy note:** Always assess crude AND refined products (diesel, jet fuel) separately. The indirect exposure chain — Gulf crude → Asian refinery → finished diesel → import-dependent economy — affects UK, Germany, Australia, and South Africa even without direct Gulf crude imports. This is a refinery grade configuration problem (Gulf medium-sour vs US light-sweet WTI), not just a price problem.
 
 #### Step 4 — Country Cards
 
-For each country, ask:
+Eight fields per card: `direction` · `inflation` · `gdp` · `sc3inf` · `sc3gdp` · `vulnerability` · `primaryScenario` · `primaryTheme` · `detail`
 
-- Has its risk level changed?
-- Have the inflation or GDP impact estimates changed materially?
-- Has the direction arrow changed?
-
-**Labelling rule (v8.0+):** All CPI and GDP impact figures carry an implied ±~1pp variance. Include “directional estimate” language in methodology; do not present figures as point forecasts.
+Country impact figures are **directional estimates** (calibrated against IMF, Oxford Economics, and Bloomberg Economics ranges — approximately ±1pp variance). Label them as such; do not present as point forecasts.
 
 #### Step 5 — Strategic Conclusions
 
-Review `DATA.conclusions` in order. Ask for each:
-
-- Is this still analytically supported?
-- Should it move up or down in priority?
-- Is there a new conclusion that belongs here?
-
-Maximum ~6 conclusions. Lead with the most actionable/most changed.
+- Order by analytical priority: most critical first, positive findings last
+- Classify each: `critical` / `normal` / `positive`
+- Target 60–80 words per conclusion — executive-grade concision
+- Re-read all conclusions for factual currency before publishing
 
 #### Step 6 — Change Log
 
-Add one entry per material change. Format:
+Prepend a new entry at the top of `changeLog`:
 
 ```javascript
-{ date:"Jun 10", assessment:9, factor:"Short descriptive title",
-  detail:"Full explanation of what changed and why.",
-  dir:"worse|better|watch", scope:"Scenarios|Countries|Themes|All sections", sig:"critical|high|watch" }
+{ date:"Jun 7", assessment:11, factor:"Description of what changed",
+  detail:"From what → to what, and why it matters.",
+  dir:"worse",           // worse | better | watch
+  scope:"Sc+Countries",  // Scenarios | Countries | Themes | Sc+Countries | Themes+Countries | All sections
+  sig:"critical"         // critical | high | watch
+}
 ```
 
 #### Step 7 — Meta
@@ -204,119 +216,149 @@ Add one entry per material change. Format:
 Update assessment number, day counter, and date:
 
 ```javascript
-meta: { assessment:9, day:103, date:"June 10, 2026" }
+meta: { assessment:11, day:101, date:"June 7, 2026" }
 ```
 
-Also update: navbar meta spans, hero dateline, footer text, freshness badges on each section.
+Also update: navbar (`nav-meta` span text) · hero dateline · footer · page `<title>` tag.
 
------
+---
 
 ### What Triggers a New Assessment vs. a Data Refresh
 
-|Situation                                         |Response                             |
-|--------------------------------------------------|-------------------------------------|
-|Scenario probability moves ≥ 5pp                  |New assessment number                |
-|A new risk factor becomes active (score ≥ 15)     |New assessment number                |
-|A deal gap closes or opens                        |New assessment number                |
-|A country’s risk level changes                    |New assessment number                |
-|A new geographic front opens                      |New assessment number                |
-|Thematic analysis materially revised              |New assessment number                |
-|Market data moves but analysis unchanged          |Data refresh only — no new assessment|
-|AI panel surfaces news confirming existing picture|Note in change log only              |
+| Situation                                          | Response                              |
+|----------------------------------------------------|---------------------------------------|
+| Scenario probability moves ≥ 5pp                   | New assessment number                 |
+| A new risk factor becomes active                   | New assessment number                 |
+| A deal gap closes or opens                         | New assessment number                 |
+| A country's risk level changes                     | New assessment number                 |
+| A new geographic front opens                       | New assessment number                 |
+| Thematic analysis materially revised               | New assessment number                 |
+| Market data moves but analysis unchanged           | Data refresh only — no new assessment |
+| Intelligence confirms existing picture             | Note in change log only               |
 
------
+---
 
 ### Pre-Publish Quality Check
 
 Run through this before every commit:
 
-- [ ] JavaScript syntax check passes (see Technical Notes below)
+- [ ] JavaScript syntax check passes (`node --check` on extracted script block)
 - [ ] Scenario probabilities sum to 100%
 - [ ] Every `was` value matches the previous `prob` value
 - [ ] Trend arrows (▲ ▼ →) are correct for each scenario
+- [ ] `CONE_BASE` matches `DATA.scenarios` probabilities
+- [ ] `CONE_SC_TRENDS` trajectories reviewed and updated
 - [ ] Change log has an entry for every section that changed
-- [ ] No scenario probability appears anywhere except `DATA.scenarios`
+- [ ] No scenario probability appears anywhere except `DATA.scenarios` and `CONE_BASE`
 - [ ] Every country marked `direction: "worse"` has a corresponding change log entry
-- [ ] Assessment number and date updated in `DATA.meta`, navbar, hero dateline, and footer
-- [ ] Unchanged thematic sections show correct last-reviewed date in freshness badge
-- [ ] Strategic conclusions read in order of analytical priority
+- [ ] Assessment number and date updated in `DATA.meta`, navbar, hero dateline, footer, and `<title>` tag
+- [ ] Freshness badges reference correct assessment number
+- [ ] Horizon windows contain content appropriate to that time window (not mechanically relabelled)
+- [ ] Strategic conclusions ordered by priority, 60–80 words each, factually current
 - [ ] `filterMods` deltas sum to zero across all 7 rows (f1 through f7)
-- [ ] No active risk factor scores below 15 (cut or justify retention)
-- [ ] Country impact figures described as directional estimates, not point forecasts
+- [ ] `CONE_FILTERS` delta arrays also sum to zero across all 7 rows
 
------
+---
 
 ### Risk Filter Modifiers
 
-The `DATA.filterMods` object controls how activating each risk filter adjusts displayed scenario probabilities. Values are deltas applied to `[sc1, sc2, sc3, sc4]` and **must sum to zero** across each row.
+The `DATA.filterMods` object controls how activating each risk filter adjusts the scenario card probabilities. Values are deltas applied to `[sc1, sc2, sc3, sc4]` and **must sum to zero** across each row. The `CONE_FILTERS` array in the Probability Cone Panel uses separate (but related) delta arrays — verify both when adding or changing a filter.
 
-There are currently **7 filters** (f1–f7). Each corresponds to a Critical-rated risk factor (score ≥ 20) with meaningful scenario weighting implications:
+There are currently **7 filters** (f1–f7):
 
 ```javascript
 filterMods: {
-  f1: [-5, -3,  8,  0],  // IRGC Geographic Escalation
-  f2: [-4, -2,  6,  0],  // IRGC / Govt Split
-  f3: [-3, -1,  4,  0],  // Netanyahu Undermining
-  f4: [ 2, -3,  2, -1],  // Bond Market Stress
-  f5: [ 1, -2,  3, -2],  // EU Gas Storage Crisis
-  f6: [-3,  4,  2, -3],  // US Munitions Depleted
-  f7: [-2, -1,  3,  0],  // Stagflation Trap (3–9 month lag)
+  f1: [-5, -3,  8,  0],  // IRGC Geographic Escalation — military escalation driver
+  f2: [-4, -2,  6,  0],  // IRGC / Govt Split — deal enforceability risk
+  f3: [-3, -1,  4,  0],  // Netanyahu Undermining — Lebanon gap blocker / principal-agent trap
+  f4: [ 2, -3,  2, -1],  // Bond Market Stress — financial feedback loop (ACTIVE A11)
+  f5: [ 1, -2,  3, -2],  // EU Gas Storage Crisis — winter energy risk
+  f6: [-3,  4,  2, -3],  // US Munitions Depleted — reduces US leverage
+  f7: [-2, -1,  3,  0],  // Stagflation Trap (medium-term) — 3–9 month lag
 }
 ```
 
-Key watchpoints for f7 (Stagflation Trap): **ECB Jun 5**, **Fed Jun 18**, **BoE Jun 19**. A surprise pivot on falling energy prices would reduce this factor’s weight; confirmed holds or hikes lock it in.
+Update `filterMods` whenever a factor's structural weight on the scenario balance changes materially. When adding a new filter, verify the new row sums to zero before committing.
 
------
+---
 
 ## Assessment History
 
-|Assessment|Date           |Day  |Key Development                                                                                                                                                                                       |
-|----------|---------------|-----|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|1         |May 13, 2026   |14   |Original briefing — Brent ~$112, deal probability ~20%, ceasefire fragile                                                                                                                             |
-|2         |May 26–27, 2026|87–88|Ceasefire breached, MOU framework confirmed, bond stress peak                                                                                                                                         |
-|3         |May 28, 2026   |89   |IRGC strikes Kuwait US base — Scenario 3 raised to 43%                                                                                                                                                |
-|4         |May 28, 2026   |89   |Diesel/refined products analysis — Australia risk Elevated→High; S. Africa fiscal crisis confirmed; UK/Germany revised up                                                                             |
-|5         |May 30, 2026   |91   |MOU confirmed as Sc2; IRGC field actions contradict diplomatic track; Goldman Sachs inventory floor; UAE coalition member; NATO 3.0; f7 added                                                         |
-|6         |May 30, 2026   |92   |Sc3 reconciled to 28%; Canada technical recession; Colombia election + 100bp hike; UK GDP beat; Ukraine Q1 contraction; SA rate hikes; F17 added                                                      |
-|7         |Jun 2, 2026    |95   |Sc3 raised to 46% (base case); Iran suspended talks; PSGA toll system confirmed; mid-July supply cliff; F18 nuclear demonstration added                                                               |
-|8         |Jun 3, 2026    |97   |Structural review: 7→5 tabs; F13/F14/F17/F18 cut (all ≤12); F10 revised to Critical (IEA/EIA/GS inventory convergence); futures vs spot callout; analysis framework surfaced; Colombia election update|
+| Assessment | Date             | Day  | Sc1 | Sc2 | Sc3 | Sc4 | Key Development                                                                                                        |
+|------------|------------------|------|-----|-----|-----|-----|------------------------------------------------------------------------------------------------------------------------|
+| 1          | May 13, 2026     | 14   | 20% | 40% | 32% | 8%  | Original briefing — Brent ~$112, deal probability ~20%, ceasefire fragile                                             |
+| 2          | May 26–27, 2026  | 87   | 20% | 40% | 32% | 8%  | Ceasefire breached, MOU framework confirmed, bond stress peak                                                         |
+| 3          | May 28, 2026     | 89   | 14% | 37% | 43% | 6%  | IRGC strikes Kuwait US base — Scenario 3 raised to 43%                                                               |
+| 4          | May 28, 2026     | 89   | 14% | 37% | 43% | 6%  | Diesel/refined products analysis — Australia risk Elevated→High; S. Africa fiscal crisis; UK/Germany revised up       |
+| 5          | May 30, 2026     | 91   | 10% | 40% | 42% | 8%  | MOU confirmed as Sc2 architecture; IRGC field actions contradict diplomatic track; Goldman Sachs inventory floor; UAE coalition; NATO 3.0; f7 added |
+| 6          | May 30, 2026     | 92   | 22% | 42% | 28% | 8%  | Sc3 reconciled; Canada technical recession; Colombia 100bp hike; UK Q1 beat; Ukraine contraction; S. Africa hike      |
+| 7          | Jun 2, 2026      | 94   | 10% | 33% | 46% | 11% | Sc3 base case confirmed; talks suspended; PSGA toll system confirmed; mid-July supply cliff revised; Super El Niño; six strategic clocks added |
+| 8          | Jun 3, 2026      | 95   | 10% | 33% | 46% | 11% | Tabs 7→5 structural review; F10 revised to Critical; JPMorgan inventory floor embedded; country impact figures labelled directional |
+| 9          | Jun 4, 2026      | 96   | 8%  | 31% | 49% | 12% | Iran nuclear capability claim (unverified); House War Powers 215-208; juntocracy framing; IRGC militia fracturing; F19, F20 added |
+| 10         | Jun 5, 2026      | 99   | 7%  | 33% | 48% | 12% | Mina al Fahal drone attack; Russia-Iran $25B Rosatom MOU; Iran oil exports collapse 84%; UK/France 15-nation mine-clearing mission; ISM 71.3; all 8 country cards revised |
+| 11         | Jun 7, 2026      | 101  | 5%  | 22% | 62% | 11% | Iran fires 4-wave missile salvo on Israel (Op True Promise 5); IRGC voids April 8 ceasefire via Fars News; Iran declares deal "no longer feasible"; Netanyahu strikes Beirut defying Trump twice; principal-agent trap active; F4 activated; F22 added; Probability Cone Panel added |
 
------
+---
 
 ## Technical Notes
 
 ### JavaScript Syntax Check (run before every deploy)
 
-A syntax error in the DATA object breaks the entire briefing. Always validate before deploying:
+A syntax error in the DATA object breaks the entire briefing — all tabs, charts, and cards stop working silently. Always validate before deploying:
 
 ```bash
-# Extract the script block from the HTML, then check it
-node --check index.html
+# Node cannot parse HTML directly — extract the script block first
+# Then check the extracted JS:
+node --check extracted_script.js
 ```
 
-If Node doesn’t parse HTML directly, extract the `<script>` block manually and check it. Any `Unexpected token` error points to a missing comma, unclosed quote, or merged object.
+Any `Unexpected token` error points to a missing comma, unclosed quote, or merged object. **Most common failure modes:**
+
+- Missing comma after the `changeLog` array closing bracket
+- Missing comma between the `scenarios` array and `filterMods` (introduced when replacing scenarios block)
+- Merged changelog entries (two objects run together without comma separator)
+- Changelog entries appended (not prepended) to the array
 
 ### Deploying Updates
 
-1. Edit `index.html` (DATA object only for content updates)
-1. Run syntax check
-1. Commit and push to GitHub
-1. Vercel auto-deploys within ~30 seconds
-1. Hard refresh (`Ctrl+Shift+R` / `Cmd+Shift+R`) to clear browser cache
+1. Edit `index.html` (DATA object + CONE constants only for content updates)
+2. Extract script block and run syntax check
+3. Commit and push to GitHub
+4. Vercel auto-deploys within ~30 seconds
+5. Hard refresh (`Ctrl+Shift+R` / `Cmd+Shift+R`) to clear browser cache
 
-### If Vercel Doesn’t Pick Up Changes
+### If Vercel Doesn't Pick Up Changes
 
-Go to GitHub → your repo → the file → pencil icon (Edit) → make a trivial change → commit. Vercel will detect and redeploy.
+1. Go to GitHub → your repo → the file → pencil icon (Edit)
+2. Make a trivial change (add/remove a blank line)
+3. Commit directly in GitHub
+4. Vercel detects the commit and redeploys
 
-### Market Data Cache
+### Market Data
 
-24-hour CDN cache on `/api/market`. To force a fresh fetch: Vercel dashboard → Deployments → purge cache, or trigger a new deployment.
+- **WTI chart:** Uses actual CME settle prices embedded in the `wtiSettles` array — update manually each assessment with real CME data
+- **Treasury chart:** FRED DGS10 fetched via `/api/market?type=fred-dgs10` (James holds the FRED API key, stored as Vercel env var). Falls back to editorial estimate array if endpoint unavailable. Forward yields derived from CME ZN futures using MD ≈ 7.8
+- **CME futures data:** Manually refreshed each assessment — WTI backwardation curve and ZN Treasury note futures
+- **Hardcoded editorial fallback:** When live endpoints unavailable, clearly labelled estimates are used
 
-### Anthropic API Costs
+### Four Deal Gaps Table — Column Widths
 
-Each AI panel click costs approximately $0.01–0.03. For a private briefing with a small audience, negligible.
+The deal gaps table uses `table-layout: fixed` with a `<colgroup>` defining explicit column widths. If columns appear incorrectly proportioned, verify both are present:
 
------
+```html
+<table> <!-- must have table-layout:fixed in CSS -->
+  <colgroup>
+    <col style="width:10%">   <!-- Gap label -->
+    <col style="width:22%">   <!-- US Position -->
+    <col style="width:22%">   <!-- Iran Position -->
+    <col style="width:16%">   <!-- IRGC -->
+    <col style="width:30%">   <!-- Bridgeable? -->
+  </colgroup>
+```
+
+Without `table-layout: fixed` in the CSS, browsers ignore `colgroup` widths entirely.
+
+---
 
 ## Track Record Principle
 
@@ -324,11 +366,11 @@ After several assessments the change log becomes a forecast accuracy record. Rev
 
 - Were probability movements directionally correct?
 - Did the scenario that materialised match the highest-probability call?
+- Were the time horizons accurate?
 - Were country impact assessments borne out by subsequent data?
-- Did risk factors cut (score < 15) later re-emerge at higher scores?
 
 This discipline is what separates a credible intelligence product from a news summary.
 
------
+---
 
 *Analytical briefing — projections as of latest assessment date, subject to revision. Not financial advice.*
