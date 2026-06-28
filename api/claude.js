@@ -1,5 +1,5 @@
 /**
- * Vercel Serverless Function — Anthropic API Proxy
+ * Vercel Serverless Function — Anthropic API Proxy - redundant
  * 
  * This function sits between your HTML and the Anthropic API.
  * It reads ANTHROPIC_API_KEY from Vercel environment variables
