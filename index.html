@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iran War 2026 — Executive Intelligence Assessment</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --cream:#faf7f2; --surface:#f2ede5; --border:#d4c4a8;
+  --navy:#1a3356; --blue-mid:#2e6da4; --blue-light:#daeaf8; --blue-pale:#eef5fc;
+  --text:#6b5a45; --text-light:#9c8572;
+  --red:#c0392b; --orange:#e07020; --gold:#ca8a04; --green:#1a8a4a;
+  --red-bg:#fdf0ef; --orange-bg:#fdf4ee; --gold-bg:#fdf9ee; --green-bg:#eef8f2;
+  --font-display:'Cormorant Garamond',Georgia,serif;
+  --font-body:'Lora',Georgia,serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--navy);font-family:var(--font-body);font-size:15px;line-height:1.7}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:var(--navy);height:54px;display:flex;align-items:center;padding:0 1.5rem;gap:1rem;box-shadow:0 2px 12px rgba(26,51,86,0.2)}
+.nav-brand{font-family:var(--font-display);font-size:15px;font-weight:700;color:#fff;letter-spacing:0.06em;white-space:nowrap}
+.nav-tabs{display:flex;gap:0;flex:1;overflow-x:auto;scrollbar-width:none}
+.nav-tabs::-webkit-scrollbar{display:none}
+.tab-btn{background:none;border:none;border-bottom:3px solid transparent;color:rgba(218,234,248,0.6);cursor:pointer;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:0 14px;height:54px;white-space:nowrap;transition:color 0.2s,border-color 0.2s}
+.tab-btn:hover{color:#fff} .tab-btn.active{color:var(--blue-light);border-bottom-color:var(--blue-light)}
+.nav-meta{font-family:var(--font-mono);font-size:11px;color:rgba(218,234,248,0.55);letter-spacing:0.08em;white-space:nowrap}
+.nav-meta strong{color:var(--blue-light)}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#1a3356 0%,#2e5a94 60%,#2e6da4 100%);padding:2rem 1.5rem 2rem}
+.hero-inner{max-width:1320px;margin:0 auto}
+.hero-title{font-family:var(--font-display);font-size:30px;font-weight:700;color:#fff;line-height:1.15;margin-bottom:6px}
+.hero-dateline{font-family:var(--font-mono);font-size:11px;color:rgba(218,234,248,0.65);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.25rem}
+
+/* PROBABILITY BAR */
+.prob-bar-header{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(218,234,248,0.45);margin-bottom:6px}
+.prob-bar{display:flex;gap:2px;height:10px;border-radius:5px;overflow:hidden;margin-bottom:0.75rem}
+.prob-bar div{transition:width 0.6s ease}
+.prob-labels{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.prob-label{display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:11px;color:rgba(218,234,248,0.75)}
+.prob-dot{width:8px;height:8px;border-radius:50%}
+.prob-pct{font-weight:700;color:#fff}
+.prob-trend{font-size:10px;opacity:0.7}
+
+/* EXECUTIVE SUMMARY */
+.exec-summary{color:rgba(218,234,248,0.85);font-size:13px;line-height:1.6;max-width:560px !important;display:block}
+
+/* CONTENT AREA */
+.page{max-width:1320px;margin:0 auto;padding:1.5rem}
+.section{display:none} .section.active{display:block}
+
+/* METRIC CARDS */
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:1.5rem 0}
+@media(max-width:900px){.metrics-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.metrics-grid{grid-template-columns:1fr}}
+.metric-card{background:var(--surface);border-radius:8px;padding:14px 16px;border-left:4px solid var(--border)}
+.metric-card.red{border-left-color:var(--red)} .metric-card.amber{border-left-color:var(--orange)} .metric-card.green{border-left-color:var(--green)}
+.metric-label{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-light);margin-bottom:4px}
+.metric-value{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:6px}
+.metric-sub{font-size:12px;color:var(--text);line-height:1.5}
+
+/* CHARTS */
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.5rem 0}
+@media(max-width:800px){.chart-grid{grid-template-columns:1fr}}
+.chart-box{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1rem;position:relative;height:260px}
+.chart-title{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-light);margin-bottom:0.75rem}
+.chart-canvas{width:100%;height:200px;max-height:200px}
+
+/* SCENARIO CARDS */
+.sc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:1.5rem 0}
+@media(max-width:1100px){.sc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.sc-grid{grid-template-columns:1fr}}
+.sc-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1rem;cursor:pointer;transition:box-shadow 0.2s}
+.sc-card:hover{box-shadow:0 2px 8px rgba(26,51,86,0.1)}
+.sc-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px}
+.sc-name{font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--navy)}
+.sc-prob{font-family:var(--font-mono);font-size:22px;font-weight:700}
+.sc-was{font-family:var(--font-mono);font-size:11px;color:var(--text-light)}
+.sc-summary{font-size:12px;color:var(--text);line-height:1.55}
+.sc-detail{display:none;margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid var(--border)}
+.sc-card.open .sc-detail{display:block}
+.sc-horizon-label{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-light);margin-top:0.6rem;margin-bottom:3px}
+.sc-horizon-text{font-size:12px;color:var(--text);line-height:1.55}
+
+/* MARITIME PANEL */
+.maritime-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:1.5rem 0}
+@media(max-width:800px){.maritime-grid{grid-template-columns:repeat(2,1fr)}}
+.maritime-stat{background:var(--navy);border-radius:8px;padding:14px 16px;text-align:center}
+.maritime-stat .stat-value{font-family:var(--font-mono);font-size:28px;font-weight:700;color:#fff}
+.maritime-stat .stat-label{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(218,234,248,0.6);margin-top:4px}
+.maritime-stat .stat-sub{font-size:11px;color:rgba(218,234,248,0.5);margin-top:2px}
+
+/* COUNTRY CARDS */
+.country-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.5rem 0}
+@media(max-width:800px){.country-grid{grid-template-columns:1fr}}
+.country-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1rem;cursor:pointer}
+.country-header{display:flex;align-items:center;justify-content:space-between}
+.country-name{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--navy)}
+.country-badge{font-family:var(--font-mono);font-size:10px;padding:3px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:0.08em}
+.b-critical{background:var(--red-bg);color:var(--red)} .b-high{background:var(--orange-bg);color:var(--orange)}
+.b-elevated{background:var(--gold-bg);color:var(--gold)} .b-positive{background:var(--green-bg);color:var(--green)}
+.country-stats{display:flex;gap:1rem;margin-top:8px;font-family:var(--font-mono);font-size:11px;color:var(--text-light)}
+.country-detail{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:13px;color:var(--text);line-height:1.6}
+.country-card.open .country-detail{display:block}
+
+/* RISK TABLE */
+.risk-table{width:100%;border-collapse:collapse;font-size:13px;margin:1rem 0}
+.risk-table th{background:var(--navy);color:#fff;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;padding:8px 12px;text-align:left}
+.risk-table td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+.risk-table tr{cursor:pointer} .risk-table tr:hover{background:var(--blue-pale)}
+.risk-score{font-family:var(--font-mono);font-weight:700;font-size:14px}
+.risk-score.critical{color:var(--red)} .risk-score.high{color:var(--orange)} .risk-score.elevated{color:var(--gold)}
+.risk-rationale{display:none;font-size:12px;color:var(--text);line-height:1.55;padding:6px 0 2px;width:100%}
+.risk-table tr.open .risk-rationale{display:block}
+
+/* EXTERNAL LINKS */
+.ext-links{display:flex;gap:12px;flex-wrap:wrap;margin:1.5rem 0}
+.ext-link{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:var(--navy);color:#fff;border-radius:6px;font-family:var(--font-mono);font-size:12px;letter-spacing:0.05em;text-decoration:none;transition:background 0.2s}
+.ext-link:hover{background:var(--blue-mid)}
+.ext-link .arrow{opacity:0.5}
+
+/* ARCHIVE */
+.archive-list{margin:1.5rem 0}
+.archive-item{display:flex;align-items:center;gap:1rem;padding:0.6rem 1rem;background:#fff;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;transition:box-shadow 0.2s}
+.archive-item:hover{box-shadow:0 2px 8px rgba(26,51,86,0.1)}
+.archive-num{font-family:var(--font-mono);font-size:18px;font-weight:700;color:var(--navy);min-width:45px}
+.archive-info{flex:1}
+.archive-date{font-family:var(--font-mono);font-size:10px;color:var(--text-light)}
+.archive-headline{font-size:13px;color:var(--navy);margin-top:1px}
+
+/* SECTION HEADERS */
+.sec-title{font-family:var(--font-display);font-size:24px;font-weight:700;color:var(--navy);margin:2rem 0 0.5rem;padding-bottom:0.5rem;border-bottom:2px solid var(--navy)}
+.sec-sub{font-family:var(--font-mono);font-size:11px;color:var(--text-light);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem}
+
+/* CHANGELOG */
+.changelog-entry{padding:0.5rem 0.75rem;border-left:3px solid var(--border);margin-bottom:4px;background:#fff;border-radius:0 6px 6px 0}
+.changelog-entry.critical{border-left-color:var(--red)} .changelog-entry.high{border-left-color:var(--orange)} .changelog-entry.watch{border-left-color:var(--gold)}
+.changelog-meta{font-family:var(--font-mono);font-size:9px;color:var(--text-light);margin-bottom:2px}
+.changelog-title{font-size:12px;font-weight:600;color:var(--navy)}
+.changelog-detail{font-size:11px;color:var(--text);margin-top:3px;display:none;line-height:1.5}
+.changelog-entry.open .changelog-detail{display:block}
+
+/* LOADING */
+.loading{text-align:center;padding:3rem;font-family:var(--font-mono);font-size:12px;color:var(--text-light)}
+
+/* FOOTER */
+.footer{max-width:1320px;margin:3rem auto 0;padding:1.5rem;border-top:2px solid var(--navy);font-family:var(--font-mono);font-size:11px;color:var(--text-light)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">KCM Intelligence</div>
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="showTab('current')">Current</button>
+    <button class="tab-btn" onclick="showTab('charts')">Charts</button>
+    <button class="tab-btn" onclick="showTab('analysis')">Analysis</button>
+    <button class="tab-btn" onclick="showTab('archive')">Archive</button>
+    <button class="tab-btn" onclick="showTab('sources')">Sources</button>
+    <button class="tab-btn" id="btnLatest" style="display:none;color:var(--gold)" onclick="goLatest()">↻ Latest</button>
+  </div>
+  <div class="nav-meta" id="navMeta"></div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-title">Iran War 2026 — <span id="heroAssessment"></span></div>
+    <div class="hero-dateline" id="heroDateline"></div>
+    <div class="prob-bar-header">Scenario Probability Weighting</div>
+    <div class="prob-bar" id="probBar"></div>
+    <div class="prob-labels" id="probLabels"></div>
+    <div class="exec-summary" id="execSummary"></div>
+  </div>
+</header>
+
+<!-- CONTENT -->
+<main class="page">
+
+  <!-- TAB: CURRENT -->
+  <div class="section active" id="sec-current">
+    <div class="sec-title">Situation Overview <span id="lastUpdated" style="font-family:var(--font-mono);font-size:11px;font-weight:400;color:var(--text-light);margin-left:8px"></span></div>
+    <div class="metrics-grid" id="metricsGrid"></div>
+
+    <div class="sec-title">Maritime Intelligence <span style="font-family:var(--font-mono);font-size:12px;font-weight:400;color:var(--text-light);margin-left:8px">Windward AI · Live</span></div>
+    <div class="maritime-grid" id="maritimeGrid"><div class="loading">Loading Windward data... If this persists, ensure api/windward.js is deployed. <a href="https://insights.windward.ai" target="_blank" style="color:var(--blue-mid)">View directly →</a></div></div>
+    <div style="margin-top:8px">
+      <a href="https://insights.windward.ai" target="_blank" class="ext-link">🌊 Full Windward Dashboard <span class="arrow">→</span></a>
+    </div>
+
+    <div class="sec-title">Scenarios</div>
+    <div class="sc-grid" id="scenarioCards"></div>
+
+    <div class="sec-title">Country Impact</div>
+    <div class="country-grid" id="countryGrid"></div>
+  </div>
+
+  <!-- TAB: CHARTS -->
+  <div class="section" id="sec-charts">
+    <div class="sec-title">Scenario Probability Evolution</div>
+    <div class="sec-sub">Sc1: Quick Deal · Sc2: Managed Stalemate · Sc3: Prolonged Conflict / Re-escalation · Sc4: Regime Change / Collapse</div>
+    <div class="chart-box" style="height:300px;margin-bottom:2rem">
+      <canvas id="chartProbEvolution"></canvas>
+    </div>
+
+    <div class="sec-title">Price Comparison — Pre-War vs Current</div>
+    <div id="priceCompare"></div>
+
+    <div class="sec-title" style="margin-top:2rem">Market Indicators</div>
+    <div class="chart-grid">
+      <div class="chart-box">
+        <div class="chart-title">Oil Prices ($/bbl)</div>
+        <canvas id="chartOil" class="chart-canvas"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">Treasury Yields (%)</div>
+        <canvas id="chartYields" class="chart-canvas"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">Hormuz Daily Transits</div>
+        <canvas id="chartHormuz" class="chart-canvas"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">USD/JPY</div>
+        <canvas id="chartYen" class="chart-canvas"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: ANALYSIS -->
+  <div class="section" id="sec-analysis">
+    <div class="sec-title">Risk Register</div>
+    <div class="sec-sub" id="riskSub"></div>
+    <table class="risk-table" id="riskTable"></table>
+
+    <div class="sec-title">Changelog</div>
+    <div class="sec-sub">Latest changes across all assessments</div>
+    <div id="changelogList"></div>
+  </div>
+
+  <!-- TAB: ARCHIVE -->
+  <div class="section" id="sec-archive">
+    <div class="sec-title">Assessment Archive</div>
+    <div class="sec-sub">Click any assessment to load it in the Current tab. Use the ↻ Latest button in the nav bar to return to the most recent assessment.</div>
+    <div class="archive-list" id="archiveList"></div>
+  </div>
+
+  <!-- TAB: SOURCES -->
+  <div class="section" id="sec-sources">
+    <div class="sec-title">Intelligence Sources & Links</div>
+    <div class="ext-links">
+      <a href="https://insights.windward.ai" target="_blank" class="ext-link">🌊 Windward AI Maritime Intelligence <span class="arrow">→</span></a>
+      <a href="https://insights.windward.ai/#hormuz-anchor" target="_blank" class="ext-link">🚢 Windward Hormuz Monitor <span class="arrow">→</span></a>
+      <a href="https://understandingwar.org/analysis/middle-east/iran-update/" target="_blank" class="ext-link">📊 ISW/CTP Iran Updates <span class="arrow">→</span></a>
+      <a href="https://iranwarmap.com/" target="_blank" class="ext-link">🗺️ Iran War Map <span class="arrow">→</span></a>
+      <a href="https://iranwarlive.com/" target="_blank" class="ext-link">📡 Iran War Live <span class="arrow">→</span></a>
+      <a href="https://iranstrike.com/" target="_blank" class="ext-link">🎯 Iran Strike Tracker <span class="arrow">→</span></a>
+      <a href="https://iranmonitor.online/" target="_blank" class="ext-link">📋 Iran Monitor Online <span class="arrow">→</span></a>
+      <a href="https://hormuzstraitmonitor.com/" target="_blank" class="ext-link">⚓ Hormuz Strait Monitor <span class="arrow">→</span></a>
+    </div>
+
+    <div class="sec-title">Methodology</div>
+    <p style="font-size:12px;color:var(--text);line-height:1.6;max-width:720px;margin:0.5rem 0">
+      This briefing tracks four scenarios for the Iran War 2026, weighted by probability and updated each assessment cycle. Probabilities are research-informed analyst judgement — treat as ordinal rankings, not statistical forecasts. The four-deal-gap framework (uranium, Lebanon/Hezbollah, frozen funds, GOP Senate hawks) provides the structural test: all four must close simultaneously for Scenario 1. The rotating-gap thesis holds that Iran deliberately cycles blocking conditions to buy time against Trump's political clock. Scenario 3 and Scenario 4 are a sequential continuum — Sc3 conditions naturally compound into Sc4 over time.
+    </p>
+    <p style="font-size:12px;color:var(--text);line-height:1.6;max-width:720px;margin-bottom:1rem">
+      Maritime data sourced from Windward AI (insights.windward.ai), cached hourly. Market data from CME Group (oil futures), Investing.com (yields), FRED (10-year via API). Country analysis covers: Canada, Colombia, UK, Germany, South Africa, Australia, USA, Ukraine.
+    </p>
+
+    <div class="sec-title">Conclusions</div>
+    <div id="conclusionsList"></div>
+  </div>
+
+</main>
+
+<footer class="footer" id="footer"></footer>
+
+<script>
+// === STATE ===
+let DATA = null;
+let MANIFEST = null;
+let SCENARIO_HISTORY = null;
+let MARKET_HISTORY = null;
+let charts = {};
+
+const SC_COLORS = { 1:'#1a8a4a', 2:'#2e6da4', 3:'#c0392b', 4:'#e07020' };
+const SC_NAMES = { 1:'Quick Deal', 2:'Managed Stalemate', 3:'Prolonged Conflict', 4:'Regime Change' };
+
+// === INIT ===
+async function init() {
+  try {
+    // Load all data in parallel
+    const [manifestRes, histRes, marketRes] = await Promise.all([
+      fetch('data/manifest.json').then(r => r.json()),
+      fetch('data/scenario_history.json').then(r => r.json()),
+      fetch('data/market_history.json').then(r => r.json())
+    ]);
+    MANIFEST = manifestRes;
+    SCENARIO_HISTORY = histRes;
+    MARKET_HISTORY = marketRes;
+
+    // Load latest assessment
+    await loadAssessment(MANIFEST.latest);
+
+    // Load Windward data
+    loadWindward();
+  } catch (err) {
+    console.error('Init failed:', err);
+    document.querySelector('.page').innerHTML = '<div class="loading">Failed to load data. Check console.</div>';
+  }
+}
+
+async function loadAssessment(id) {
+  try {
+    const res = await fetch(`data/${id}.json`);
+    if (!res.ok) throw new Error(`${res.status}`);
+    DATA = await res.json();
+    renderAll();
+    window.scrollTo(0, 0);
+    // Show/hide Latest button
+    const isLatest = id === MANIFEST.latest;
+    document.getElementById('btnLatest').style.display = isLatest ? 'none' : 'inline-block';
+  } catch (err) {
+    alert(`Assessment ${id} data not found. Ensure ${id}.json is in the data/ folder.`);
+  }
+}
+
+function goLatest() {
+  loadAssessment(MANIFEST.latest);
+  showTab('current');
+  document.getElementById('btnLatest').style.display = 'none';
+}
+
+// === RENDER ===
+function renderAll() {
+  renderNav();
+  renderHero();
+  renderMetrics();
+  renderScenarios();
+  renderCountries();
+  renderRiskRegister();
+  renderChangelog();
+  renderConclusions();
+  renderPriceCompare();
+  renderArchive();
+  renderCharts();
+  renderFooter();
+}
+
+function renderNav() {
+  const m = DATA.meta;
+  document.getElementById('navMeta').innerHTML =
+    `A<strong>${m.assessment}</strong> · Day <strong>${m.day}</strong> · <strong>${m.date}</strong>`;
+}
+
+function renderHero() {
+  const m = DATA.meta;
+  document.getElementById('heroAssessment').textContent = `Assessment ${m.assessment}`;
+  document.getElementById('heroDateline').textContent =
+    `Assessment ${m.assessment} · Day ${m.day} · ${m.date} · Canada · Colombia · UK · Germany · South Africa · Australia · USA · Ukraine`;
+
+  // Probability bar
+  const scenarios = DATA.scenarios;
+  const bar = document.getElementById('probBar');
+  bar.innerHTML = scenarios.map(s =>
+    `<div style="width:${s.prob}%;background:${SC_COLORS[s.id]}"></div>`
+  ).join('');
+
+  const labels = document.getElementById('probLabels');
+  labels.innerHTML = scenarios.map(s => {
+    const arrow = s.prob > s.was ? '▲' : s.prob < s.was ? '▼' : '→';
+    return `<div class="prob-label">
+      <span class="prob-dot" style="background:${SC_COLORS[s.id]}"></span>
+      <span>${SC_NAMES[s.id]}</span>
+      <span class="prob-pct">${s.prob}%</span>
+      <span class="prob-trend">${arrow} was ${s.was}%</span>
+    </div>`;
+  }).join('');
+
+  // Executive summary - show factor headline + truncated detail
+  const latest = DATA.changeLog[0];
+  if (latest) {
+    const truncDetail = latest.detail.length > 300 ? latest.detail.substring(0, 300) + '...' : latest.detail;
+    document.getElementById('execSummary').innerHTML = `<strong>${latest.factor}</strong> <span style="opacity:0.8">${truncDetail}</span>`;
+  }
+  // Last updated
+  document.getElementById('lastUpdated').textContent = `Updated: Assessment ${m.assessment} · ${m.date}`;
+}
+
+function renderMetrics() {
+  const grid = document.getElementById('metricsGrid');
+  grid.innerHTML = DATA.metrics.map(m => `
+    <div class="metric-card ${m.color}">
+      <div class="metric-label">${m.label}</div>
+      <div class="metric-value">${m.value}</div>
+      <div class="metric-sub">${m.sub}</div>
+    </div>
+  `).join('');
+}
+
+function renderScenarios() {
+  const el = document.getElementById('scenarioCards');
+  el.innerHTML = DATA.scenarios.map(s => {
+    const color = SC_COLORS[s.id];
+    const arrow = s.prob > s.was ? '▲' : s.prob < s.was ? '▼' : '→';
+    const summary = s.horizons.current.substring(0, 120) + (s.horizons.current.length > 120 ? '...' : '');
+    return `<div class="sc-card" onclick="this.classList.toggle('open')">
+      <div class="sc-header">
+        <span class="sc-name" style="color:${color}">${s.name}</span>
+        <span class="sc-prob" style="color:${color}">${s.prob}%</span>
+      </div>
+      <div class="sc-was">${arrow} was ${s.was}%</div>
+      <div class="sc-summary">${summary}</div>
+      <div class="sc-detail">
+        <div class="sc-horizon-label">Now — Near Term</div>
+        <div class="sc-horizon-text">${s.horizons.current}</div>
+        <div class="sc-horizon-label">Medium Term</div>
+        <div class="sc-horizon-text">${s.horizons.near}</div>
+        <div class="sc-horizon-label">Extended Horizon</div>
+        <div class="sc-horizon-text">${s.horizons.extended}</div>
+        <div style="margin-top:0.6rem;font-family:var(--font-mono);font-size:10px;color:var(--text-light)">
+          <strong>Trigger:</strong> ${s.trigger}<br>
+          <strong>Brent:</strong> ${s.brent}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderCountries() {
+  const grid = document.getElementById('countryGrid');
+  grid.innerHTML = DATA.countries.map(c => {
+    const badge = c.direction === 'Worsening' ? 'b-critical' :
+                  c.direction === 'Deteriorating' ? 'b-high' :
+                  c.direction === 'Stabilising' ? 'b-elevated' : 'b-positive';
+    // Convert detail text to bullet points by splitting on periods
+    const sentences = c.detail.split(/\.\s+/).filter(s => s.trim().length > 5);
+    const bullets = sentences.map(s => `<li>${s.trim().replace(/\.$/,'')}</li>`).join('');
+    return `<div class="country-card" onclick="this.classList.toggle('open')">
+      <div class="country-header">
+        <div class="country-name">${c.flag || ''} ${c.name}</div>
+        <span class="country-badge ${badge}">${c.direction}</span>
+      </div>
+      <div class="country-stats">
+        <span>Inflation: ${c.inflation}</span>
+        <span>GDP: ${c.gdp}</span>
+        <span>Sc3: ${c.sc3inf}</span>
+      </div>
+      <div class="country-detail"><ul style="margin:0;padding-left:1.2rem">${bullets}</ul></div>
+    </div>`;
+  }).join('');
+}
+
+function renderRiskRegister() {
+  const table = document.getElementById('riskTable');
+  const sorted = [...DATA.riskFactors].sort((a, b) => (b.l * b.i) - (a.l * a.i));
+  const header = '<thead><tr><th>Factor</th><th>L</th><th>I</th><th>Score</th><th>Status</th></tr></thead>';
+  const rows = sorted.map(f => {
+    const score = f.l * f.i;
+    const cls = score >= 20 ? 'critical' : score >= 15 ? 'high' : 'elevated';
+    const status = f.active ? '● Active' : '○';
+    const rationale = f.rationale ? `<div class="risk-rationale">${f.rationale}</div>` : '';
+    return `<tr onclick="this.classList.toggle('open')">
+      <td><strong>${f.id}</strong> ${f.label}${rationale}</td>
+      <td>${f.l}</td><td>${f.i}</td>
+      <td><span class="risk-score ${cls}">${score}</span></td>
+      <td style="font-family:var(--font-mono);font-size:11px">${status}</td>
+    </tr>`;
+  }).join('');
+  table.innerHTML = header + '<tbody>' + rows + '</tbody>';
+  document.getElementById('riskSub').textContent = `${DATA.riskFactors.length} factors tracked · Assessment ${DATA.meta.assessment} · Click row for detail`;
+}
+
+function renderChangelog() {
+  const el = document.getElementById('changelogList');
+  el.innerHTML = DATA.changeLog.slice(0, 15).map(c => {
+    const cls = c.sig || 'watch';
+    return `<div class="changelog-entry ${cls}" onclick="this.classList.toggle('open')">
+      <div class="changelog-meta">A${c.assessment} · ${c.date} · ${c.scope || ''} · ${(c.dir||'').toUpperCase()}</div>
+      <div class="changelog-title">${c.factor}</div>
+      <div class="changelog-detail">${c.detail}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderConclusions() {
+  const el = document.getElementById('conclusionsList');
+  if (!DATA.conclusions) { el.innerHTML = ''; return; }
+  el.innerHTML = DATA.conclusions.map(c => {
+    const cls = c.type === 'critical' ? 'b-critical' : c.type === 'positive' ? 'b-positive' : 'b-elevated';
+    return `<div style="margin-bottom:1rem;padding:1rem;background:#fff;border:1px solid var(--border);border-radius:8px">
+      <span class="country-badge ${cls}" style="margin-bottom:8px;display:inline-block">${c.type || 'normal'}</span>
+      <div style="font-size:14px;color:var(--navy);line-height:1.6">${c.text}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderPriceCompare() {
+  const el = document.getElementById('priceCompare');
+  if (!DATA.priceMoves) { el.innerHTML = ''; return; }
+  el.innerHTML = '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">' +
+    DATA.priceMoves.map(p => `
+      <div class="metric-card">
+        <div class="metric-label">${p.label}</div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span style="font-family:var(--font-mono);font-size:13px;color:var(--text-light)">${p.prewar}</span>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-light)">→</span>
+          <span style="font-family:var(--font-mono);font-size:16px;font-weight:700;color:var(--navy)">${p.current}</span>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:12px;color:var(--red);margin-top:4px">${p.change}</div>
+      </div>
+    `).join('') + '</div>';
+}
+
+function renderArchive() {
+  const el = document.getElementById('archiveList');
+  el.innerHTML = MANIFEST.assessments.map(a => `
+    <div class="archive-item" onclick="loadAssessment('${a.id}');showTab('current')">
+      <div class="archive-num">A${a.number}</div>
+      <div class="archive-info">
+        <div class="archive-date">Day ${a.day} · ${a.date}</div>
+        <div class="archive-headline">${a.headline}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderFooter() {
+  document.getElementById('footer').innerHTML =
+    `<strong>Iran War 2026</strong> — Executive Intelligence Assessment · Assessment ${DATA.meta.assessment} · Day ${DATA.meta.day} · ${DATA.meta.date}<br>KCM International · For assessment only`;
+}
+
+// === CHARTS ===
+function renderCharts() {
+  if (!SCENARIO_HISTORY || !MARKET_HISTORY) return;
+
+  // Destroy existing charts
+  Object.values(charts).forEach(c => c.destroy());
+  charts = {};
+
+  const labels = SCENARIO_HISTORY.map(s => `A${s.assessment}\n${s.date.replace(', 2026','')}`);
+
+  // Scenario probability evolution
+  charts.prob = new Chart(document.getElementById('chartProbEvolution'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label: 'Sc1 Quick Deal', data: SCENARIO_HISTORY.map(s => s.sc1), borderColor: SC_COLORS[1], backgroundColor: SC_COLORS[1]+'20', fill: true, tension: 0.3 },
+        { label: 'Sc2 Stalemate', data: SCENARIO_HISTORY.map(s => s.sc2), borderColor: SC_COLORS[2], backgroundColor: SC_COLORS[2]+'20', fill: true, tension: 0.3 },
+        { label: 'Sc3 Prolonged', data: SCENARIO_HISTORY.map(s => s.sc3), borderColor: SC_COLORS[3], backgroundColor: SC_COLORS[3]+'20', fill: true, tension: 0.3 },
+        { label: 'Sc4 Regime Change', data: SCENARIO_HISTORY.map(s => s.sc4), borderColor: SC_COLORS[4], backgroundColor: SC_COLORS[4]+'20', fill: true, tension: 0.3 }
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { family: "'JetBrains Mono'", size: 10 } } } },
+      scales: { y: { min: 0, max: 70, ticks: { callback: v => v + '%', font: { family: "'JetBrains Mono'", size: 10 } } }, x: { ticks: { font: { family: "'JetBrains Mono'", size: 9 }, maxRotation: 0 } } } }
+  });
+
+  const mLabels = MARKET_HISTORY.map(m => `A${m.assessment}\n${m.date.replace('2026-','')}`);
+
+  // Oil
+  charts.oil = new Chart(document.getElementById('chartOil'), {
+    type: 'line',
+    data: { labels: mLabels, datasets: [
+      { label: 'WTI', data: MARKET_HISTORY.map(m => m.wti), borderColor: '#c0392b', tension: 0.3, pointRadius: 4 },
+      { label: 'Brent', data: MARKET_HISTORY.map(m => m.brent), borderColor: '#e07020', tension: 0.3, pointRadius: 4 }
+    ]},
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { font: { family: "'JetBrains Mono'", size: 10 } } } },
+      scales: { y: { ticks: { callback: v => '$' + v, font: { family: "'JetBrains Mono'", size: 10 } } }, x: { ticks: { font: { family: "'JetBrains Mono'", size: 10 } } } } }
+  });
+
+  // Yields
+  charts.yields = new Chart(document.getElementById('chartYields'), {
+    type: 'line',
+    data: { labels: mLabels, datasets: [
+      { label: '10Y', data: MARKET_HISTORY.map(m => m.tnx), borderColor: '#1a3356', tension: 0.3, pointRadius: 4 },
+      { label: '30Y', data: MARKET_HISTORY.map(m => m.us30y), borderColor: '#c0392b', tension: 0.3, pointRadius: 4 }
+    ]},
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { font: { family: "'JetBrains Mono'", size: 10 } } } },
+      scales: { y: { ticks: { callback: v => v + '%', font: { family: "'JetBrains Mono'", size: 10 } } }, x: { ticks: { font: { family: "'JetBrains Mono'", size: 10 } } } } }
+  });
+
+  // Hormuz transits
+  charts.hormuz = new Chart(document.getElementById('chartHormuz'), {
+    type: 'bar',
+    data: { labels: mLabels, datasets: [
+      { label: 'Daily Transits', data: MARKET_HISTORY.map(m => m.hormuz_transits), backgroundColor: '#2e6da4', borderRadius: 4 }
+    ]},
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } },
+      scales: { y: { min: 0, max: 120, ticks: { font: { family: "'JetBrains Mono'", size: 10 } } }, x: { ticks: { font: { family: "'JetBrains Mono'", size: 10 } } } } }
+  });
+
+  // Yen
+  charts.yen = new Chart(document.getElementById('chartYen'), {
+    type: 'line',
+    data: { labels: mLabels, datasets: [
+      { label: 'USD/JPY', data: MARKET_HISTORY.map(m => m.usdjpy), borderColor: '#ca8a04', tension: 0.3, pointRadius: 4, fill: { target: 'origin', above: 'rgba(202,138,4,0.1)' } }
+    ]},
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } },
+      scales: { y: { ticks: { callback: v => '¥' + v, font: { family: "'JetBrains Mono'", size: 10 } } }, x: { ticks: { font: { family: "'JetBrains Mono'", size: 10 } } } } }
+  });
+}
+
+// === WINDWARD ===
+async function loadWindward() {
+  const grid = document.getElementById('maritimeGrid');
+  try {
+    // Try API endpoint first; fall back to direct fetch
+    let data;
+    try {
+      const res = await fetch('/api/windward');
+      data = await res.json();
+    } catch {
+      // Direct fetch fallback for development
+      const res = await fetch('https://insights.windward.ai');
+      const html = await res.text();
+      data = parseWindwardHTML(html);
+    }
+
+    const h = data.hormuz || {};
+    const g = data.gulf || {};
+    const rs = data.redSea || {};
+    const totalDark = (h.inbound?.dark||0) + (h.outbound?.dark||0);
+    const dateStr = data.dataDate ? `<div style="font-family:var(--font-mono);font-size:10px;color:var(--text-light);margin-top:8px">Data: ${data.dataDate}${data.cached ? ' · cached' : ''}</div>` : '';
+
+    grid.innerHTML = `
+      <div class="maritime-stat">
+        <div class="stat-value">${h.total || '—'}</div>
+        <div class="stat-label">Hormuz Transits</div>
+        <div class="stat-sub">${h.inbound?.total||'?'} in · ${h.outbound?.total||'?'} out</div>
+      </div>
+      <div class="maritime-stat">
+        <div class="stat-value">${totalDark || '—'}</div>
+        <div class="stat-label">Dark Vessels</div>
+        <div class="stat-sub">No AIS transmission</div>
+      </div>
+      <div class="maritime-stat">
+        <div class="stat-value">${g.totalVessels || '—'}</div>
+        <div class="stat-label">Gulf Fleet</div>
+        <div class="stat-sub">${g.highRisk||'?'} high risk</div>
+      </div>
+      <div class="maritime-stat">
+        <div class="stat-value">${(rs.inbound||0)+(rs.outbound||0) || '—'}</div>
+        <div class="stat-label">Bab-el-Mandeb</div>
+        <div class="stat-sub">${rs.inbound||'?'} in · ${rs.outbound||'?'} out</div>
+      </div>
+    ` + dateStr;
+  } catch (err) {
+    grid.innerHTML = '<div class="loading">Windward data unavailable — <a href="https://insights.windward.ai" target="_blank" style="color:var(--blue-mid)">view directly</a></div>';
+  }
+}
+
+function parseWindwardHTML(html) {
+  const result = { hormuz: { inbound: {}, outbound: {} }, gulf: {}, redSea: {} };
+  const tm = html.match(/(\d+)\s*vessels transited inbound and\s*(\d+)\s*outbound[^—]*—\s*(\d+)/);
+  if (tm) { result.hormuz.inbound.total = +tm[1]; result.hormuz.outbound.total = +tm[2]; result.hormuz.total = +tm[3]; }
+  const gm = html.match(/(\d+)\s*cargo and tanker vessels were present/i);
+  if (gm) result.gulf.totalVessels = +gm[1];
+  const rm = html.match(/(\d+)\s*high-risk,\s*(\d+)\s*moderate,\s*(\d+)\s*low/i);
+  if (rm) { result.gulf.highRisk = +rm[1]; result.gulf.moderate = +rm[2]; result.gulf.lowRisk = +rm[3]; }
+  const bm = html.match(/Bab-el-Mandeb[\s\S]*?(\d+)\s*Inbound[\s\S]*?(\d+)\s*Outbound/i);
+  if (bm) { result.redSea.inbound = +bm[1]; result.redSea.outbound = +bm[2]; }
+  return result;
+}
+
+// === TAB SWITCHING ===
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.remove('active');
+    if (b.textContent.trim().toLowerCase() === id || 
+        (id === 'current' && b.textContent.trim() === 'Current')) {
+      b.classList.add('active');
+    }
+  });
+}
+
+// === BOOT ===
+init();
+</script>
+</body>
+</html>
