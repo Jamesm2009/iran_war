@@ -64,7 +64,8 @@ Canada · Colombia · UK · Germany · South Africa · Australia · USA · Ukrai
 - **Market:** CME Group (oil futures), Investing.com (yields), FRED API
 - **Geopolitical:** ISW/CTP, Hormuz Report, Kpler, Atlantic Council
 - **OSINT:** iranwarmap.com, iranwarlive.com, iranstrike.com, iranmonitor.online, hormuzstraitmonitor.com
-
+- **Institute Of War:** understandingwar.org
+- 
 ## Frontend Tabs
 
 | Tab | Content |
