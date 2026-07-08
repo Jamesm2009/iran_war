@@ -13,8 +13,8 @@
   gtag('js', new Date());
 
   gtag('config', 'G-LQXC44Q7N5');
-</script>
-
+</script>  
+  
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
@@ -58,7 +58,7 @@ body{background:var(--cream);color:var(--navy);font-family:var(--font-body);font
 .prob-trend{font-size:10px;opacity:0.7}
 
 /* EXECUTIVE SUMMARY */
-.exec-summary{color:rgba(218,234,248,0.85);font-size:13px;line-height:1.6;width:540px;max-width:540px;word-wrap:break-word;overflow-wrap:break-word}
+.exec-summary{color:rgba(218,234,248,0.85);font-size:14px;line-height:1.7}
 
 /* CONTENT AREA */
 .page{max-width:1320px;margin:0 auto;padding:1.5rem}
@@ -186,9 +186,7 @@ body{background:var(--cream);color:var(--navy);font-family:var(--font-body);font
     <div class="prob-bar-header">Scenario Probability Weighting</div>
     <div class="prob-bar" id="probBar"></div>
     <div class="prob-labels" id="probLabels"></div>
-    <div style="max-width:540px;width:540px;overflow:hidden">
-      <div class="exec-summary" id="execSummary" style="max-width:540px;width:100%"></div>
-    </div>
+    <div class="exec-summary" id="execSummary"></div>
   </div>
 </header>
 
@@ -394,11 +392,10 @@ function renderHero() {
     </div>`;
   }).join('');
 
-  // Executive summary - show factor headline + truncated detail
+  // Executive summary - full headline + detail, fills hero width
   const latest = DATA.changeLog[0];
   if (latest) {
-    const truncDetail = latest.detail.length > 300 ? latest.detail.substring(0, 300) + '...' : latest.detail;
-    document.getElementById('execSummary').innerHTML = `<strong>${latest.factor}</strong> <span style="opacity:0.8">${truncDetail}</span>`;
+    document.getElementById('execSummary').innerHTML = `<strong>${latest.factor}</strong> ${latest.detail}`;
   }
   // Last updated
   document.getElementById('lastUpdated').textContent = `Updated: Assessment ${m.assessment} · ${m.date}`;
