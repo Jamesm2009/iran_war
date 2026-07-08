@@ -4,17 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Iran War 2026 — Executive Intelligence Assessment</title>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LQXC44Q7N5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LQXC44Q7N5');
-</script>
-  
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
@@ -58,7 +47,7 @@ body{background:var(--cream);color:var(--navy);font-family:var(--font-body);font
 .prob-trend{font-size:10px;opacity:0.7}
 
 /* EXECUTIVE SUMMARY */
-.exec-summary{color:rgba(218,234,248,0.85);font-size:13px;line-height:1.6;width:min(560px, 85vw);max-width:560px}
+.exec-summary{color:rgba(218,234,248,0.85);font-size:13px;line-height:1.6;width:540px;max-width:540px;word-wrap:break-word;overflow-wrap:break-word}
 
 /* CONTENT AREA */
 .page{max-width:1320px;margin:0 auto;padding:1.5rem}
@@ -186,7 +175,9 @@ body{background:var(--cream);color:var(--navy);font-family:var(--font-body);font
     <div class="prob-bar-header">Scenario Probability Weighting</div>
     <div class="prob-bar" id="probBar"></div>
     <div class="prob-labels" id="probLabels"></div>
-    <div class="exec-summary" id="execSummary"></div>
+    <div style="max-width:540px;width:540px;overflow:hidden">
+      <div class="exec-summary" id="execSummary" style="max-width:540px;width:100%"></div>
+    </div>
   </div>
 </header>
 
