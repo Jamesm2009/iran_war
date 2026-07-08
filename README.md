@@ -1,4 +1,4 @@
-# Iran War 2026 — Executive Intelligence Briefing
+# Iran War 2026 — Executive Intelligence Briefing -- NEEDS UPDATE July 8th, 2026
 
 An interactive, periodically updated intelligence assessment covering the geopolitical and socio-economic impact of the 2026 Iran conflict across eight countries: **Canada · Colombia · UK · Germany · South Africa · Australia · USA · Ukraine**.
 
