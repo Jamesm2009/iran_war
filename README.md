@@ -60,7 +60,7 @@ Canada · Colombia · UK · Germany · South Africa · Australia · USA · Ukrai
 
 ## Data Sources
 
-- **Maritime:** Windward AI (insights.windward.ai) — live scrape via serverless function
+- **Maritime:** Windward AI (insights.windward.ai) — live scrape via serverless function. **UPDATE DATA MANUALLY ON EACH ASSESSMENT**.
 - **Market:** CME Group (oil futures), Investing.com (yields), FRED API
 - **Geopolitical:** ISW/CTP, Hormuz Report, Kpler, Atlantic Council
 - **OSINT:** iranwarmap.com, iranwarlive.com, iranstrike.com, iranmonitor.online, hormuzstraitmonitor.com
