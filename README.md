@@ -8,11 +8,19 @@ An interactive, periodically updated intelligence assessment covering the geopol
 
 ```
 /
-├── index.html          # Main briefing — all content and logic
-├── api/
-│   ├── claude.js       # Vercel proxy → Anthropic API (AI intelligence panel)
-│   └── market.js       # Vercel proxy → Alpha Vantage (live market data, 24hr cache)
-└── README.md           # This file
+iran_war/
+  index.html          ← Vercel serves this at /
+  data/
+    a18.json           ← Fetched at /data/a18.json ✓
+    manifest.json      ✓
+    market_history.json ✓
+    scenario_history.json ✓
+  api/
+    windward.js        ← Fix: rename from "windward" to "windward.js"
+    claude.js          ← Existing
+    market.js          ← Existing
+  package.json
+  vercel.json
 ```
 
 ---
