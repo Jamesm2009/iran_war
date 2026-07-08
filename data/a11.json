@@ -1,0 +1,755 @@
+{
+  "meta": {
+    "assessment": 11,
+    "day": 101,
+    "date": "June 7, 2026"
+  },
+  "metrics": [
+    {
+      "label": "WTI Crude (Jun 7)",
+      "value": "$92.96",
+      "sub": "+2.67% on day. Iran→Israel 4-wave strike not yet priced — Monday open is the verdict. Dec 2027 $73.70. JPMorgan op stress level (7.6B bbl) reached Jun 2026.",
+      "color": "amber"
+    },
+    {
+      "label": "Iran→Israel Strike",
+      "value": "4 Waves",
+      "sub": "Jun 7: 'Operation True Promise 5' — first direct strike since April 8 ceasefire. All intercepted. IRGC: 'merely a warning — next will be broader.' IDF: 'grave mistake.'",
+      "color": "red"
+    },
+    {
+      "label": "Deal: Infeasible",
+      "value": "Iran Jun 7",
+      "sub": "Iranian official declared deal with Trump 'no longer feasible at this stage' at 4:55pm Jun 7 — citing Lebanon and frozen funds. Diplomatic track formally closed.",
+      "color": "red"
+    },
+    {
+      "label": "IRGC Ceasefire Void",
+      "value": "Jun 7 — Fars",
+      "sub": "IRGC via Fars News: 'Our acceptance of April 8 ceasefire was conditional on stopping fire on all fronts — US and Zionist regime violated commitments.' Doctrinal — not tactical.",
+      "color": "red"
+    },
+    {
+      "label": "Toll Revenue",
+      "value": "$1.5–2M/ship",
+      "sub": "ISW Jun 7: Iranian parliamentarian confirmed average $1.5–2M/vessel in crypto+barter. Environment Ministry building formal fee framework. BUT: IRGC void declaration conditions toll system on Lebanon.",
+      "color": "amber"
+    },
+    {
+      "label": "10yr Yield (ZNU6)",
+      "value": "~4.75%",
+      "sub": "CME ZNU6: 109'010, down 15/32nds Jun 7. Implies ~4.75% Sep at MD≈7.8. CME FedWatch: 43% Dec hike. May jobs beat locks Jun 18 hold. F4 ACTIVATED.",
+      "color": "red"
+    }
+  ],
+  "priceMoves": [
+    {
+      "label": "WTI Crude",
+      "prewar": "$67",
+      "current": "$92.96",
+      "change": "+39%"
+    },
+    {
+      "label": "Brent Crude",
+      "prewar": "$69",
+      "current": "~$97",
+      "change": "+41%"
+    },
+    {
+      "label": "US 10yr Yield",
+      "prewar": "4.2%",
+      "current": "~4.75%",
+      "change": "+55bp"
+    },
+    {
+      "label": "EU TTF Gas",
+      "prewar": "€35",
+      "current": "~€60",
+      "change": "+71%"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": 1,
+      "tag": "Scenario 1",
+      "name": "Resolved by Mid-2026",
+      "css": "sc-falling",
+      "prob": 5,
+      "was": 7,
+      "trend": "▼",
+      "horizons": {
+        "current": "IRGC voided April 8 ceasefire (Jun 7). Iran declared deal 'no longer feasible.' All four deal gaps now classified No. Meta-gap: Iran has no mechanism to trust any bilateral US agreement post-2018 JCPOA withdrawal.",
+        "near": "For Sc1 to recover: Iran reverses 'infeasible' declaration + IRGC reverses ceasefire void + all four deal gaps close simultaneously + Lebanon genuine ceasefire + IRGC Vahidi public endorsement. All five currently regressing.",
+        "extended": "If resolved: oil normalises $75–85; central banks resume cuts. Food crisis deferred 6–12 months. Russia Sirik MOU means nuclear buildout continues regardless — Sc1 resolution is increasingly optics, not substance."
+      },
+      "brent": "$85–95/bbl",
+      "inflation": "+0.5pp",
+      "gdp": "Minimal",
+      "trigger": "All five conditions simultaneously: Iran reverses declaration + IRGC reverses void + four deal gaps close + Lebanon genuine ceasefire + Vahidi endorsement. All currently moving in the wrong direction.",
+      "toMove": "Any Ayatollah direct public engagement (has not appeared since Feb 28 wounding) is the primary signal.",
+      "countries": [
+        "🇦🇺 Australia",
+        "🇺🇸 USA",
+        "🇨🇦 Canada"
+      ]
+    },
+    {
+      "id": 2,
+      "tag": "Scenario 2",
+      "name": "Managed Stalemate",
+      "css": "sc-current",
+      "prob": 22,
+      "was": 33,
+      "trend": "▼",
+      "horizons": {
+        "current": "Sc2 required a stable toll system equilibrium. IRGC Jun 7 void declaration conditions the toll system on Lebanon — that equilibrium is destroyed. Iran-Israel 4-wave strike + deal 'infeasible' + ceasefire void = most direct Sc2→Sc3 transition evidence in this briefing's history.",
+        "near": "JPMorgan Sep operational floor (6.8B bbl) arrives in this window. IEA Jun 17 OMR extending to 2027. UK/France mine-clearing mission suspended. Netanyahu election Oct 27 and US midterms Nov 3 both fall here.",
+        "extended": "Even if Sc2 re-establishes: bifurcated strait, not free navigation. Ras Laffan repairs: QatarEnergy warns years. Toll system formalising as permanent sovereignty infrastructure. Winter 2026–27 energy crisis locked in for UK/Germany."
+      },
+      "brent": "$110–130/bbl",
+      "inflation": "+1.5pp",
+      "gdp": "–0.5pp",
+      "trigger": "Toll system restabilises as a neutral equilibrium — currently conditioned by IRGC on Lebanon ceasefire. Lebanon ceasefire requires Hezbollah agreement — Hezbollah excluded from all negotiations.",
+      "toMove": "IRGC mine-laying resumes in force → Sc3. Lebanon gap closes unexpectedly → possible Sc1 path.",
+      "countries": [
+        "🇩🇪 Germany",
+        "🇬🇧 UK",
+        "🇿🇦 S.Africa",
+        "🇺🇦 Ukraine"
+      ]
+    },
+    {
+      "id": 3,
+      "tag": "Scenario 3 — Base Case",
+      "name": "Prolonged — Ceasefire Collapse",
+      "css": "sc-rising",
+      "prob": 62,
+      "was": 48,
+      "trend": "▲",
+      "horizons": {
+        "current": "Iran fired 4 waves at Israel (Jun 7) — first since April ceasefire. IRGC voided ceasefire via Fars News. Deal declared 'no longer feasible.' Netanyahu struck Beirut defying Trump twice. ISW: calibrated deterrent — 10 missiles, all intercepted, no casualties.",
+        "near": "JPMorgan operational stress level (7.6B bbl) already reached June. Operational floor (6.8B bbl) arrives September. Netanyahu election Oct 27; US midterms Nov 3 — opposite outcomes required, 7 days apart. IEA OMR extending to 2027. EIA Jun 9 STEO: late-May reopening assumption confirmed failed.",
+        "extended": "Winter 2026–27 energy crisis near-certain for UK/Germany. Food crisis outlasts war. Russia-Iran $25B Sirik MOU: nuclear infrastructure expanding regardless. Alphatica: at ≥120 days above $100 WTI (~Oct 2026), SPY 20-day return averages −13.4%, win rate 0%."
+      },
+      "brent": "$150–200/bbl",
+      "inflation": "+3.0pp+",
+      "gdp": "–1.2pp global",
+      "trigger": "Already in Sc3 transition. Confirmation: IDF retaliates against Iran; IRGC escalates beyond calibrated deterrent; Lebanon front fully reignites; JPMorgan Sep floor arrives with no recovery.",
+      "toMove": "Extraordinarily high bar: IRGC stand-down + full uranium resolution + Lebanon genuine ceasefire + Vahidi endorsement — all simultaneously.",
+      "countries": [
+        "🇩🇪 Germany",
+        "🇬🇧 UK",
+        "🇿🇦 S.Africa",
+        "🇺🇦 Ukraine",
+        "🇨🇴 Colombia"
+      ]
+    },
+    {
+      "id": 4,
+      "tag": "Scenario 4",
+      "name": "Regime Change / Collapse",
+      "css": "sc-new",
+      "prob": 11,
+      "was": 12,
+      "trend": "▼",
+      "horizons": {
+        "current": "IRGC export collapse (209k bpd May) tightening IRGC fiscal position. Jun 7 missile strike was calibrated deterrent (ISW) — IRGC still operating with strategic discipline. 'Operation True Promise 5' naming suggests doctrinal control, not factional desperation.",
+        "near": "If export collapse continues and toll revenues cannot compensate: IRGC fiscal crisis escalates. Council of Guard Generals split risk: hawks (escalate) vs pragmatists (deal now). Watch internet blackout trends and Grand Bazaar.",
+        "extended": "New government seeks Western integration; large Iranian supply return pushes oil sharply lower. Russia-Iran Sirik nuclear MOU: new government inherits Rosatom partnership — may be irreversible regardless of regime change."
+      },
+      "brent": "Chaos spike then large drop",
+      "inflation": "Highly uncertain",
+      "gdp": "Large upside possible",
+      "trigger": "Export collapse + IRGC fiscal crisis + Council of Guard Generals split + popular uprising or seizure.",
+      "toMove": "Watch: internet blackout resumption; Grand Bazaar; IRGC internal signals; Iran export data weekly.",
+      "countries": [
+        "🇺🇦 Ukraine",
+        "🇩🇪 Germany",
+        "🇬🇧 UK"
+      ]
+    }
+  ],
+  "filterMods": {
+    "f1": [
+      -5,
+      -3,
+      8,
+      0
+    ],
+    "f2": [
+      -4,
+      -2,
+      6,
+      0
+    ],
+    "f3": [
+      -3,
+      -1,
+      4,
+      0
+    ],
+    "f4": [
+      2,
+      -3,
+      2,
+      -1
+    ],
+    "f5": [
+      1,
+      -2,
+      3,
+      -2
+    ],
+    "f6": [
+      -3,
+      4,
+      2,
+      -3
+    ],
+    "f7": [
+      -2,
+      -1,
+      3,
+      0
+    ]
+  },
+  "filters": [
+    {
+      "id": "f1",
+      "label": "IRGC Geographic Escalation",
+      "impact": "Sc1 -5pp, Sc3 +8pp. Jun 7: 4-wave missile salvo on Israel. Kuwait + Bahrain + Israel simultaneously. IRGC formally voided ceasefire. Gulf partner confidence collapsing."
+    },
+    {
+      "id": "f2",
+      "label": "IRGC / Civilian Split",
+      "impact": "Sc1 -4pp, Sc3 +6pp. IRGC voided ceasefire Jun 7 — doctrinal. Iran civilian declared deal infeasible same day. ISW: Jun 7 strike was calibrated deterrent — IRGC still operating with strategic discipline. Any signed deal unenforceable on IRGC field commanders."
+    },
+    {
+      "id": "f3",
+      "label": "Netanyahu Undermining",
+      "impact": "Sc1 -3pp, Sc3 +4pp. Lebanon ceasefire structurally irresolvable — Dahiya Doctrine + Campaign Between Wars give IDF no doctrinal off-switch. Hezbollah excluded from all negotiations. Netanyahu struck Beirut defying Trump TWICE. Electorally rational escalation."
+    },
+    {
+      "id": "f4",
+      "label": "Bond Market Stress",
+      "impact": "Sc2 -3pp. ZNU6 implies ~4.75% Sep yield. 43% Dec hike probability. $9.7T US debt refinancing. Strong May jobs locks Jun 18 hold. F4 now ACTIVE — structural fiscal cost locked in regardless of deal."
+    },
+    {
+      "id": "f5",
+      "label": "EU Gas Storage Crisis",
+      "impact": "Sc2 -2pp, Sc3 +3pp. EU storage ~30%, needs 90% by October. Winter 2026-27 crisis near-certain under Sc2/Sc3. Four simultaneous fiscal pressures on UK/Germany."
+    },
+    {
+      "id": "f6",
+      "label": "US Munitions Depleted",
+      "impact": "Sc2 +4pp. Tomahawks to 2030; THAAD/Patriots to 2029. IRGC rebuilt 91% missile sites. Reduces credible US escalation threat. Confirms IRGC optimal strategy: wait."
+    },
+    {
+      "id": "f7",
+      "label": "Stagflation Trap (medium-term)",
+      "impact": "Sc1 -2pp, Sc3 +3pp. Operates on 3-9 month lag. Strong May jobs + Fed hold locks this in. Alphatica: at 75+ days above $100 WTI, SPY 20-day forward return averages -3.6%. No clean policy exit."
+    }
+  ],
+  "countries": [
+    {
+      "flag": "🇺🇸",
+      "name": "USA",
+      "risk": "elevated",
+      "inflation": 1.2,
+      "gdp": 0.6,
+      "sc3inf": 2.5,
+      "sc3gdp": 1.5,
+      "direction": "worse",
+      "primaryScenario": "All scenarios",
+      "primaryTheme": "Financial Stress",
+      "energy": "Net crude exporter (12.9mb/d). Domestic refining largely insulates from diesel shock.",
+      "vulnerability": "F4 now active — ZNU6 implies 4.75% Sep yield; 43% Dec hike probability; $9.7T debt refinancing; gas at $4.54 (50¢ from all-time high); independent voters oppose war 60-31% (Quinnipiac); Alphatica: 75+ days above $100 WTI = -3.6% SPY 20d forward return; munitions depleted.",
+      "detail": "The US is simultaneously a net energy beneficiary and the party most exposed to the conflict's resolution. F4 (Bond Market Stress) is now activated: ZNU6 futures imply approximately 4.75% September 10-year yield — within 25bp of the 5% bond vigilante threshold. CME FedWatch prices 43% probability of a December rate hike. Strong May jobs report makes June 18 Fed hold near-certain. Trump told the Financial Times on June 7: 'I call all the shots; he doesn't call the shots' — Netanyahu immediately confirmed intent to strike Iran anyway. This is the principal-agent trap made explicit: Trump asserts control he demonstrably does not have. The Alphatica statistical analysis (547 trading days above $100 WTI, 2003-2026) shows that at 75+ days, 20-day SPY forward returns average -3.6%. Win rate drops below 50% at 30+ days. Munitions depletion (Tomahawks to 2030) limits credible escalation. Post-MAGA consolidation reduces but does not eliminate House midterm risk."
+    },
+    {
+      "flag": "🇨🇦",
+      "name": "Canada",
+      "risk": "elevated",
+      "inflation": 1.8,
+      "gdp": 0.8,
+      "sc3inf": 3.2,
+      "sc3gdp": 1.8,
+      "direction": "worse",
+      "primaryScenario": "Sc1 most positive",
+      "primaryTheme": "Energy + Trade Shock",
+      "energy": "Net exporter — LNG and crude beneficiary. Significant domestic refining capacity.",
+      "vulnerability": "Technical recession confirmed: Q1 2026 GDP -0.1%, Q4 2025 -1.0%. Tariff-driven capex collapse (-0.7%, fifth consecutive quarter). LNG Canada Phase 1 (Kitimat) ramping. World's largest potash reserves provide partial fertiliser insulation. PM: Mark Carney.",
+      "detail": "Canada is in technical recession — primarily tariff-driven, not Iran-driven. PM Mark Carney is navigating the Iran war while managing entrenched US-Canada trade tensions. LNG Canada Phase 1 (Kitimat, BC) ramping provides strategic supply at a critical moment, though scale remains limited vs the Qatari shortfall. Canada is the world's largest potash producer, providing partial insulation from the global fertiliser crisis. Canada has NOT joined the US-Israel military coalition. The Iran energy upside (oil sands at $90-120/bbl) benefits Alberta and the TSX energy sector but is insufficient to offset the broader tariff-driven investment drought."
+    },
+    {
+      "flag": "🇬🇧",
+      "name": "UK",
+      "risk": "high",
+      "inflation": 3.3,
+      "gdp": 1.0,
+      "sc3inf": 6.0,
+      "sc3gdp": 2.5,
+      "direction": "worse",
+      "primaryScenario": "Sc3 critical",
+      "primaryTheme": "Energy + Financial Stress + Fuel Security",
+      "energy": "High import dependence — LNG, piped gas, diesel and jet fuel",
+      "vulnerability": "Gas storage 30% (needs 90% by Oct); gilts 5.2%; BoE held at 3.75%; diesel imports 2.5x production; jet fuel 3.1x; NATO 3.0 fifth fiscal pressure. Starmer leadership crisis: 95+ Labour MPs called for resignation, Streeting + 4 junior ministers resigned. May local elections: 'stunning' Labour defeats.",
+      "detail": "The UK faces a quintuple squeeze — gas storage crisis, sovereign yield stress, refined products shortage, NATO rearmament demands, and a political leadership crisis. PM Starmer faces an acute leadership challenge: 95+ Labour MPs publicly called for his resignation, Health Secretary Wes Streeting and four junior ministers resigned. May 2026 local elections produced 'stunning' Labour defeats. The BoE held at 3.75%; markets pricing 4.5% by year-end. UK gilt yields above 5% — highest G7 borrowing costs. Lebanon ceasefire collapse and Iran-Israel 4-wave strike on Jun 7 has suspended the UK/France 15-nation mine-clearing mission — the primary Sc2 operational signal. Under Sc3, political instability compounds an already impossible fiscal position."
+    },
+    {
+      "flag": "🇩🇪",
+      "name": "Germany",
+      "risk": "high",
+      "inflation": 2.4,
+      "gdp": 1.4,
+      "sc3inf": 5.0,
+      "sc3gdp": 2.8,
+      "direction": "worse",
+      "primaryScenario": "Sc3 recession",
+      "primaryTheme": "Energy + Financial Stress",
+      "energy": "Critically exposed — LNG, industrial gas, and diesel dependent",
+      "vulnerability": "Industrial energy cost multi-vector (gas + diesel + electricity); Rhine River water levels critical for logistics; budget deficit 4.2% — breaches EU 3% Stability Pact; ECB/NIM deindustrialisation risk warning.",
+      "detail": "Germany's industrial exposure operates on three simultaneous vectors: gas (storage crisis), electricity (gas-driven generation costs), and diesel (European diesel futures $200/bbl hitting logistics and heavy industry). Rhine River water levels — critical for industrial barge logistics and power plant cooling — raise additional risk under El Nino conditions. Germany's budget deficit at 4.2% of GDP breaches the EU Stability Pact 3% threshold. ECB and the Nuremberg Institute for Market Decisions have explicitly warned of permanent deindustrialisation risk in energy-intensive sectors. Under Sc3 with the Jun 7 ceasefire collapse, deep recession is near-certain."
+    },
+    {
+      "flag": "🇿🇦",
+      "name": "S. Africa",
+      "risk": "critical",
+      "inflation": 3.2,
+      "gdp": 1.2,
+      "sc3inf": 5.5,
+      "sc3gdp": 2.6,
+      "direction": "worse",
+      "primaryScenario": "Sc2+Sc3 critical",
+      "primaryTheme": "Food Security + Financial Stress + Fuel Security",
+      "energy": "Imports virtually all crude oil and refined products. No domestic crude production.",
+      "vulnerability": "SARB raised repo 25bp to 7.00% (29 May, 4-2 vote). Fuel stocks IEA non-compliant. R17.2B diesel subsidy exceeds R10B contingency reserve. BRICS+ alignment complicates Western support access. Nov 2026 local elections: ANC coalition under pressure.",
+      "detail": "South Africa faces a stagflation trap with monetary tightening confirmed. The SARB raised the repo rate 25bp to 7.00% on 29 May — first hike in three years — effectively blunting the approximately $1 billion fuel levy relief package. Strategic fuel stocks are IEA non-compliant. South Africa's BRICS+ membership (alongside Iran) creates a diplomatic balancing act. Super El Nino: 20-30% maize yield reduction historically — SA is the regional grain hub for sub-Saharan Africa. The Jun 7 ceasefire collapse further extends the timeline for any refined product supply normalisation."
+    },
+    {
+      "flag": "🇦🇺",
+      "name": "Australia",
+      "risk": "high",
+      "inflation": 2.1,
+      "gdp": 0.8,
+      "sc3inf": 4.2,
+      "sc3gdp": 2.2,
+      "direction": "worse",
+      "primaryScenario": "Sc1 most positive / Sc3 high risk",
+      "primaryTheme": "Energy + Fuel Security",
+      "energy": "Major LNG exporter (+140% spot) but 90%+ refined fuel import dependent",
+      "vulnerability": "90% liquid fuel import dependent; 36d petrol / 34d diesel / 32d jet fuel reserves — IEA non-compliant since 2012; only 2 domestic refineries; headline CPI 4.6% (Mar 2026), AMP forecasts 5%+; RBA hiked 75bp in 2026; Oxford Economics: technical recession risk under Sc3.",
+      "detail": "Australia imports approximately 90% of its liquid fuel — the worst import dependency of any IEA member. Strategic reserves stand at 36 days petrol, 34 days diesel, 32 days jet fuel — all below the IEA 90-day standard. The headline CPI reached 4.6% with AMP forecasting 5%+ in Q2. The RBA raised rates 75bp in 2026. Oxford Economics explicitly models a technical recession under Sc3. The Albanese government committed A$14.8B for a permanent fuel reserve and A$22.7B to accelerate renewables. Australia did NOT join the US-Israel strikes. Queensland State Election October 2026 — fuel prices will be a central issue. Super El Nino: Murray-Darling Basin highly exposed to drought."
+    },
+    {
+      "flag": "🇨🇴",
+      "name": "Colombia",
+      "risk": "high",
+      "inflation": 3.2,
+      "gdp": 1.2,
+      "sc3inf": 5.2,
+      "sc3gdp": 2.6,
+      "direction": "worse",
+      "primaryScenario": "Sc2+Sc3 high impact — runoff Jun 21",
+      "primaryTheme": "Food Security + Financial Stress + Transition Watch",
+      "energy": "Net oil exporter but domestic fuel import dependent for refined products",
+      "vulnerability": "Runoff June 21: de la Espriella (right) 43.7% vs Cepeda (left) 40.9%. Inflation 5.68% (Apr 2026). Banrep 100bp emergency hike to 11.25%. Now net gas importer at LNG +140% spot. Belt and Road with China strains US relationship.",
+      "detail": "Colombia's structural energy position has deteriorated: oil production declining toward 800,000 bpd; Colombia is now a net LNG importer at global spot prices up 140%. Inflation at 5.68% in April. Banrep emergency 100bp hike to 11.25%. Presidential runoff June 21: de la Espriella (right, would restart oil exploration) vs Cepeda (left, would continue Petro's transition). De la Espriella outperformed polls significantly. Belt and Road cooperation with China strains the US-Colombia relationship. The Jun 7 ceasefire collapse extends the energy price shock timeline materially, compounding all three pressure vectors."
+    },
+    {
+      "flag": "🇺🇦",
+      "name": "Ukraine",
+      "risk": "critical",
+      "inflation": 3.5,
+      "gdp": 2.0,
+      "sc3inf": 6.0,
+      "sc3gdp": 3.5,
+      "direction": "worse",
+      "primaryScenario": "All scenarios compound",
+      "primaryTheme": "Energy + Food Security",
+      "energy": "War-damaged supply chains — compounded by Hormuz refined product and crude disruption",
+      "vulnerability": "'Iran and Ukraine wars have merged into a single conflict.' Russia oil windfall ($70+/bbl vs $59 budget) finances war. Patriots diverted to Gulf. EU gas exports to Ukraine surged 10x YoY. Ukraine trading drone tech with Gulf monarchies. Blackouts cut GDP 2.5pp.",
+      "detail": "The Iran and Ukraine wars have merged into a single geopolitical budget — diplomatic attention, munitions, Patriot stocks, and financial bandwidth simultaneously allocated across both theatres. Russia's oil windfall is financing continued military operations. The Jun 7 ceasefire collapse further concentrates Western diplomatic attention on the Gulf. EU pipeline gas exports to Ukraine surged more than tenfold year-on-year. Ukraine is trading drone technology with Gulf monarchies for diplomatic backing and air defence systems. Russian blackouts cut GDP by an estimated 2.5 percentage points. Ukraine's agriculture faces triple constraint of war damage, fertiliser disruption, and El Nino drought."
+    }
+  ],
+  "riskFactors": [
+    {
+      "id": "F1",
+      "name": "IRGC Geographic Escalation (Kuwait + Bahrain + Israel Strikes)",
+      "l": 5,
+      "i": 5,
+      "status": "critical",
+      "active": true,
+      "rationale": "Jun 5: drone attack halted crude loading at Oman's Mina al Fahal terminal (Gulf of Oman, outside the Strait) — simultaneously attacking supply and the sole mediation channel. Jun 5: CENTCOM shot down four Iranian drones; IRGC fired seven ballistic missiles at Kuwait and Bahrain. Jun 7: Iran fired 4 waves of ballistic missiles at Israel ('Operation True Promise 5') — first direct strike since April 8 ceasefire. ISW (Jun 7): strike targeted Ramat David Airbase specifically because Israeli aircraft that struck Beirut launched from there — calibrated deterrent, not maximum escalation. IRGC via Fars News: 'Tonight's operation was merely a warning announcement, and if aggressions are repeated, responses will be broader and will include all American-Zionist targets in the region.' IRGC formally voided April 8 ceasefire via same Fars News statement. 91% of Hormuz missile sites rebuilt in 40 ceasefire days."
+    },
+    {
+      "id": "F2",
+      "name": "IRGC / Civilian Government Split ('Juntocracy')",
+      "l": 5,
+      "i": 5,
+      "status": "critical",
+      "active": true,
+      "rationale": "Atlantic Council (Dagher, Jun 4): Iran has transitioned from 'theocracy to juntocracy' — IRGC has institutionally displaced the clerical establishment. Council of Guard Generals (Vahidi, Zolghadr, Eje'i, Taeb, Jafari) makes strategic decisions; Mojtaba Khamenei cannot replicate his father's dual religious/political authority. Jun 7: IRGC via Fars News formally voided April 8 ceasefire — 'conditional on stopping fire on all fronts; US and Zionist regime did not adhere.' This is a doctrinal statement from the IRGC's own communications arm, not a diplomatic signal. Jun 7: Iran civilian FM declared deal 'no longer feasible' — but ISW analysis of missile strike shows IRGC operating with strategic discipline (calibrated deterrent, not maximum escalation). The split persists: civilian govt signals diplomatic closure while IRGC executes precisely targeted deterrent. Any MOU signed by Araghchi that Vahidi's Council does not enforce is operationally void."
+    },
+    {
+      "id": "F3",
+      "name": "Israel-US Gap / Netanyahu Undermining — Principal-Agent Trap",
+      "l": 5,
+      "i": 5,
+      "status": "critical",
+      "active": true,
+      "rationale": "AJ Jaff (Jun 7): Netanyahu has opposite electoral incentive from Trump. Netanyahu election Oct 27 — coalition at 49-51 seats vs opposition 59-61. Likud fell from 27 to 25 seats since Feb 28. A peace deal leaving Iran intact ends his political life AND removes corruption trial protection. Rational strategy: escalate Lebanon in ways that force Iranian retaliation and make Trump's deal politically impossible. Jun 7 execution: Netanyahu struck Dahiyeh/Beirut without warning, defying direct Trump request to stand down — SECOND time. Trump confirmed to FT: 'I call all the shots. He doesn't call the shots.' Netanyahu told Trump hours later he intends to strike Iran anyway. Lebanon ceasefire structurally undeliverable (AJ Jaff, Jun 6): signed Jun 2-3 by Israel, Lebanon, and two US representatives — Hezbollah was not in the room and formally rejected it Jun 4. IDF operates under Dahiya Doctrine (authorises disproportionate destruction of civilian infrastructure) and Campaign Between Wars (continuous kinetic action regardless of ceasefire status) — no doctrinal off-switch."
+    },
+    {
+      "id": "F22",
+      "name": "Trump-Netanyahu Principal-Agent Trap — Mutually Exclusive Electoral Outcomes",
+      "l": 5,
+      "i": 4,
+      "status": "critical",
+      "active": true,
+      "rationale": "Added Assessment 11 (AJ Jaff analysis, Jun 7). Trump needs war to end before Nov 3 US midterms. Netanyahu needs war to continue until Oct 27 Israeli election — coalition at 49-51 seats vs opposition 59-61; a deal leaving Iran intact ends his political life and removes corruption trial protection. Two elections 7 days apart. Two leaders require opposite outcomes. Neither can achieve their optimum without destroying the other's political survival. IRGC has no electoral clock and is monetising the stalemate at $1.5-2M/vessel. This is not a negotiating nuance — it is a structural incompatibility that means Door Three (Iran controls timing) is the highest-risk path. Jun 7 evidence: Netanyahu struck Beirut defying Trump TWICE; Trump said 'I call all shots'; Netanyahu confirmed intent to strike Iran; Iran fired 4 waves and declared deal no longer feasible — all within 24 hours. Score: L5 x I4 = 20 (Critical)."
+    },
+    {
+      "id": "F4",
+      "name": "US Bond / Sovereign Yield Crisis",
+      "l": 5,
+      "i": 5,
+      "status": "critical",
+      "active": true,
+      "rationale": "ACTIVATED Assessment 11. CME ZNU6 (Sep 2026 10-year note futures): 109'010, down 15/32nds Jun 7. At modified duration approx 7.8, implies approximately 4.75% September yield — 25bp from the 5% bond vigilante threshold. CME FedWatch: 43% probability of December rate hike, 20%+ of 50bp hike. $9.7T US debt maturing 2026 requiring refinancing at elevated rates. UK gilts 5.2%. Strong May jobs report accelerated this path. US 30-yr peaked 5.19% (May 19). Score revised to L5 x I5 = 25 (Critical max, active)."
+    },
+    {
+      "id": "F9",
+      "name": "Stagflation Trap — Central Bank Paralysis",
+      "l": 5,
+      "i": 4,
+      "status": "critical",
+      "active": true,
+      "rationale": "Strong May jobs report locks Jun 18 Fed hold near-certain. ECB postponed cuts. BoE holding at 3.75% (markets pricing 4.5% by year-end). No major central bank can cut (inflation) or hike (recession risk) cleanly. Alphatica statistical analysis (547 trading days above $100 WTI, 2003-2026): at 75+ days, SPY 20-day forward return averages -3.6%, win rate 44%. At 120+ days (arrives approx October 2026), win rate 0%, 20-day return -13.4%. Confirmed across all market regimes."
+    },
+    {
+      "id": "F5",
+      "name": "Summer EU Gas Storage Crisis",
+      "l": 4,
+      "i": 5,
+      "status": "critical",
+      "active": false,
+      "rationale": "EU storage at ~30% — must reach 90%+ by October. If Hormuz not recovered by August, UK/Germany winter 2026-27 energy crisis near-certain. Jun 7 ceasefire collapse extends this timeline materially."
+    },
+    {
+      "id": "F6",
+      "name": "US Munitions Depletion / War Powers",
+      "l": 4,
+      "i": 5,
+      "status": "critical",
+      "active": false,
+      "rationale": "CSIS (May 27): Tomahawks to late 2030; THAAD to end 2029; Patriots to mid-2029. US has near-zero capacity for second sustained campaign. IRGC rebuilding while ceasefire notionally held. House War Powers resolution 215-208 (Jun 4) passed — mostly symbolic but politically narrows Trump's escalation window. Four Republicans defected."
+    },
+    {
+      "id": "F10",
+      "name": "Iran Oil Storage / Well Shut-in Risk — JPMorgan Physical Floor",
+      "l": 5,
+      "i": 4,
+      "status": "critical",
+      "active": false,
+      "rationale": "JPMorgan (Jun 7 chart): total visible oil inventories will reach operational stress level (7.6B barrels) by June 2026 and operational floor (6.8B barrels — minimum required to keep pipelines functioning and refineries operating) by September 2026. This is the physical floor at which the system begins to dysfunction. IEA: Gulf producers lost ~14mb/d since Feb 28. EIA Jun 3: -7.97mb draw, deficit vs 5-yr avg 15.4mb. Goldman Sachs: -255mb global draw since Feb 27. IEA head Bosoni: 'likelihood we reach critical or historical low levels just ahead of peak summer demand.' CFTC COT: net selling across energy sector — speculative de-risking creates setup for sharp reversal on any Sc3 confirmation."
+    },
+    {
+      "id": "F12",
+      "name": "GOP Hawks Blocking Deal",
+      "l": 4,
+      "i": 4,
+      "status": "high",
+      "active": true,
+      "rationale": "Senators Wicker, Graham, Cruz publicly opposed — deal 'too like Obama nuclear deal.' House War Powers resolution (215-208, Jun 4) passed. Four Republicans defected. Mostly symbolic but politically narrows Trump's escalation window and deal-making room."
+    },
+    {
+      "id": "F7",
+      "name": "Agricultural Yield Failures 2026-27",
+      "l": 4,
+      "i": 4,
+      "status": "high",
+      "active": true,
+      "rationale": "Planting reductions happening now — harvest impact deferred to autumn 2026 and 2027. Fertiliser shortage + diesel costs = deferred shock persisting beyond any ceasefire. CFTC COT (week to Jun 2): combined agriculture net long down 42% from record high — speculative liquidation confirms market pricing deferred shock."
+    },
+    {
+      "id": "F8",
+      "name": "Ukraine Strategic Erosion",
+      "l": 4,
+      "i": 4,
+      "status": "high",
+      "active": true,
+      "rationale": "Patriot stocks diverted to Gulf; Russia oil windfall $70+ vs $59 budget; $100B+ aid blocked; China providing Iran satellite intelligence and technical support. Jun 7 ceasefire collapse further concentrates Western attention on Gulf, reducing bandwidth for Ukraine."
+    },
+    {
+      "id": "F15",
+      "name": "Iran Domestic Collapse Risk",
+      "l": 3,
+      "i": 5,
+      "status": "high",
+      "active": false,
+      "rationale": "Grand Bazaar closed; internet blackout (88 days, partial restore only). Jun 7 missile strike on Israel was calibrated deterrent (ISW) — IRGC still operating with strategic discipline, reducing near-term collapse probability. Export collapse (209k bpd May) is accelerating IRGC fiscal deterioration. Watch: Council of Guard Generals internal signals, Grand Bazaar, internet blackout patterns."
+    },
+    {
+      "id": "F16",
+      "name": "European Rearmament Fiscal Squeeze (NATO 3.0)",
+      "l": 4,
+      "i": 4,
+      "status": "high",
+      "active": true,
+      "rationale": "2026 NDS formally ends US conventional primacy in Europe. 5,000 US troops withdrawn from Germany. NATO 5% GDP benchmark formalised. Germany (~1.9% GDP) and UK (~2.3%) must ramp while absorbing energy subsidies and inflation. Spending front-loaded; capability back-loaded 5-10 years. Fourth simultaneous fiscal pressure on German and UK sovereign yields."
+    },
+    {
+      "id": "F21",
+      "name": "Russia-Iran $25B Rosatom Nuclear MOU — Sirik Reactors (Jun 4)",
+      "l": 4,
+      "i": 4,
+      "status": "high",
+      "active": true,
+      "rationale": "$25B MOU for four Generation III reactors at Sirik, Hormozgan. Together with Bushehr units 2-3, pushes Iran toward 8,000MW. Timing is the strategic signal: signed as snapback sanctions bite and US talks stall. Any US deal removing enriched uranium while this parallel civilian buildout proceeds is two-track hedging, not rollback."
+    },
+    {
+      "id": "F19",
+      "name": "Iran Nuclear Capability — Unverified Claim (Jun 4)",
+      "l": 3,
+      "i": 5,
+      "status": "high",
+      "active": true,
+      "rationale": "Jun 4: Pezeshkian reportedly confirmed to Pakistani PM Sharif (on deliberately unsecured line) that Iran has a functional nuclear weapon. Sourcing: ex-CIA Larry Johnson, journalist Pepe Escobar — not Tier 1. IAEA Jun 4 report: 'cannot provide any information on the current size, composition or whereabouts' of 9,875kg stockpile. Trump's behavioural response (dramatically softened tone, willing to meet Supreme Leader) consistent with a president who learned his stated casus belli may be retroactively moot. AJ Jaff (Jun 7): Trump admitting Iran is 'strong and proud' with '47 years of independence' is the strategic premise of the war publicly cracking. Assessment holds at 'credible but unverified.' Confirmation would reduce Sc1 to near-zero."
+    },
+    {
+      "id": "F20",
+      "name": "US War Powers Constraint + SPR Exhaustion Mechanics",
+      "l": 4,
+      "i": 4,
+      "status": "high",
+      "active": true,
+      "rationale": "House War Powers resolution 215-208 (Jun 4) — first to clear chamber. Veto-certain but politically narrows Trump's window. SPR exchange: 172mb loan not sale, 20%+ premium repayment required 2026-29. Three consecutive record weekly draws (-8.6, -9.9, -8.0mb). August trajectory: 250mb, lowest since 1982. JPMorgan Sep operational floor (6.8B barrels) is the physical mechanism beneath the supply cliff."
+    }
+  ],
+  "changeLog": [
+    {
+      "date": "Jun 7",
+      "assessment": 11,
+      "factor": "Iran Fires 4-Wave Missile Salvo on Israel — First Since April Ceasefire; IRGC Voids Ceasefire; Deal No Longer Feasible",
+      "detail": "Iran fired multiple waves of ballistic missiles at Israel ('Operation True Promise 5') — first direct strike since April 8 ceasefire. All missiles intercepted; no casualties. IRGC via Fars News formally voided April 8 ceasefire: 'conditional on stopping fire on all fronts — US and Zionist regime violated commitments in Lebanon and at Hormuz.' ISW (Jun 7): strike was calibrated deterrent targeting Ramat David Airbase — not maximum escalation. Iran declared deal 'no longer feasible at this stage' at 4:55pm Jun 7. Causal chain: Hezbollah rockets → Israeli Beirut airstrike (Netanyahu defying Trump TWICE) → Iranian 4-wave response. IDF: 'grave mistake, military plans being prepared.' Trump urged Netanyahu not to retaliate.",
+      "dir": "worse",
+      "scope": "All sections",
+      "sig": "critical"
+    },
+    {
+      "date": "Jun 7",
+      "assessment": 11,
+      "factor": "Assessment 11 — June 7 Full Update: Sc3 62%, F4 Activated, F22 Added, Probability Cone Panel Added",
+      "detail": "Largest single probability movement in briefing history: Sc3 48% to 62% (IRGC ceasefire void + deal infeasible + 4-wave Israel strike + Netanyahu Oct 27 electoral trap). Sc1 7% to 5%. Sc2 33% to 22%. Sc4 12% to 11%. All sum to 100%. F4 (Bond Market Stress) activated — ZNU6 implies 4.75% Sep yield, 43% Dec hike. F22 (Trump-Netanyahu Principal-Agent Trap, Critical, L5xI4=20) added. Probability Cone Panel added to Scenarios tab — interactive fan chart with seven risk filter chips and lightbox factor detail.",
+      "dir": "worse",
+      "scope": "All sections",
+      "sig": "critical"
+    },
+    {
+      "date": "Jun 7",
+      "assessment": 11,
+      "factor": "F4 Bond Market Stress Activated — ZNU6 Implies 4.75% Sep Yield",
+      "detail": "CME ZNU6 (Sep 2026 10-year note futures): 109'010, down 15/32nds Jun 7. At MD approx 7.8, implies ~4.75% September yield — 25bp from the 5% bond vigilante threshold. CME FedWatch: 43% Dec hike probability, 20%+ for 50bp. Strong May jobs report (above consensus) locks Jun 18 Fed hold near-certain. F4 score revised to L5xI5=25 (Critical max). F4 now active.",
+      "dir": "worse",
+      "scope": "Risk Register + Overview",
+      "sig": "critical"
+    },
+    {
+      "date": "Jun 7",
+      "assessment": 11,
+      "factor": "All Four Deal Gaps Downgraded — Hormuz and Frozen Funds Both Now No",
+      "detail": "Hormuz: IRGC Jun 7 void declaration conditions toll system on Lebanon — downgraded from Elevated to No. Frozen Funds: US Treasury proposal to use Iranian frozen assets to compensate Gulf allies is the opposite of Iran's demand ($12B upfront to Iran). Iran Deputy FM Gharibabadi: Gulf states 'not in position to claim damages.' Gap widened, not narrowed. Lebanon: structurally irresolvable — Hezbollah excluded from negotiations. Uranium: Russia-Iran $25B Sirik MOU means nuclear buildout proceeding on parallel track regardless of any deal.",
+      "dir": "worse",
+      "scope": "Scenarios",
+      "sig": "critical"
+    },
+    {
+      "date": "Jun 7",
+      "assessment": 11,
+      "factor": "Toll System Revenue Formalising — $1.5-2M/vessel, Crypto/Barter, But Now Conditional on Lebanon",
+      "detail": "ISW (Jun 7): Iranian parliamentarian confirmed ships paying average $1.5-2M per vessel in bartered goods and cryptocurrency. Iran's Environment Ministry building 'maritime and environmental service fees' framework — permanent sovereignty infrastructure. BUT: IRGC Jun 7 ceasefire void explicitly conditions the toll system on Lebanon — making it a conditional instrument, not a stable revenue stream. Sc2 equilibrium assumption destroyed.",
+      "dir": "worse",
+      "scope": "Scenarios + Themes",
+      "sig": "high"
+    },
+    {
+      "date": "Jun 7",
+      "assessment": 11,
+      "factor": "JPMorgan Operational Floor (Sep 2026) Added to Energy Thematic",
+      "detail": "JPMorgan Commodities Research: total visible oil inventories will reach operational stress level (7.6B barrels) by June 2026 and operational floor (6.8B barrels — minimum required to keep pipelines functioning and refineries operating) by September 2026. Below 6.8B the system begins to dysfunction, not just get expensive. IEA extending Jun 17 OMR forecast to 2027 — agency itself signalling multi-year disruption. EIA Jun 9 STEO imminent; May assumption of late-May reopening confirmed failed.",
+      "dir": "worse",
+      "scope": "Themes + Overview",
+      "sig": "critical"
+    },
+    {
+      "date": "Jun 5",
+      "assessment": 10,
+      "factor": "Assessment 10 — June 5 Full Update: Scenarios + All Country Cards",
+      "detail": "Sc1 8% to 7%; Sc2 31% to 33%; Sc3 49% to 48%; Sc4 12% to 12%. All 8 country cards substantially revised: UK political crisis; Australia 90% fuel import dependency; South Africa SARB 7.00% + IEA non-compliant stocks; Colombia net gas importer + Belt and Road; Canada PM Carney + LNG Canada; USA ISM 71.3 + Quinnipiac; Germany Rhine River + 4.2% deficit; Ukraine merged conflict + EU gas 10x surge.",
+      "dir": "watch",
+      "scope": "All sections",
+      "sig": "critical"
+    },
+    {
+      "date": "Jun 5",
+      "assessment": 10,
+      "factor": "Mina al Fahal Drone Attack — Last Hormuz Bypass Route Halted",
+      "detail": "Drone attack halted crude loading at Oman's Mina al Fahal terminal. Last significant Hormuz bypass route. Located in Gulf of Oman — extending conflict geography. Oman is also the sole viable diplomatic mediation channel.",
+      "dir": "worse",
+      "scope": "Scenarios + Risk Register",
+      "sig": "critical"
+    },
+    {
+      "date": "Jun 5",
+      "assessment": 10,
+      "factor": "Iran Oil Exports Collapse 84% — IRGC Fiscal Pressure Accelerating",
+      "detail": "Vortexa: Iran exported 209,000 bpd in May — down 84% from April, 87% below 12-month avg. Lowest since 2019-20 max pressure. Floating storage falling: 190mb to 147mb. China appetite cooling.",
+      "dir": "worse",
+      "scope": "Scenarios + Overview",
+      "sig": "critical"
+    },
+    {
+      "date": "Jun 5",
+      "assessment": 10,
+      "factor": "Russia-Iran $25B Rosatom Nuclear MOU — Sirik Reactors; F21 Added",
+      "detail": "Four Gen III reactors at Sirik, Hormozgan. Pushes Iran toward 8,000MW. Signed as snapback sanctions bite. F21 added. Any deal removing enriched uranium while this buildout proceeds is two-track hedging, not rollback.",
+      "dir": "worse",
+      "scope": "Scenarios + Risk Register",
+      "sig": "high"
+    },
+    {
+      "date": "Jun 5",
+      "assessment": 10,
+      "factor": "UK/France 15-Nation Mine-Clearing Mission Finalized — Sc2 Operational Signal (Now Suspended)",
+      "detail": "Bloomberg Jun 4: 15-nation Hormuz mine-clearing mission. RFA Lyme Bay deployed. Most concrete Sc2 operational preparation in briefing history. Effectively suspended following Jun 7 ceasefire collapse.",
+      "dir": "better",
+      "scope": "Scenarios + Overview",
+      "sig": "high"
+    },
+    {
+      "date": "Jun 4",
+      "assessment": 9,
+      "factor": "Iran Nuclear Capability Claim — Credible Unverified; F19 Added",
+      "detail": "Pezeshkian-Sharif intercepted call: Iran claimed functional nuclear weapon. Not confirmed by US IC or IAEA. IAEA Jun 4: cannot verify current state of 9,875kg stockpile. Trump's behavioural response consistent with nuclear deterrent reality. F19 added (L3xI5=15, High, active).",
+      "dir": "worse",
+      "scope": "All sections",
+      "sig": "critical"
+    },
+    {
+      "date": "Jun 4",
+      "assessment": 9,
+      "factor": "Scenario Probabilities Revised: Sc3 49%, Sc1 8%",
+      "detail": "Sc1 10% to 8%; Sc2 33% to 31%; Sc3 46% to 49%; Sc4 11% to 12%.",
+      "dir": "worse",
+      "scope": "Scenarios",
+      "sig": "critical"
+    },
+    {
+      "date": "Jun 4",
+      "assessment": 9,
+      "factor": "Iran 'Juntocracy': IRGC Power Consolidation Confirmed Structural",
+      "detail": "Dagher (Atlantic Council Jun 4): 'Council of Guard Generals' now makes war and strategic decisions. Iraq militia network fracturing. IRGC less willing to accept deal that erodes regional network.",
+      "dir": "worse",
+      "scope": "Risk Register + Scenarios",
+      "sig": "critical"
+    },
+    {
+      "date": "Jun 3",
+      "assessment": 8,
+      "factor": "Assessment 8 — Structural Review + Inventory Confirmation",
+      "detail": "Tabs 7 to 5. F10 revised L4 to 5. New Futures vs Spot callout: $29/bbl Brent backwardation. Country impact figures labelled directional estimates.",
+      "dir": "watch",
+      "scope": "All sections",
+      "sig": "watch"
+    },
+    {
+      "date": "Jun 2",
+      "assessment": 7,
+      "factor": "Scenario Probabilities: Sc3 Base Case at 46%",
+      "detail": "Sc1 22% to 10%; Sc2 42% to 33%; Sc3 28% to 46%; Sc4 8% to 11%.",
+      "dir": "worse",
+      "scope": "Scenarios",
+      "sig": "critical"
+    },
+    {
+      "date": "May 30",
+      "assessment": 6,
+      "factor": "Sc3 Reconciled: 28%; Canada Technical Recession; Colombia Rate Hike",
+      "detail": "Sc3=28% from Assessment 5 optimism. Canada Q1 GDP -0.1%. Banrep 100bp hike to 11.25%.",
+      "dir": "watch",
+      "scope": "Scenarios + Countries",
+      "sig": "critical"
+    },
+    {
+      "date": "May 30",
+      "assessment": 5,
+      "factor": "60-Day MOU: Sc2 Architecture; IRGC Contradicts MOU",
+      "detail": "MOU defers all four deal gaps. IRGC seized vessels while MOU negotiated in Muscat. Goldman Sachs: inventories to all-time lows.",
+      "dir": "watch",
+      "scope": "All sections",
+      "sig": "critical"
+    },
+    {
+      "date": "May 28",
+      "assessment": 4,
+      "factor": "Australia Risk Elevated to High; Refined Products Layer Added",
+      "detail": "Diesel crisis confirmed: 33-day reserves. IEA: diesel/jet fuel more vulnerable than crude. Indirect exposure chain identified.",
+      "dir": "worse",
+      "scope": "Countries + Themes",
+      "sig": "critical"
+    },
+    {
+      "date": "May 28",
+      "assessment": 3,
+      "factor": "IRGC Strikes Kuwait US Base; Sc3 39% to 43%",
+      "detail": "Ali Al Salem Air Base hit — first Gulf state US facility struck during ceasefire. Geographic widening confirmed.",
+      "dir": "worse",
+      "scope": "Sc + Countries",
+      "sig": "critical"
+    },
+    {
+      "date": "May 13",
+      "assessment": 1,
+      "factor": "Original Assessment Published",
+      "detail": "Day 14: Brent ~$112, deal probability ~20%, ceasefire fragile but holding. 50+ searches, 100+ sources cited.",
+      "dir": "watch",
+      "scope": "All sections",
+      "sig": "watch"
+    }
+  ],
+  "conclusions": [
+    {
+      "type": "critical",
+      "text": "The principal-agent trap is now kinetically active. Trump needs the war to end before November 3. Netanyahu needs it to continue until October 27. Two elections seven days apart, opposite outcomes required. June 7: Netanyahu struck Beirut defying Trump's direct request twice. Trump told the FT 'I call all the shots.' Netanyahu told Trump hours later he intends to strike Iran anyway. Iran fired four waves at Israel and declared the deal 'no longer feasible' — all within 24 hours. Door Three (Iran controls the timing) is opening in real time."
+    },
+    {
+      "type": "critical",
+      "text": "The IRGC formally voided the April 8 ceasefire on June 7 via Fars News: 'Our acceptance of the ceasefire was conditional on stopping fire on all fronts — the US and Zionist regime violated commitments in Lebanon and at Hormuz.' Doctrinal, not tactical. The April 8 framework is formally voided. Notably, ISW's analysis of the actual missile strike shows strategic discipline — 10 missiles at one specific airbase, all intercepted, no casualties. Strategic void declared; tactical restraint maintained. These are not contradictory — they are the IRGC signalling without crossing the resumption threshold."
+    },
+    {
+      "type": "critical",
+      "text": "All four deal gaps are now classified No or worse. Lebanon is structurally irresolvable: the June 2–3 ceasefire was signed by parties who cannot deliver it — Hezbollah excluded, formally rejected June 4, and the IDF's Dahiya Doctrine has no off-switch. Hormuz control is downgraded: the IRGC void declaration conditions the toll system on Lebanon, destroying the Sc2 equilibrium. Frozen Funds is downgraded: the US proposal to redirect Iranian assets to compensate Gulf allies is the direct opposite of Iran's demand. Uranium: Russia-Iran $25B Sirik MOU means Iran's nuclear infrastructure expands regardless of any deal."
+    },
+    {
+      "type": "critical",
+      "text": "The JPMorgan inventory operational floor is the physical constraint beneath all scenario analysis. Inventories have already reached the operational stress level (7.6B barrels) in June. The operational floor — 6.8B barrels, minimum required to keep pipelines and refineries functioning — is projected for September 2026. Below this the market becomes physically dysfunctional, not just expensive. The IEA is extending its OMR forecast horizon to 2027 — the agency itself classifying this as a multi-year disruption. EIA's June 9 STEO will formally encode the failed reopening assumption; their May model showed a one-month delay adds $20/bbl. We are now multiple months delayed."
+    },
+    {
+      "type": "critical",
+      "text": "The uranium negotiation is framed around the wrong number. The 440.9kg of 60% HEU is 4.5% of Iran's total 9,875kg stockpile. Converting the entire 60% pile to bomb-grade requires only approximately 1% of the total enrichment work already committed. Any deal removing only the headline pile while leaving ~9,400kg in place is not arms control — it is optics. The meta-gap beneath all four deal gaps: Iran has no institutional mechanism to trust any bilateral US agreement after the 2018 JCPOA withdrawal eliminated that mechanism permanently."
+    },
+    {
+      "type": "normal",
+      "text": "F4 (Bond Market Stress) is now activated. ZNU6 implies ~4.75% Sep 10-year yield — 25bp from the 5% bond vigilante threshold. CME FedWatch: 43% Dec hike probability. Alphatica analysis (547 trading days above $100 WTI, 2003–2026): at ≥75 days, 20-day SPY forward returns average −3.6%, win rate 44%. At ≥120 days (arriving ~October 2026), win rate 0%, returns −13.4%. The equity market damage from sustained $100+ oil is statistically confirmed across all regimes."
+    },
+    {
+      "type": "normal",
+      "text": "Germany and the UK face four simultaneous fiscal pressures: energy subsidies, inflation transfers, sovereign yield stress, and NATO 3.0 rearmament. The UK/France 15-nation mine-clearing mission — the most concrete Sc2 operational signal in this briefing — has been suspended by the June 7 escalation. Under Sc3 with the ceasefire framework formally voided, fiscal consolidation in both countries is impossible without external support mechanisms that do not currently exist."
+    },
+    {
+      "type": "positive",
+      "text": "Two partial positives. First, the IRGC's June 7 strike was calibrated — ISW confirms a targeted deterrent (Ramat David, 10 missiles, all intercepted, no casualties), not maximum escalation. The IRGC has not crossed the full-scale resumption threshold. Second, Colombia's June 21 runoff: de la Espriella (right) at 43.7% would restart oil investment and provide medium-term fiscal relief — the single most positive country-level development on the near-term horizon."
+    }
+  ]
+}
