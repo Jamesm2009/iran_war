@@ -789,26 +789,26 @@
     }
   ],
   "maritime": {
-    "dataDate": "6 July 2026",
+    "dataDate": "7 July 2026",
     "source": "Windward AI / Vortexa",
-    "hormuzTransits": 45,
-    "hormuzInbound": 18,
-    "hormuzOutbound": 27,
-    "darkVessels": 8,
-    "corridorNorth": 37,
-    "corridorSouth": 8,
+    "hormuzTransits": 51,
+    "hormuzInbound": 16,
+    "hormuzOutbound": 35,
+    "darkVessels": 10,
+    "corridorNorth": 33,
+    "corridorSouth": 16,
     "gulfFleet": 861,
     "highRisk": 132,
     "moderate": 197,
     "lowRisk": 546,
     "darkEvents": 112,
     "babElMandeb": 32,
-    "babInbound": 14,
-    "babOutbound": 18,
-    "suezInbound": 18,
-    "suezOutbound": 17,
+    "babInbound": 19,
+    "babOutbound": 19,
+    "suezInbound": 22,
+    "suezOutbound": 20,
     "cargoValueM": 62,
     "topFlags": "Iran (155), Panama (105), Comoros (96)",
-    "gpsJammed": 75
+    "gpsJammed": 88
   }
 }
