@@ -787,5 +787,28 @@
       "type": "positive",
       "text": "The MOU framework survives its first stress test — barely. Geneva talks remain possible: Witkoff en route, Araghchi tentatively planning to travel. Kpler recorded 25 Hormuz crossings Jun 18, highest since April. US working with Qatar on $6B frozen funds access for humanitarian spending. The framework is bending but has not broken. Extension clause remains the most likely outcome at the 60-day mark."
     }
-  ]
+  ],
+  "maritime": {
+    "dataDate": "6 July 2026",
+    "source": "Windward AI / Vortexa",
+    "hormuzTransits": 45,
+    "hormuzInbound": 18,
+    "hormuzOutbound": 27,
+    "darkVessels": 8,
+    "corridorNorth": 37,
+    "corridorSouth": 8,
+    "gulfFleet": 861,
+    "highRisk": 132,
+    "moderate": 197,
+    "lowRisk": 546,
+    "darkEvents": 112,
+    "babElMandeb": 32,
+    "babInbound": 14,
+    "babOutbound": 18,
+    "suezInbound": 18,
+    "suezOutbound": 17,
+    "cargoValueM": 62,
+    "topFlags": "Iran (155), Panama (105), Comoros (96)",
+    "gpsJammed": 75
+  }
 }
