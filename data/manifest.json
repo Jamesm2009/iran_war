@@ -1,6 +1,7 @@
 {
-  "latest": "a18",
+  "latest": "a19",
   "assessments": [
+    {"id":"a19","number":19,"day":133,"date":"July 9, 2026","file":"a19.json","headline":"Active combat Day 3. Dual supply shock (Iran + Russia). SPR chart added. Sc4 at 26%."},
     {"id":"a18","number":18,"day":131,"date":"July 8, 2026","file":"a18.json","headline":"MOU declared dead. Trump: It is over. US struck 80+ targets. Iran retaliates against 85 US sites."},
     {"id":"a17","number":17,"day":129,"date":"July 6, 2026","file":"a17.json","headline":"Sc4 largest single-cycle move. Market mispricing at historic extremes."},
     {"id":"a16","number":16,"day":118,"date":"June 25, 2026","file":"a16.json","headline":"MOU implementation stalling. Hormuz transit fragile."},
