@@ -1,0 +1,834 @@
+{
+  "meta": {
+    "assessment": 20,
+    "day": 136,
+    "date": "July 12, 2026"
+  },
+  "metrics": [
+    {
+      "label": "IRGC Declares Hormuz Closed",
+      "value": "300+ Targets, 6 Nations",
+      "sub": "IRGC formally declared Strait of Hormuz \u2018closed\u2019 Jul 11. US struck 300+ targets across 3 nights (Jul 7\u20139) plus continued strikes Jul 11\u201312 hitting Ahvaz Airport and southern coastline. Iran retaliated against 6 countries simultaneously: Qatar, Bahrain, UAE, Kuwait, Jordan, Oman \u2014 including Duqm Port (US naval logistics base) 24 hours after hosting Araghchi. Iran parliament advancing 14-article Hormuz Management Bill to codify control legislatively. Mojtaba Khamenei: \u2018The lever of closing the Strait of Hormuz must certainly continue to be used.\u2019",
+      "color": "red"
+    },
+    {
+      "label": "Diesel Crack Spread at Record",
+      "value": "$72.90/bbl (3.6\u00d7 Norm)",
+      "sub": "U.S. diesel crack spread hit $72.90/bbl on Jul 9 \u2014 series high, 3.6\u00d7 the seasonal norm of ~$20. Gasoline at $125/bbl equivalent ($50 spread). Diesel at $140/bbl equivalent ($65 spread). Commodity Context: \u2018Too much crude, not enough refined products.\u2019 Russia diesel ban confirmed. Ukraine destroyed ~90 shadow fleet vessels in one week, halted Don-Azov Canal shipping. Russian refining one-third offline. US gasoline $3.80/gal, diesel $4.80/gal. Gas oil (diesel) spec longs +20%.",
+      "color": "red"
+    },
+    {
+      "label": "Mediators Struck \u2014 No Brokers Left",
+      "value": "Gulf State Fracture",
+      "sub": "Iran struck all mediator states including Oman\u2019s Duqm Port 24h after hosting FM Araghchi \u2014 mediator immunity revoked. WSJ: mediators admitted Paragraph 5 ambiguity was deliberate. Gulf states fracturing: UAE/Bahrain/Kuwait want stronger GCC action plus international naval arrangement. Oman/Qatar prefer continued diplomacy. Sen. Graham and former Qatari Emir both died. AJ Geo Analysis: \u2018There are no mediators in this war anymore. Only participants who have not been invoiced yet.\u2019",
+      "color": "red"
+    },
+    {
+      "label": "US Strikes Not Changing Calculus",
+      "value": "ISW: No Visible Effect",
+      "sub": "ISW (Jul 8\u201311, four special reports): \u2018The present pattern of US strikes does not appear to be changing Iran\u2019s calculus.\u2019 Iran restored >50% of pre-war missile/launcher stockpile during ceasefire. Tripled drone production capacity. Replaced fixed radars with mobile ones. USS Ford entered Norfolk for PIA Jul 7 \u2014 removed from deployable carrier force during active escalation.",
+      "color": "red"
+    },
+    {
+      "label": "Mojtaba Pledges Revenge",
+      "value": "Invisible Supreme Leader",
+      "sub": "Ali Khamenei buried at Imam Reza shrine, Mashhad. Mojtaba missed all 6 funeral ceremonies \u2014 NYT: barred over assassination fears. Reuters: disfigured face, wounded limbs. Jul 11: pledged revenge for father\u2019s killing, stating it does not depend on his personal survival. No image/video/voice ever issued. Jul 14 memorial ceremony upcoming.",
+      "color": "red"
+    },
+    {
+      "label": "SPR Draining + Bonds Above 5%",
+      "value": "30Y at 5.07%",
+      "sub": "Oil +3.25% on Sunday open (Jul 12). 30Y yield at 5.07% \u2014 above bond vigilante threshold. 10Y at 4.59%. Long-end selling = market pricing stagflation, not flight-to-safety. SPR at ~313mb drawing 6.2mb/wk. ~10 weeks to DOE legal minimum. Crude spec net short despite rally (bullish positioning). CENTCOM claims 800 vessels and 380M barrels facilitated since May.",
+      "color": "red"
+    }
+  ],
+  "priceMoves": [
+    {
+      "label": "WTI Crude",
+      "prewar": "$67",
+      "current": "~$78",
+      "change": "+16%"
+    },
+    {
+      "label": "Brent Crude",
+      "prewar": "$69",
+      "current": "~$82",
+      "change": "+19%"
+    },
+    {
+      "label": "US 10yr Yield",
+      "prewar": "4.2%",
+      "current": "~4.59%",
+      "change": "+39bp"
+    },
+    {
+      "label": "US 30yr Yield",
+      "prewar": "4.5%",
+      "current": "~5.07%",
+      "change": "+57bp"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": 1,
+      "tag": "Scenario 1",
+      "name": "Resolved by Mid-2026",
+      "css": "sc-falling",
+      "prob": 2,
+      "was": 2,
+      "trend": "\u2192",
+      "horizons": {
+        "current": "No diplomatic framework exists. Trump declared MOU \u2018over\u2019 at NATO summit Jul 8. IRGC formally declared Hormuz closed Jul 11. Iran parliament advancing 14-article Hormuz Management Bill to codify control legislatively. WSJ confirmed Paragraph 5 ambiguity was deliberate \u2014 mediators admitted both sides knew they read it differently but signed anyway. All four deal gaps wider than at any point since February 28. Satellite imagery confirms continued fortification at nuclear sites including Parchin Taleghan 2.",
+        "near": "Sc1 requires an entirely new diplomatic architecture built from scratch. No interlocutor has both IRGC backing and Washington credibility. Mojtaba incapacitated and invisible. Gulf mediator states struck by IRGC, collapsing remaining back-channels. China and Russia have no incentive to broker. US midterms Nov 3 create a theoretical window but the punishment framing locks Trump into an escalation posture.",
+        "extended": "Historical precedent suggests 12\u201318 months from zero to framework, placing earliest realistic Sc1 in H2 2027. Physical constraints (mine-clearing 6\u20138 months, Tomahawk replenishment to 2030, THAAD/Patriot to 2029) make military resolution impossible and diplomatic resolution requires regime-level shift."
+      },
+      "brent": "$65\u201380/bbl",
+      "inflation": "+0.5pp",
+      "gdp": "Minimal",
+      "trigger": "Requires regime-level shift \u2014 new Iranian interlocutor with IRGC mandate plus US willingness to restart from zero. Currently impossible.",
+      "toMove": "Watch: Any Supreme Leader-level signal; IAEA channel restoration; post-midterm US posture shift.",
+      "countries": [
+        "\ud83c\udde6\ud83c\uddfa Australia",
+        "\ud83c\uddfa\ud83c\uddf8 USA",
+        "\ud83c\udde8\ud83c\udde6 Canada"
+      ]
+    },
+    {
+      "id": 2,
+      "tag": "Scenario 2",
+      "name": "Managed Stalemate",
+      "css": "sc-current",
+      "prob": 4,
+      "was": 7,
+      "trend": "\u25bc",
+      "horizons": {
+        "current": "Sc2 at lowest probability in briefing history. The managed stalemate required functioning mediators \u2014 Iran has now struck every mediator state. Duqm Port attacked 24 hours after hosting Araghchi, revoking Oman\u2019s mediator immunity. WSJ reports the MOU\u2019s Paragraph 5 ambiguity was deliberate and unresolvable. Iran\u2019s \u2018errant faction\u2019 gambit (blaming hardliners for shipping attacks) is theater: ISW assesses the IRGC chain of command authorized the attacks, not a rogue element.",
+        "near": "For Sc2 to re-emerge, a new interlocutor is needed with both IRGC backing and Washington credibility. No such figure visible. Gulf states fracturing: UAE/Bahrain/Kuwait want international naval action while Oman/Qatar prefer diplomacy. ISW: Iran conditions nuclear talks on US recognition of Hormuz control; US demands enriched material surrender. No overlap exists.",
+        "extended": "Sc2 only becomes real with a new Iranian interlocutor. Under the current regime \u2014 Mojtaba incapacitated, IRGC legislating Hormuz control via parliamentary bill, mediator states struck \u2014 Sc2 naturally degrades toward Sc3. Infrastructure bypass construction erodes Hormuz leverage over 3\u20135 years."
+      },
+      "brent": "$70\u201390/bbl",
+      "inflation": "+1.0pp",
+      "gdp": "\u20130.3pp",
+      "trigger": "New ceasefire framework negotiated under active combat. Requires third-party broker with credibility on both sides. None visible after mediator strikes.",
+      "toMove": "Watch: China mediation signal; Araghchi-Oman outcome; mutual exhaustion indicators; any IRGC-backed diplomatic channel.",
+      "countries": [
+        "\ud83c\udde9\ud83c\uddea Germany",
+        "\ud83c\uddec\ud83c\udde7 UK",
+        "\ud83c\uddff\ud83c\udde6 S.Africa",
+        "\ud83c\uddfa\ud83c\udde6 Ukraine"
+      ]
+    },
+    {
+      "id": 3,
+      "tag": "Scenario 3",
+      "name": "Prolonged \u2014 Re-Escalation Risk",
+      "css": "sc-rising",
+      "prob": 63,
+      "was": 65,
+      "trend": "\u25bc",
+      "horizons": {
+        "current": "DOMINANT BY WIDE MARGIN. US struck 300+ targets across 3 nights plus continued strikes Jul 11\u201312. Iran retaliated against 6 countries simultaneously. IRGC formally declared Hormuz closed. ISW: strikes not changing Iran\u2019s calculus. Diesel crack spread at record $72.90/bbl. Russian refining one-third offline. Ukraine destroying shadow fleet at industrial scale. Dual supply shock intensifying with no precedent. Strike cycles institutionalised as operational pattern.",
+        "near": "Sc3 conditions actively maturing into Sc4. Three acceleration vectors: (1) IRGC parliamentary codification of Hormuz control via 14-article bill \u2014 legislative lock-in. (2) Mojtaba\u2019s doctrinal commitment to closure as leverage \u2014 regime lock-in. (3) Mediator states struck, collapsing diplomatic architecture \u2014 structural lock-in. US Saturday deadline to Iran to publicly renounce Hormuz attacks. Syria-Iraq-US Mediterranean pipeline deal signals bypass acceleration.",
+        "extended": "Q1\u2013Q3 2027 convergence zone: DPA munitions recovery, Israeli election resolved, US midterms past. Infrastructure Half-Life thesis: every month of bypass construction reduces Iran\u2019s future Hormuz leverage, incentivising near-term maximalism. The war has moved inside the refineries \u2014 two-front squeeze on global refined products with no resolution mechanism."
+      },
+      "brent": "$100\u2013150/bbl",
+      "inflation": "+3.0pp+",
+      "gdp": "\u20131.2pp global",
+      "trigger": "Sustained escalation cycle with no off-ramp mechanism. US Saturday deadline, Israeli operational timeline, and Iran closure enforcement are near-term triggers.",
+      "toMove": "Watch: Iran response to Saturday deadline; Strait closure enforcement pattern; Asian market repricing; yen carry trade stability; Syria-Iraq pipeline deal.",
+      "countries": [
+        "\ud83c\udde9\ud83c\uddea Germany",
+        "\ud83c\uddec\ud83c\udde7 UK",
+        "\ud83c\uddff\ud83c\udde6 S.Africa",
+        "\ud83c\uddfa\ud83c\udde6 Ukraine",
+        "\ud83c\udde8\ud83c\uddf4 Colombia"
+      ]
+    },
+    {
+      "id": 4,
+      "tag": "Scenario 4",
+      "name": "Regime Change / Collapse",
+      "css": "sc-new",
+      "prob": 31,
+      "was": 26,
+      "trend": "\u25b2",
+      "horizons": {
+        "current": "Largest Sc4 probability in briefing history at 31%. Three converging institutional signals: (1) IRGC formally declared Hormuz closed \u2014 operational commitment. (2) Iran parliament advancing 14-article Hormuz Management Bill \u2014 legislative codification. (3) Mojtaba doctrinally committed: \u2018The lever of closing the Strait of Hormuz must certainly continue to be used\u2019 \u2014 first statement as supreme leader anchoring regime to closure. These are not reversible signals \u2014 they represent regime lock-in.",
+        "near": "Sc3-to-Sc4 boundary compressing. Four conversion vectors: (1) Israeli solo action tied to Oct 27 election. (2) Mass-casualty event triggering 82nd Airborne activation. (3) Internal Iranian collapse from IRGC factional split accelerated by OFAC revocation and 88.6% inflation. (4) Gulf state military intervention \u2014 UAE/Bahrain/Kuwait demanding international naval arrangement. Parchin Taleghan 2 being hardened \u2014 nuclear doctrine change rhetoric from multiple parliamentarians.",
+        "extended": "Q3 2027 convergence: DPA munitions ready, elections resolved. Five structural US imperatives require resolution no MOU could deliver. If Sc4 materializes it arrives as acceleration from Sc3. Post-regime scenarios range from Libya-style fragmentation to IRGC survival under new political cover."
+      },
+      "brent": "Chaos spike then large drop",
+      "inflation": "Highly uncertain",
+      "gdp": "Large upside possible",
+      "trigger": "Institutional lock-in now active: legislative codification, doctrinal commitment, operational enforcement. Cumulative pressure from Sc3 conditions compounding rather than single trigger.",
+      "toMove": "Watch: Mojtaba Jul 14 memorial; IRGC factional dynamics; Israeli operational signals; Gulf state military coordination; nuclear doctrine shift.",
+      "countries": [
+        "\ud83c\uddfa\ud83c\udde6 Ukraine",
+        "\ud83c\udde9\ud83c\uddea Germany",
+        "\ud83c\uddec\ud83c\udde7 UK"
+      ]
+    }
+  ],
+  "filterMods": {
+    "f1": [
+      -1,
+      -3,
+      4,
+      0
+    ],
+    "f2": [
+      -2,
+      -3,
+      5,
+      0
+    ],
+    "f3": [
+      -2,
+      -2,
+      4,
+      0
+    ],
+    "f4": [
+      1,
+      -3,
+      2,
+      0
+    ],
+    "f5": [
+      1,
+      -2,
+      3,
+      -2
+    ],
+    "f6": [
+      -2,
+      3,
+      2,
+      -3
+    ],
+    "f7": [
+      -1,
+      -2,
+      3,
+      0
+    ],
+    "f8": [
+      -3,
+      0,
+      3,
+      0
+    ],
+    "f9": [
+      -2,
+      -2,
+      3,
+      1
+    ],
+    "f10": [
+      0,
+      -1,
+      2,
+      -1
+    ]
+  },
+  "filters": [
+    {
+      "id": "f1",
+      "label": "Direct Kinetic Exchange Active",
+      "impact": "Sc1 -2pp, Sc3 +6pp. US struck 300+ targets across 3 nights plus continued Jul 11-12. Iran retaliated against 6 countries simultaneously including mediator states. IRGC formally declared Hormuz closed. Anti-ship cruise missiles fired from Sirik Jul 12. Strike cycles institutionalised."
+    },
+    {
+      "id": "f2",
+      "label": "IRGC / Civilian Split",
+      "impact": "Sc1 -2pp, Sc3 +5pp. Iran\u2019s \u2018errant faction\u2019 gambit: negotiators blamed hardliners for shipping attacks to preserve talks. ISW: IRGC chain of command authorized attacks, not rogue element. The gambit lets regime sustain talks while IRGC enforces Strait control. Civilian and military tracks operating in parallel, not opposition."
+    },
+    {
+      "id": "f3",
+      "label": "Netanyahu Undermining",
+      "impact": "Sc1 -2pp, Sc3 +4pp. Trump-Netanyahu Principal-Agent Trap remains active. Lebanon Rome talks Jul 15-16 confirmed but Hezbollah rejecting framework, threatening civil war over disarmament. IDF preparing long stay in southern Lebanon. Netanyahu\u2019s Oct 27 election remains structural derailer."
+    },
+    {
+      "id": "f4",
+      "label": "Bond Market Stress",
+      "impact": "Sc2 -3pp. 30Y at 5.07% \u2014 above bond vigilante threshold. 10Y at 4.59%. Oil +3.25% Sunday gap open. Long-end selling = stagflation pricing. Japan-Treasury feedback loop active. $9.7T US debt refinancing. Carry trade at most extreme since 2007."
+    },
+    {
+      "id": "f5",
+      "label": "EU Gas Storage Crisis",
+      "impact": "Sc2 -2pp, Sc3 +3pp. EU storage ~30%, must reach 90% by October. Hormuz closure and Russian supply constraints both worsening. Europe diesel/jet imports plummeting per Vortexa."
+    },
+    {
+      "id": "f6",
+      "label": "US Munitions Depleted + Carrier Gap",
+      "impact": "Sc2 +3pp. Tomahawks to 2030; THAAD/Patriots to 2029. USS Ford entered Norfolk for PIA Jul 7 \u2014 removed from deployable force. Lincoln only carrier positioned near Hormuz. ISW: strikes not degrading Iran\u2019s ability to threaten shipping. Confirms IRGC optimal strategy: wait."
+    },
+    {
+      "id": "f7",
+      "label": "Stagflation Trap (medium-term)",
+      "impact": "Sc1 -1pp, Sc3 +3pp. Diesel crack at $72.90/bbl (3.6\u00d7 norm). Gasoline $3.80/gal, diesel $4.80/gal. Fed hike cycle expected: BofA 3 hikes. Iran oil revenue elevated. No clean policy exit for any major central bank."
+    },
+    {
+      "id": "f8",
+      "label": "MOU Dead \u2014 No Diplomatic Framework",
+      "impact": "Sc1 -3pp, Sc3 +3pp. WSJ confirmed Paragraph 5 ambiguity was deliberate \u2014 mediators knew both sides read it differently but signed anyway. MOU structurally unresolvable by design, not by accident. No replacement framework exists. All four deal gaps widening."
+    },
+    {
+      "id": "f9",
+      "label": "Hormuz Structural Renegotiation",
+      "impact": "Sc1 -1pp, Sc2 +2pp, Sc3 -1pp. IRGC formally declared Hormuz closed. 14-article Hormuz Management Bill in parliament. Mojtaba committed to closure as leverage. Only Iran-designated lanes functional. UNCLOS erosion now being codified legislatively."
+    },
+    {
+      "id": "f10",
+      "label": "Russia Diesel Ban + Dual Supply Shock",
+      "impact": "Sc2 -1pp, Sc3 +2pp, Sc4 -1pp. Russia diesel ban confirmed. Ukraine destroyed ~90 shadow fleet vessels in one week at \u2018industrial scale\u2019 (Madyar). Don-Azov Canal shipping halted. Russian refining one-third offline. Diesel crack at record $72.90/bbl. Syzran refinery (Samara) struck Jul 12. Ilsky, Omsk, Ust-Luga all hit. Gazprom shares at 17-year low. Two of world\u2019s largest energy suppliers simultaneously impaired \u2014 no precedent."
+    }
+  ],
+  "countries": [
+    {
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "name": "USA",
+      "risk": "elevated",
+      "inflation": 1.5,
+      "gdp": 0.6,
+      "sc3inf": 3.0,
+      "sc3gdp": 1.8,
+      "direction": "watch",
+      "primaryScenario": "All scenarios",
+      "primaryTheme": "Financial Stress",
+      "energy": "Net crude exporter (12.9mb/d). Domestic refining largely insulates from diesel shock.",
+      "vulnerability": "IRGC declared Hormuz closed. 300+ targets struck. Iran retaliating across 6 countries. Brent ~$82. 10Y yield 4.59%. 30Y at 5.07%. Diesel crack spread $72.90/bbl. SPR at ~313mb drawing 6.2mb/wk while exporting record 8.7mb/d refined products. Gasoline $3.80/gal, diesel $4.80/gal. USS Ford in maintenance.",
+      "detail": "Active combat intensifying: 300+ targets struck across 3 nights plus continued Jul 11-12. Iran retaliating with missiles at US bases in 6 countries. No US casualties yet \u2014 the threshold Trump set for full escalation. SPR at ~313mb and falling 6.2mb/wk while the US simultaneously exports record 8.7mb/d refined products into global shortage. Diesel crack spread hit record $72.90/bbl (3.6\u00d7 seasonal norm). Gasoline at $3.80/gal, diesel at $4.80/gal. Commodity Context analysis: \u2018too much crude, not enough refined products\u2019 \u2014 global refinery capacity cannot keep up with demand, and the crude-to-products divergence is structural, not cyclical. US RINs doubled in 2026, adding further domestic fuel cost pressure. 30Y yield at 5.07% (bond vigilante threshold). Fed rate hike cycle now expected. Japan-Treasury feedback loop active. USS Ford entered Norfolk for PIA Jul 7. Midterms November 3."
+    },
+    {
+      "flag": "\ud83c\udde8\ud83c\udde6",
+      "name": "Canada",
+      "risk": "elevated",
+      "inflation": 2.8,
+      "gdp": 0.8,
+      "sc3inf": 4.0,
+      "sc3gdp": 2.0,
+      "direction": "worse",
+      "primaryScenario": "Sc1 most positive",
+      "primaryTheme": "Energy + Trade Shock",
+      "energy": "Net exporter \u2014 LNG and crude beneficiary. Significant domestic refining capacity.",
+      "vulnerability": "CPI 2.8% in April. Gasoline +28.6% YoY. Technical recession: Q1 GDP -0.1%. Fuel excise suspended. LNG Canada Phase 1 ramping \u2014 strategic value rising as Qatar capacity structurally impaired.",
+      "detail": "The MOU collapse and military re-escalation compound Canada\u2019s existing stagflationary squeeze. Technical recession was confirmed with Q1 GDP at -0.1%, driven primarily by tariffs. Oil sands benefit from higher crude with WTI at $78+ well above breakeven, but this cannot offset the broader tariff-driven investment drought. LNG Canada Phase 1 at Kitimat is ramping and provides strategic supply value that rises as Strait closure threatens Qatar\u2019s remaining exports. Canada\u2019s potash reserves provide partial fertiliser insulation. The Alberta oil windfall versus broader national contraction deepens a regional divergence that complicates federal fiscal and monetary policy. US-Canada bridge toll deal (Reuters Jul 11) offers minor positive signal on bilateral relations."
+    },
+    {
+      "flag": "\ud83c\uddec\ud83c\udde7",
+      "name": "UK",
+      "risk": "high",
+      "inflation": 2.8,
+      "gdp": 1.0,
+      "sc3inf": 5.5,
+      "sc3gdp": 2.5,
+      "direction": "worse",
+      "primaryScenario": "Sc3 critical",
+      "primaryTheme": "Energy + Financial Stress + Fuel Security",
+      "energy": "High import dependence \u2014 LNG, piped gas, diesel and jet fuel",
+      "vulnerability": "Russia diesel ban + Ukraine shadow fleet destruction compounds Hormuz refined products exposure. Diesel crack at record $72.90/bbl. UK imports 2.5\u00d7 domestic diesel production. BoE projects rising inflation through Q4. Gilt yields above 5%. Dual supply shock: Iran crude via Hormuz + Russia refined products via drone campaign.",
+      "detail": "The UK is the most exposed G7 economy to the refined products channel, importing 2.5\u00d7 its domestic diesel production and 3.1\u00d7 jet fuel. The dual supply shock is now fully operational: Iran constraining crude and products via Hormuz while Ukraine\u2019s drone campaign has destroyed ~90 Russian shadow fleet vessels in one week and halted Don-Azov Canal shipping. Russia\u2019s diesel export ban directly hits the UK supply chain. Diesel crack spread at record $72.90/bbl. The Ofgem price cap moderation was a one-time fiscal buffer that does not repeat. Gilt yields remain above 5%. PM Burnham locked defence at 2.7% GDP by 2030 (vs Germany 3.7%, Poland 4.5%). If full Strait closure materializes, Asian refinery-to-UK finished diesel delivery takes weeks, creating an acute physical supply gap."
+    },
+    {
+      "flag": "\ud83c\udde9\ud83c\uddea",
+      "name": "Germany",
+      "risk": "high",
+      "inflation": 2.6,
+      "gdp": 1.4,
+      "sc3inf": 5.0,
+      "sc3gdp": 2.8,
+      "direction": "worse",
+      "primaryScenario": "Sc3 recession",
+      "primaryTheme": "Energy + Financial Stress",
+      "energy": "Critically exposed \u2014 LNG, industrial gas, and diesel dependent",
+      "vulnerability": "Russia diesel ban + shadow fleet destruction compounds existing energy transmission. Diesel crack at record $72.90/bbl. EU gas storage behind schedule for Oct 90% target. DAX fell 2.54% on ceasefire collapse. VW axing half its car models. Budget deficit 4.2% breaching Stability Pact.",
+      "detail": "Germany\u2019s industrial exposure operates on three vectors simultaneously: gas, electricity, and diesel. The dual supply shock from Iran (Hormuz) and Russia (drone campaign + diesel ban) is now fully compounding. EU gas storage must reach 90% by October and is behind schedule. Diesel crack spread at record $72.90/bbl directly pressures German logistics and heavy industry. Volkswagen axing half its car models (Telegraph Jul 10) signals deepening industrial contraction. Budget deficit at 4.2% breaches the EU Stability Pact 3% threshold. Rearmament commitment targeting 3.7% GDP creates an impossible fiscal trinity alongside energy subsidies and rising Bund yields. FT warns to \u2018prepare for a perilous summer in markets.\u2019"
+    },
+    {
+      "flag": "\ud83c\uddff\ud83c\udde6",
+      "name": "S. Africa",
+      "risk": "critical",
+      "inflation": 4.0,
+      "gdp": 1.2,
+      "sc3inf": 6.5,
+      "sc3gdp": 2.8,
+      "direction": "worse",
+      "primaryScenario": "Sc2+Sc3 critical",
+      "primaryTheme": "Food Security + Financial Stress + Fuel Security",
+      "energy": "Imports virtually all crude oil and refined products. No domestic crude production.",
+      "vulnerability": "Russia diesel ban compounds existing shock. Diesel crack at record $72.90/bbl. Diesel +35.4% m/m in April (record since 2008). CPI jumped to 4.0%. SARB raised repo 25bp to 7.00%. R17.2B diesel subsidy. Dual supply shock: Iran + Russia simultaneously constrained.",
+      "detail": "South Africa carries the most violent fuel shock of any country in the briefing. April data showed the fuel index surging 18.2% month-on-month \u2014 the steepest move since the current CPI series began in 2008. The MOU collapse and IRGC Hormuz closure declaration risk a second acute shock. SARB raised the repo rate to 7.00%. The three-front inflation crisis is fully active: fuel shock, services/transport pass-through, and food pressures from El Ni\u00f1o lagging 6-12 months. South Africa imports virtually all crude and refined products with no domestic production buffer. The R17.2 billion diesel levy relief dwarfs the R10 billion contingency reserve."
+    },
+    {
+      "flag": "\ud83c\udde6\ud83c\uddfa",
+      "name": "Australia",
+      "risk": "high",
+      "inflation": 4.2,
+      "gdp": 0.8,
+      "sc3inf": 5.5,
+      "sc3gdp": 2.5,
+      "direction": "worse",
+      "primaryScenario": "Sc1 most positive / Sc3 high risk",
+      "primaryTheme": "Energy + Fuel Security",
+      "energy": "Major LNG exporter (+140% spot) but 90%+ refined fuel import dependent",
+      "vulnerability": "Russia diesel ban adds second supply shock to 33-day diesel reserves. Diesel crack at record $72.90/bbl. 90%+ fuel import dependent with only 2 domestic refineries. Dual supply shock: Iran Hormuz + Russia refined products. Australian editorial: \u2018politicians aren\u2019t up to lead in war.\u2019",
+      "detail": "Australia is 90%+ dependent on imported liquid fuel with only 33 days of diesel reserves \u2014 well below the IEA 90-day standard. The diesel crack spread at record $72.90/bbl directly quantifies Australia\u2019s exposure. The dual supply shock (Hormuz + Russia diesel ban + Ukraine shadow fleet destruction) compounds existing vulnerability. RBA hiked to 4.35% and trimmed mean inflation at 3.4% continues climbing. Treasury\u2019s prolonged conflict scenario is now the operating reality, not a tail risk. If full Strait closure materializes, the 33-day diesel buffer becomes the binding constraint on the entire economy. Physical Hormuz reopening requires 6+ months of mine-clearing."
+    },
+    {
+      "flag": "\ud83c\udde8\ud83c\uddf4",
+      "name": "Colombia",
+      "risk": "high",
+      "inflation": 5.8,
+      "gdp": 1.2,
+      "sc3inf": 7.0,
+      "sc3gdp": 2.8,
+      "direction": "worse",
+      "primaryScenario": "Sc3 high impact \u2014 new president inherits bind",
+      "primaryTheme": "Food Security + Financial Stress + Transition Watch",
+      "energy": "Net oil exporter but domestic fuel import dependent for refined products",
+      "vulnerability": "CPI 5.8% in May. Policy rates at 11.25%. Food 6% YoY. New president inherits severe monetary policy bind. Diesel-dependent transport and fertiliser exposure.",
+      "detail": "Colombia entered the crisis with structural inflation already above 5%, and the Iran escalation layers on top of existing domestic demand pressures. CPI at 5.8% with policy rates at 11.25% creates the most severe monetary policy bind of any country in the briefing. The new president inherits this bind with no easy policy options. Colombia is a net oil exporter but depends on refined product imports for transport diesel and fertiliser \u2014 the compound exposure channel. Food inflation runs at 6% year-on-year with El Ni\u00f1o threatening Arabica coffee production and fertiliser shortages threatening broader agricultural output."
+    },
+    {
+      "flag": "\ud83c\uddfa\ud83c\udde6",
+      "name": "Ukraine",
+      "risk": "critical",
+      "inflation": 3.5,
+      "gdp": 2.0,
+      "sc3inf": 6.0,
+      "sc3gdp": 3.5,
+      "direction": "better",
+      "primaryScenario": "All scenarios compound",
+      "primaryTheme": "Energy + Food Security",
+      "energy": "War-damaged supply chains \u2014 compounded by Hormuz refined product and crude disruption",
+      "vulnerability": "Shadow fleet campaign success: ~90 vessels struck in one week, Don-Azov Canal halted, Syzran/Ilsky/Omsk refineries hit. Russian refining one-third offline. Trump granted licence to produce Patriot missiles. But Patriot interceptor stocks exhausted (Zelensky Jul 11). Russian territorial advances slowed by >50% in H1 2026 (Syrskyi).",
+      "detail": "Ukraine\u2019s asymmetric campaign against Russian energy infrastructure achieved breakthrough scale in Jul 7-12: ~90 shadow fleet vessels struck in one week at \u2018industrial scale,\u2019 Don-Azov Canal shipping halted, Kerch Strait transit frozen, Syzran refinery (Samara) struck Jul 12, Ilsky and Omsk hit earlier. Russian refining one-third offline. Gazprom shares at 17-year low. This success directly compounds the Iran-Hormuz supply shock \u2014 the dual supply squeeze on global diesel is a product of both wars simultaneously. However, Zelensky warned Jul 11 that Patriot interceptor stocks are exhausted, and Ukraine faces growing air defence crisis. Russian territorial advances slowed by more than half in H1 2026 (Syrskyi). The OFAC revocation of Iran\u2019s export license paradoxically benefits Russia by tightening global supply and supporting Russian export prices."
+    }
+  ],
+  "riskFactors": [
+    {
+      "id": "F1",
+      "name": "IRGC Geographic Escalation \u2014 Active Full-Spectrum",
+      "l": 5,
+      "i": 5,
+      "status": "critical",
+      "active": true,
+      "rationale": "UPDATED A20: 300+ targets struck across 3 nights (Jul 7-9) plus continued Jul 11-12 hitting Ahvaz Airport and southern coastline. Iran retaliated against 6 countries simultaneously (Qatar, Bahrain, UAE, Kuwait, Jordan, Oman) \u2014 widest geographic spread of the war. IRGC formally declared Hormuz closed Jul 11. Anti-ship cruise missiles fired from Sirik Jul 12. Iran parliament advancing 14-article Hormuz Management Bill. Duqm Port (Oman) struck 24h after hosting Araghchi \u2014 mediator immunity revoked. Iran retains >50% of pre-war missile stockpile plus tripled drone production. Score: L5 \u00d7 I5 = 25 (Critical max)."
+    },
+    {
+      "id": "F2",
+      "name": "IRGC / Civilian Government Split (\u2018Juntocracy\u2019)",
+      "l": 5,
+      "i": 5,
+      "status": "critical",
+      "active": true,
+      "rationale": "UPDATED A20: Iran\u2019s \u2018errant faction\u2019 gambit revealed. Iranian negotiators privately told US officials that a hardline faction undermined talks by attacking shipping. ISW assesses this is a tactical play \u2014 the IRGC chain of command authorized the attacks, not a rogue element. The gambit lets the regime sustain talks (Araghchi in Oman Jul 11) and attempt to reap economic benefits while the IRGC continues to enforce Strait control. Press TV denied any \u2018rogue forces\u2019 operating. The split is one of immediate tactical means (negotiations vs military action), not strategic ends \u2014 both factions agree Hormuz control is essential leverage. Score: L5 \u00d7 I5 = 25."
+    },
+    {
+      "id": "F3",
+      "name": "Israel-US Gap / Netanyahu Undermining \u2014 Principal-Agent Trap",
+      "l": 5,
+      "i": 5,
+      "status": "critical",
+      "active": true,
+      "rationale": "Lebanon Rome talks Jul 15-16 confirmed. Lebanon participating despite earlier conditions re pilot zone withdrawal. Hezbollah Secretary General Qassem rejected framework, demanded IDF complete withdrawal. LAF refuses to initiate \u2018internal confrontation\u2019 with Hezbollah over civil war risk. IDF preparing for long stay in southern Lebanon as Hezbollah regroups. Netanyahu\u2019s Oct 27 election remains structural derailer. Score: L5 \u00d7 I5 = 25."
+    },
+    {
+      "id": "F22",
+      "name": "Trump-Netanyahu Principal-Agent Trap \u2014 CEASEFIRE FRAUD CONFIRMED",
+      "l": 5,
+      "i": 5,
+      "status": "critical",
+      "active": true,
+      "rationale": "Confirmed and continuing. Israel\u2019s Jun 26 Trilateral Agreement Framework being tested. IDF has not withdrawn from pilot zones. LAF refuses deployment until IDF withdraws. Hezbollah threatening civil war over disarmament. US sending military delegation to Lebanon. The structural incentive misalignment persists: Netanyahu needs conflict continuation for political survival. Score: L5 \u00d7 I5 = 25."
+    },
+    {
+      "id": "F23",
+      "name": "Cushing Operational Floor \u2014 AT FLOOR (~20M bbl)",
+      "l": 5,
+      "i": 4,
+      "status": "critical",
+      "active": true,
+      "rationale": "Cushing inventories remain at ~20M barrels \u2014 the operational floor. EIA fair value calculation: WTI at $101 vs ~$78 market price \u2014 $23 undervalued from fundamentals. Market pricing headline narratives; physical market pricing structural scarcity. Commodity Context confirms: \u2018too much crude, not enough refined products.\u2019 Score: L5 \u00d7 I4 = 20."
+    },
+    {
+      "id": "F25",
+      "name": "82nd Airborne Kharg Island Pre-Positioning",
+      "l": 3,
+      "i": 5,
+      "status": "high",
+      "active": false,
+      "rationale": "Planning intent confirmed but not activated. Activation trigger: mass-casualty event on US assets. No US casualties in current exchange cycle \u2014 calibrated exchange grammar holding. Score: L3 \u00d7 I5 = 15."
+    },
+    {
+      "id": "F4",
+      "name": "US Bond / Sovereign Yield Crisis",
+      "l": 5,
+      "i": 5,
+      "status": "critical",
+      "active": true,
+      "rationale": "UPDATED A20: 30Y at 5.07% on Sunday open \u2014 above bond vigilante threshold. 10Y at 4.59%. Oil +3.25% gap up. Long-end selling (not rallying) = market pricing stagflation, not flight-to-safety. Japan-Treasury feedback loop active. Carry trade at most extreme since 2007 (BIS: up to $11.3T). BBG: \u2018Yen fix starts with pension cash coming home.\u2019 FT: \u2018Prepare for a perilous summer in markets.\u2019 $9.7T US debt maturing 2026. Score: L5 \u00d7 I5 = 25."
+    },
+    {
+      "id": "F9",
+      "name": "Stagflation Trap \u2014 Central Bank Paralysis",
+      "l": 5,
+      "i": 4,
+      "status": "critical",
+      "active": true,
+      "rationale": "Diesel crack at $72.90/bbl quantifies the stagflation mechanism: crude prices moderate but refined products surge, creating cost-push inflation that central banks cannot address with rate policy. No major CB can cut (inflation) or hike (recession risk) cleanly. BofA forecasts 3 Fed hikes. Steve Hanke: near-zero joint probability of broader regional peace \u2014 markets structurally underpricing risk. Score: L5 \u00d7 I4 = 20."
+    },
+    {
+      "id": "F5",
+      "name": "Summer EU Gas Storage Crisis",
+      "l": 4,
+      "i": 5,
+      "status": "critical",
+      "active": false,
+      "rationale": "EU storage at ~30% \u2014 must reach 90%+ by October. Hormuz closure and Russian supply constraints both worsening simultaneously. If not recovered by August, UK/Germany winter 2026-27 energy crisis near-certain. Score: L4 \u00d7 I5 = 20."
+    },
+    {
+      "id": "F6",
+      "name": "US Munitions Depletion / Carrier Gap",
+      "l": 4,
+      "i": 5,
+      "status": "critical",
+      "active": false,
+      "rationale": "UPDATED A20: USS Ford entered Norfolk for PIA Jul 7 \u2014 removed from deployable carrier force during active escalation. Lincoln only carrier positioned near Hormuz. CSIS: Tomahawks to late 2030; THAAD to end 2029; Patriots to mid-2029. ISW: 300+ targets struck but \u2018no visible effect on Iran\u2019s ability to threaten shipping.\u2019 Ukraine\u2019s Patriot interceptor stocks exhausted (Zelensky Jul 11). Score: L4 \u00d7 I5 = 20."
+    },
+    {
+      "id": "F10",
+      "name": "Iran Oil Storage / Well Shut-in Risk \u2014 JPMorgan Physical Floor",
+      "l": 5,
+      "i": 4,
+      "status": "critical",
+      "active": false,
+      "rationale": "JPMorgan (Jun 7): total visible inventories reach operational stress level (7.6B bbl) by June 2026 and operational floor (6.8B bbl) by September 2026. Commodity Context confirms crude oversupply but refined products structural shortage. Score: L5 \u00d7 I4 = 20."
+    },
+    {
+      "id": "F12",
+      "name": "GOP Senate Hawks Blocking Deal \u2014 FULLY ACTIVE",
+      "l": 5,
+      "i": 4,
+      "status": "critical",
+      "active": true,
+      "rationale": "Sen. Graham died during this cycle \u2014 removes one hawkish voice but institutional opposition persists. Multiple senators demanding INARA vote on any final deal. US-Iran negotiations to resume but gaps unbridgeable (ISW). Score: L5 \u00d7 I4 = 20."
+    },
+    {
+      "id": "F7",
+      "name": "Agricultural Yield Failures 2026-27",
+      "l": 4,
+      "i": 4,
+      "status": "high",
+      "active": true,
+      "rationale": "Planting reductions locked in \u2014 harvest impact deferred to autumn 2026 and 2027. Don-Azov Canal halt affects Russian grain export logistics alongside oil products. Fertiliser shortage + diesel costs = deferred shock persisting beyond any ceasefire. Score: L4 \u00d7 I4 = 16."
+    },
+    {
+      "id": "F8",
+      "name": "Ukraine Strategic Erosion",
+      "l": 4,
+      "i": 4,
+      "status": "high",
+      "active": true,
+      "rationale": "MIXED A20: Ukraine\u2019s shadow fleet campaign achieved breakthrough success (~90 vessels in one week) and Russian territorial advances slowed >50% in H1 2026. But Patriot interceptor stocks exhausted. Russia oil windfall elevated. OFAC Iran revocation paradoxically supports Russian export prices. Attention still concentrated on Gulf. Score: L4 \u00d7 I4 = 16."
+    },
+    {
+      "id": "F15",
+      "name": "Iran Domestic Collapse Risk",
+      "l": 4,
+      "i": 5,
+      "status": "critical",
+      "active": true,
+      "rationale": "UPDATED A20: Mojtaba missed all 6 funeral ceremonies. NYT: barred over assassination fears. Reuters: disfigured face, wounded limbs. Jul 11: pledged revenge, stating it does not depend on his survival. No image/video/voice ever issued. Jul 14 memorial \u2014 next signal. Iran at 88.6% inflation, food +130%. OFAC revocation accelerating fiscal deterioration. Score: L4 \u00d7 I5 = 20."
+    },
+    {
+      "id": "F16",
+      "name": "European Rearmament Fiscal Squeeze (NATO 3.0)",
+      "l": 4,
+      "i": 4,
+      "status": "high",
+      "active": true,
+      "rationale": "NATO 5% GDP benchmark. Germany ~1.9% must ramp to 3.7%. UK locked at 2.7%. Rheinmetall/MBDA developing laser weapon for German Navy (Defense News). Fourth simultaneous fiscal pressure on sovereign yields. Score: L4 \u00d7 I4 = 16."
+    },
+    {
+      "id": "F21",
+      "name": "Russia-Iran $25B Rosatom Nuclear MOU \u2014 Sirik Reactors",
+      "l": 4,
+      "i": 4,
+      "status": "high",
+      "active": true,
+      "rationale": "$25B MOU for four Gen III reactors at Sirik. Pushes Iran toward 8,000MW. Strategic hedging continues alongside combat operations. Score: L4 \u00d7 I4 = 16."
+    },
+    {
+      "id": "F19",
+      "name": "Iran Nuclear Doctrine Change \u2014 Parchin Hardening",
+      "l": 4,
+      "i": 5,
+      "status": "critical",
+      "active": true,
+      "rationale": "UPGRADED A20 (L3\u2192L4): Multiple parliamentarians openly discussing nuclear doctrine change. Parliamentary spokesman Rezaei: Iran may change doctrine if US launches another \u2018all-out attack.\u2019 Samsami (one of 85 who called for ICBM capability): Iran must change doctrine because engaged in \u2018existential war.\u2019 CNN/IISS: Iran continuing to harden Parchin Taleghan 2 with concrete roof \u2014 the facility used to test explosives needed for nuclear detonation. Physical indicators (hardening) plus rhetorical escalation (parliamentarians) justify L3\u2192L4 upgrade. Score: L4 \u00d7 I5 = 20."
+    },
+    {
+      "id": "F20",
+      "name": "SPR Depletion + Refined Products Crisis",
+      "l": 5,
+      "i": 4,
+      "status": "critical",
+      "active": true,
+      "rationale": "SPR at ~313mb drawing 6.2mb/wk. ~10 weeks to DOE legal minimum at current pace. US exporting record 8.7mb/d refined products. Distillate at 4-year low. Gasoline at lowest seasonal since 2012. Diesel crack at $72.90/bbl. Commodity Context: global refinery capacity struggling to keep up. China buyers\u2019 strike tightened refined products while loosening crude. Score: L5 \u00d7 I4 = 20."
+    },
+    {
+      "id": "F26",
+      "name": "Hormuz Sovereignty \u2014 PGSA as Closure Weapon",
+      "l": 5,
+      "i": 5,
+      "status": "critical",
+      "active": true,
+      "rationale": "UPDATED A20: IRGC formally declared Hormuz closed Jul 11. Iran parliament advancing 14-article Strait of Hormuz Management Bill to codify control legislatively. Mojtaba Khamenei\u2019s first public statement as supreme leader: \u2018The lever of closing the Strait of Hormuz must certainly continue to be used.\u2019 Three lock-in signals: operational (closure declaration), legislative (parliamentary bill), doctrinal (supreme leader commitment). Kpler: 25 crossings Jul 9 vs 100+/day pre-war. NIAC: Hormuz control may be more significant to Iran\u2019s leverage than even the nuclear program. Score: L5 \u00d7 I5 = 25."
+    },
+    {
+      "id": "F27",
+      "name": "Russia Diesel Ban + Shadow Fleet Destruction",
+      "l": 5,
+      "i": 5,
+      "status": "critical",
+      "active": true,
+      "rationale": "UPGRADED A20 (I4\u2192I5): Ukraine destroyed ~90 shadow fleet vessels in one week at \u2018industrial scale.\u2019 Don-Azov Canal shipping halted. Kerch Strait transit frozen. Syzran refinery (Samara) struck Jul 12. Ilsky, Omsk, Ust-Luga all hit. Russian refining one-third offline. Gazprom shares at 17-year low. Russia importing gasoline from India. Diesel crack at $72.90/bbl (series high, 3.6\u00d7 norm). Ole Hansen COT: gas oil spec longs +20%. Commodity Context: US gasoline at lowest seasonal since 2014, diesel at 30-year seasonal low. Score: L5 \u00d7 I5 = 25 (upgraded from 20)."
+    },
+    {
+      "id": "F28",
+      "name": "Gulf State Fracture \u2014 Mediator Collapse",
+      "l": 4,
+      "i": 4,
+      "status": "high",
+      "active": true,
+      "rationale": "NEW A20: Iran struck all mediator states. Duqm Port (Oman) attacked 24h after hosting Araghchi \u2014 AJ Geo: \u2018mediator immunity was conditional on ejecting the US Navy\u2019s rear base, and the condition was not met.\u2019 Gulf states fracturing: UAE/Bahrain/Kuwait want stronger GCC action plus international naval arrangement; Oman/Qatar prefer continued diplomacy (ISW Jul 10). Iran threatening to add UAE to \u2018target bank.\u2019 Sen. Graham and former Qatari Emir died \u2014 key figures removed. No mediator retains immunity. Scores High not Critical because Gulf states have not yet expelled Iranian diplomatic staff. Score: L4 \u00d7 I4 = 16."
+    }
+  ],
+  "conclusions": [
+    {
+      "type": "critical",
+      "text": "IRGC declared Hormuz closed \u2014 institutional lock-in underway. Three converging signals make this assessment\u2019s defining shift: the IRGC\u2019s operational closure declaration, Iran\u2019s parliament advancing a 14-article Hormuz Management Bill to codify control legislatively, and Mojtaba Khamenei\u2019s first public statement as supreme leader committing to closure as leverage. These are not reversible signals. ISW assessed across four special reports (Jul 8-11) that US strikes totalling 300+ targets \u2018have had no visible effect on Iran\u2019s ability to threaten shipping.\u2019 Iran retaliated against six countries simultaneously \u2014 including striking mediator states. Sc4 rises to 31%, the highest in briefing history."
+    },
+    {
+      "type": "critical",
+      "text": "The war has moved inside the refineries. Two of the world\u2019s largest energy suppliers are simultaneously constrained in an unprecedented dual supply shock: Iran via Hormuz (crude and refined products) and Russia via Ukraine\u2019s drone campaign (~90 shadow fleet vessels destroyed in one week, Don-Azov Canal halted, one-third of refining offline, diesel exports banned). The U.S. diesel crack spread hit a record $72.90 per barrel \u2014 3.6 times the seasonal norm. Commodity Context: \u2018too much crude, not enough refined products.\u2019 Gasoline at $125 per barrel equivalent, diesel at $140. This is the structural divergence the crude price cannot resolve."
+    },
+    {
+      "type": "critical",
+      "text": "MOU\u2019s Paragraph 5 was deliberately unresolvable. WSJ confirmed that mediators acknowledged both sides read the Hormuz clause differently but signed anyway, \u2018figuring they could assert their interpretations afterward.\u2019 Once signed, the IRGC pushed the civilian government toward a maximalist reading giving Iran exclusive control. A US official familiar with negotiations admitted the clause has been \u2018problematic\u2019 and the two countries are on \u2018different planets.\u2019 This means any future deal attempt using similar ambiguous language will hit the same structural wall. Sc2 falls to 4% \u2014 lowest in briefing history."
+    },
+    {
+      "type": "critical",
+      "text": "No mediators remain. Iran struck every mediator state including Oman\u2019s Duqm Port 24 hours after hosting Araghchi. The strike sequence is the message: mediator immunity was conditional, and the condition was not met. Gulf states fracturing: UAE, Bahrain, and Kuwait demanding stronger GCC action and international naval arrangements while Oman and Qatar prefer continued diplomacy. The diplomatic architecture that produced the MOU no longer exists."
+    },
+    {
+      "type": "critical",
+      "text": "Succession vacuum deepening. Mojtaba Khamenei missed all six of his father\u2019s funeral ceremonies. NYT: barred over assassination fears. Reuters: disfigured face and wounded limbs. No image, video, or voice recording since February 28. On July 11 he pledged revenge, stating it does not depend on his personal survival. The Jul 14 memorial ceremony in Tehran is the next signal event for regime consolidation."
+    },
+    {
+      "type": "critical",
+      "text": "SPR provides no buffer and is actively being drained. EIA confirmed ~313 million barrels drawing 6.2 million per week while the US simultaneously exports record 8.7 million barrels per day of refined products into global shortage. Approximately 10 weeks from the DOE legal minimum of 252.4 million barrels at current draw rates. The 30-year Treasury yield at 5.07% confirms the market is pricing stagflation, not flight-to-safety. Bond vigilante threshold crossed."
+    },
+    {
+      "type": "normal",
+      "text": "Shipping costs and food crisis timeline extend beyond the war regardless of outcome. Diesel crack spread at 3.6 times seasonal norm locks higher costs into annual contracts. The Ukraine shadow fleet campaign\u2019s success in halting Don-Azov Canal shipping disrupts Russian grain exports alongside oil products. Planting decisions now lock in harvest outcomes 4 to 6 months later. El Ni\u00f1o, fertiliser disruption, and war damage arriving simultaneously."
+    }
+  ],
+  "changeLog": [
+    {
+      "date": "Jul 12",
+      "assessment": 20,
+      "factor": "Assessment 20 \u2014 IRGC Declares Hormuz Closed. Sc4 \u25b2 5pp to 31% (Briefing High). Institutional Lock-In Active.",
+      "detail": "Three converging institutional signals define A20: IRGC formally declared Hormuz closed (operational), Iran parliament advancing 14-article Hormuz Management Bill (legislative), Mojtaba committed to closure leverage in first statement as supreme leader (doctrinal). These are not reversible. ISW: 300+ target strikes had \u2018no visible effect\u2019 on Iran\u2019s calculus. Iran retaliated against 6 countries including mediator states. Sc4 at 31% (highest ever). Sc2 at 4% (lowest ever). F19 upgraded L3\u2192L4 (nuclear doctrine). F27 upgraded I4\u2192I5 (shadow fleet destruction). F28 added (Gulf State Fracture).",
+      "dir": "worse",
+      "scope": "All sections",
+      "sig": "critical"
+    },
+    {
+      "date": "Jul 12",
+      "assessment": 20,
+      "factor": "Diesel Crack Spread Record $72.90/bbl \u2014 Dual Supply Shock Intensifying",
+      "detail": "U.S. diesel crack spread hit series high at $72.90/bbl (3.6\u00d7 seasonal norm). Russia diesel ban confirmed. Ukraine destroyed ~90 shadow fleet vessels in one week, halted Don-Azov Canal. Russian refining one-third offline. Syzran/Ilsky/Omsk refineries struck. Gasoline at $125/bbl equivalent, diesel at $140/bbl. Commodity Context: \u2018too much crude, not enough refined products.\u2019 Gas oil spec longs +20%. F27 upgraded to L5\u00d7I5=25.",
+      "dir": "worse",
+      "scope": "Overview + Energy + Risk Register",
+      "sig": "critical"
+    },
+    {
+      "date": "Jul 12",
+      "assessment": 20,
+      "factor": "Gulf State Fracture \u2014 Mediator States Struck, No Brokers Remain",
+      "detail": "Iran struck all mediator states including Oman\u2019s Duqm Port 24h after hosting Araghchi. WSJ: Paragraph 5 ambiguity was deliberate. UAE/Bahrain/Kuwait vs Oman/Qatar split on response. Sen. Graham and former Qatari Emir died. F28 added (L4\u00d7I4=16, High). Sc2 lowest ever at 4%.",
+      "dir": "worse",
+      "scope": "Scenarios + Risk Register",
+      "sig": "critical"
+    },
+    {
+      "date": "Jul 12",
+      "assessment": 20,
+      "factor": "F19 Nuclear Doctrine Upgrade \u2014 Parchin Hardening + Parliamentarian Rhetoric",
+      "detail": "F19 upgraded L3\u2192L4 (score 15\u219220). Multiple parliamentarians discussing doctrine change. CNN/IISS: Parchin Taleghan 2 being hardened with concrete roof. Physical indicators plus rhetorical escalation justify upgrade.",
+      "dir": "worse",
+      "scope": "Risk Register",
+      "sig": "high"
+    },
+    {
+      "date": "Jul 9",
+      "assessment": 19,
+      "factor": "Assessment 19 \u2014 Active Combat Day 3. Dual Supply Shock (Iran + Russia). SPR Chart Added. Sc2 \u25bc3pp to 7%. Sc4 \u25b23pp to 26%.",
+      "detail": "Three consecutive nights of US strikes totalling 170+ targets. Iran retaliating across 4 countries. Russia banned diesel exports Jul 8 after 42.7% of refining disabled. Euro diesel margin record $60.17/bbl. SPR at 319.5mb drawing 6.2mb/wk. F20 upgraded. F27 added. SPR chart added.",
+      "dir": "worse",
+      "scope": "All sections",
+      "sig": "critical"
+    },
+    {
+      "date": "Jul 8",
+      "assessment": 18,
+      "factor": "Assessment 18 \u2014 MOU Declared Dead. Trump: \u2018It\u2019s Over.\u2019 Sc2 collapses -12pp to 10%. Sc3 dominant at 65%. Sc4 +7pp to 23%.",
+      "detail": "Trump declared MOU \u2018over\u2019 at NATO summit. US struck 80+ targets. Iran retaliated against 85 sites. OFAC revoked oil export license. Southern corridor eliminated.",
+      "dir": "worse",
+      "scope": "All sections",
+      "sig": "critical"
+    },
+    {
+      "date": "Jul 8",
+      "assessment": 18,
+      "factor": "30-Year Treasury Yield Breaches 5%. Financial Stress Threshold Crossed.",
+      "detail": "30Y at 5.068%. 10Y at 4.578%. Japan spent \u00a511.73T defending yen, fully retraced. Carry trade at most negative since 2007.",
+      "dir": "worse",
+      "scope": "Themes+Countries",
+      "sig": "critical"
+    },
+    {
+      "date": "Jul 8",
+      "assessment": 18,
+      "factor": "60 IRGC Gunboats Destroyed + Strait Arsenal Degraded",
+      "detail": "CENTCOM targeted fast attack craft fleet plus air defenses, coastal radar, anti-ship missile sites across southern Iran.",
+      "dir": "watch",
+      "scope": "Scenarios",
+      "sig": "high"
+    },
+    {
+      "date": "Jul 8",
+      "assessment": 18,
+      "factor": "IRGC-Government Split Now Public. Mojtaba Still Invisible.",
+      "detail": "Police arrested hardline IRGC supporters at funeral. Government using legal MOU language; IRGC launching missiles at Gulf states.",
+      "dir": "worse",
+      "scope": "Scenarios",
+      "sig": "high"
+    },
+    {
+      "date": "Jul 6",
+      "assessment": 17,
+      "factor": "Assessment 17 \u2014 Sc4 \u25b26pp. Sc3\u2192Sc4 Reframed as Continuum. Market Mispricing at Historic Extremes.",
+      "detail": "Sc1 8\u21925%. Sc2 38\u219222%. Sc3 45\u219257%. Sc4 9\u219216%. Deepest intelligence collection in series history.",
+      "dir": "worse",
+      "scope": "All sections",
+      "sig": "critical"
+    },
+    {
+      "date": "Jul 6",
+      "assessment": 17,
+      "factor": "Khamenei Funeral (Jul 4-9): Succession Crisis Deepens \u2014 Mojtaba Absent",
+      "detail": "Six-day funeral. Mojtaba absent all days \u2014 physically incapacitated. Reuters: facial disfigurement.",
+      "dir": "worse",
+      "scope": "Scenarios + Risk Register",
+      "sig": "critical"
+    },
+    {
+      "date": "Jul 6",
+      "assessment": 17,
+      "factor": "Hormuz Governance: Iran Declares Fees \u2018Definite\u2019 \u2014 Two Competing Architectures",
+      "detail": "PGSA operating. 40+ IRGC speedboats on satellite imagery. France/UK deploy minehunters. OFAC exposure at engagement.",
+      "dir": "worse",
+      "scope": "Scenarios + Risk Register + Energy",
+      "sig": "critical"
+    },
+    {
+      "date": "Jul 6",
+      "assessment": 17,
+      "factor": "Market Mispricing at Historic Extremes",
+      "detail": "Highest Brent short positioning vs lowest global onshore inventories in recorded history.",
+      "dir": "worse",
+      "scope": "Overview + Energy + Risk Register",
+      "sig": "critical"
+    },
+    {
+      "date": "Jun 25",
+      "assessment": 16,
+      "factor": "Assessment 16 \u2014 Sc3 Overtakes Sc2. MOU Collapse Conditions Accumulating.",
+      "detail": "Sc3 32\u219245%. Sc2 47\u219238%. Rabobank 50% re-escalation base case.",
+      "dir": "worse",
+      "scope": "All sections",
+      "sig": "critical"
+    },
+    {
+      "date": "Jun 20",
+      "assessment": 15,
+      "factor": "Assessment 15 \u2014 MOU First 72 Hours: Stress-Testing the Framework",
+      "detail": "PGSA live. Lebanon ceasefire fraud. DPA Section 708 signed. Shipping costs locking Jul 1.",
+      "dir": "worse",
+      "scope": "Overview \u00b7 Risk Register \u00b7 Energy \u00b7 Food \u00b7 Sources",
+      "sig": "critical"
+    },
+    {
+      "date": "Jun 18",
+      "assessment": 14,
+      "factor": "Assessment 14 \u2014 MOU Signed: Sc2 Now Base Case.",
+      "detail": "MOU signed Jun 17. Sc2 37\u219247%. Oil ~20% drop. Fed hawkish.",
+      "dir": "better",
+      "scope": "All sections",
+      "sig": "critical"
+    },
+    {
+      "date": "Jun 15",
+      "assessment": 13,
+      "factor": "Assessment 13 \u2014 MOU Agreed: Largest Scenario Shift",
+      "detail": "Sc2 +20pp. Sc3 -25pp. Fars: toll-free 60 days only.",
+      "dir": "better",
+      "scope": "All sections",
+      "sig": "critical"
+    },
+    {
+      "date": "Jun 10",
+      "assessment": 12,
+      "factor": "Assessment 12 \u2014 Direct US-Iran Kinetic Exchange + Sc3 to 68%",
+      "detail": "Sc3 62\u219268% (+6pp). ISW: Iran believes it is at war.",
+      "dir": "worse",
+      "scope": "All sections",
+      "sig": "critical"
+    },
+    {
+      "date": "Pre-Jun 10",
+      "assessment": 11,
+      "factor": "Assessments 1\u201311 Archived (May 13 \u2013 Jun 9)",
+      "detail": "22 entries covering full history. Full archive available on request.",
+      "dir": "watch",
+      "scope": "Archive",
+      "sig": "watch"
+    }
+  ],
+  "maritime": {
+    "dataDate": "12 July 2026",
+    "source": "Kpler / Windward AI / CENTCOM",
+    "hormuzTransits": 25,
+    "hormuzInbound": 10,
+    "hormuzOutbound": 15,
+    "darkVessels": 12,
+    "corridorNorth": 25,
+    "corridorSouth": 0,
+    "gulfFleet": 850,
+    "highRisk": 145,
+    "moderate": 200,
+    "lowRisk": 505,
+    "darkEvents": 120,
+    "babElMandeb": 30,
+    "babInbound": 17,
+    "babOutbound": 13,
+    "suezInbound": 20,
+    "suezOutbound": 18,
+    "cargoValueM": 58,
+    "topFlags": "Iran (160), Panama (98), Comoros (90)",
+    "gpsJammed": 95
+  }
+}
