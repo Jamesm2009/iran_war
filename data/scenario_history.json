@@ -73,11 +73,20 @@
   },
   {
     "assessment": 19,
-    "date": "July 9, 2026",
     "day": 133,
+    "date": "July 9, 2026",
     "sc1": 2,
     "sc2": 7,
     "sc3": 65,
     "sc4": 26
+  },
+  {
+    "assessment": 20,
+    "day": 136,
+    "date": "July 12, 2026",
+    "sc1": 2,
+    "sc2": 4,
+    "sc3": 63,
+    "sc4": 31
   }
 ]
