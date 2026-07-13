@@ -8,7 +8,8 @@
     "tnx": 4.42,
     "us30y": 4.85,
     "usdjpy": 155.0,
-    "hormuz_transits": 29
+    "hormuz_transits": 29,
+    "spr": 349
   },
   {
     "assessment": 12,
@@ -19,7 +20,8 @@
     "tnx": 4.45,
     "us30y": 4.9,
     "usdjpy": 156.0,
-    "hormuz_transits": 25
+    "hormuz_transits": 25,
+    "spr": 344
   },
   {
     "assessment": 13,
@@ -30,7 +32,8 @@
     "tnx": 4.42,
     "us30y": 4.85,
     "usdjpy": 157.0,
-    "hormuz_transits": 29
+    "hormuz_transits": 29,
+    "spr": 340
   },
   {
     "assessment": 14,
@@ -41,7 +44,8 @@
     "tnx": 4.35,
     "us30y": 4.8,
     "usdjpy": 158.0,
-    "hormuz_transits": 45
+    "hormuz_transits": 45,
+    "spr": 334
   },
   {
     "assessment": 15,
@@ -52,7 +56,8 @@
     "tnx": 4.3,
     "us30y": 4.78,
     "usdjpy": 158.5,
-    "hormuz_transits": 55
+    "hormuz_transits": 55,
+    "spr": 331
   },
   {
     "assessment": 16,
@@ -63,7 +68,8 @@
     "tnx": 4.25,
     "us30y": 4.75,
     "usdjpy": 160.0,
-    "hormuz_transits": 70
+    "hormuz_transits": 70,
+    "spr": 327
   },
   {
     "assessment": 17,
@@ -74,7 +80,8 @@
     "tnx": 4.53,
     "us30y": 4.95,
     "usdjpy": 162.8,
-    "hormuz_transits": 45
+    "hormuz_transits": 45,
+    "spr": 316
   },
   {
     "assessment": 18,
@@ -85,27 +92,31 @@
     "tnx": 4.578,
     "us30y": 5.068,
     "usdjpy": 162.26,
-    "hormuz_transits": 34
+    "hormuz_transits": 34,
+    "spr": 315
   },
   {
     "assessment": 19,
+    "date": "2026-07-09",
     "day": 133,
-    "date": "July 9, 2026",
     "wti": 75.5,
     "brent": 79.25,
-    "tnx": 4.578,
-    "us10y": 4.55,
+    "tnx": 4.59,
     "us30y": 5.09,
-    "usdjpy": 162.38
-   },
+    "usdjpy": 162.5,
+    "hormuz_transits": 25,
+    "spr": 314
+  },
   {
     "assessment": 20,
+    "date": "2026-07-12",
     "day": 136,
-    "date": "July 12, 2026",
     "wti": 78.0,
     "brent": 82.0,
-    "us10y": 4.59,
+    "tnx": 4.59,
     "us30y": 5.07,
-    "usdjpy": 161.97
+    "usdjpy": 163.0,
+    "hormuz_transits": 25,
+    "spr": 311
   }
 ]
