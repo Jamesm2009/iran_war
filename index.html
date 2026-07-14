@@ -17,7 +17,6 @@
   
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
 <style>
 :root {
   --cream:#faf7f2; --surface:#f2ede5; --border:#d4c4a8;
@@ -161,7 +160,6 @@ body{background:var(--cream);color:var(--navy);font-family:var(--font-body);font
 
 /* FOOTER */
 .footer{max-width:1320px;margin:3rem auto 0;padding:1.5rem;border-top:2px solid var(--navy);font-family:var(--font-mono);font-size:11px;color:var(--text-light)}
-.methodology-text{max-width:1080px !important;width:1080px;font-size:12px;color:var(--text);line-height:1.6}
 </style>
 </head>
 <body>
@@ -243,14 +241,6 @@ body{background:var(--cream);color:var(--navy);font-family:var(--font-body);font
         <div class="chart-title">USD/JPY</div>
         <canvas id="chartYen" class="chart-canvas"></canvas>
       </div>
-      <div class="chart-box">
-        <div class="chart-title">US Strategic Petroleum Reserve (mb)</div>
-        <canvas id="chartSPR" class="chart-canvas"></canvas>
-      </div>
-      <div class="chart-box">
-        <div class="chart-title">3:2:1 Crack Spread (% of Barrel)</div>
-        <canvas id="chartCrack" class="chart-canvas"></canvas>
-      </div>
     </div>
   </div>
 
@@ -277,26 +267,25 @@ body{background:var(--cream);color:var(--navy);font-family:var(--font-body);font
     <div class="sec-title">Intelligence Sources & Links</div>
     <div class="ext-links">
       <a href="https://insights.windward.ai" target="_blank" class="ext-link">🌊 Windward AI Maritime Intelligence <span class="arrow">→</span></a>
+      <a href="https://insights.windward.ai/#hormuz-anchor" target="_blank" class="ext-link">🚢 Windward Hormuz Monitor <span class="arrow">→</span></a>
       <a href="https://understandingwar.org/analysis/middle-east/iran-update/" target="_blank" class="ext-link">📊 ISW/CTP Iran Updates <span class="arrow">→</span></a>
-      <a href="https://www.iranmonitor.org/" target="_blank" class="ext-link">🗺️ Iran War Map <span class="arrow">→</span></a>
-      <a href="https://iranwarlive.com/" target="_blank" class="ext-link">📡 Iran Monitor  <span class="arrow">→</span></a>
-      <a href="https://iran-us-conflict-dashboard.vercel.app/" target="_blank" class="ext-link">🎯 Iran-US Conflict Dashboard <span class="arrow">→</span></a>
+      <a href="https://iranwarmap.com/" target="_blank" class="ext-link">🗺️ Iran War Map <span class="arrow">→</span></a>
+      <a href="https://iranwarlive.com/" target="_blank" class="ext-link">📡 Iran War Live <span class="arrow">→</span></a>
+      <a href="https://iranstrike.com/" target="_blank" class="ext-link">🎯 Iran Strike Tracker <span class="arrow">→</span></a>
       <a href="https://iranmonitor.online/" target="_blank" class="ext-link">📋 Iran Monitor Online <span class="arrow">→</span></a>
       <a href="https://hormuzstraitmonitor.com/" target="_blank" class="ext-link">⚓ Hormuz Strait Monitor <span class="arrow">→</span></a>
     </div>
 
     <div class="sec-title">Methodology</div>
-    <div class="methodology-text" style="max-width:1080px;width:100%;display:block;overflow-wrap:break-word">
-    <p style="max-width:1080px;display:block;margin:0.5rem 0;font-size:12px;color:var(--text);line-height:1.6">
+    <p style="font-size:12px;color:var(--text);line-height:1.6;max-width:720px;margin:0.5rem 0">
       This briefing tracks four scenarios for the Iran War 2026, weighted by probability and updated each assessment cycle. Probabilities are research-informed analyst judgement — treat as ordinal rankings, not statistical forecasts. The four-deal-gap framework (uranium, Lebanon/Hezbollah, frozen funds, GOP Senate hawks) provides the structural test: all four must close simultaneously for Scenario 1. The rotating-gap thesis holds that Iran deliberately cycles blocking conditions to buy time against Trump's political clock. Scenario 3 and Scenario 4 are a sequential continuum — Sc3 conditions naturally compound into Sc4 over time.
     </p>
-    <p style="max-width:1080px;display:block;margin-bottom:1rem;font-size:12px;color:var(--text);line-height:1.6">
+    <p style="font-size:12px;color:var(--text);line-height:1.6;max-width:720px;margin-bottom:1rem">
       Maritime data sourced from Windward AI (insights.windward.ai), cached hourly. Market data from CME Group (oil futures), Investing.com (yields), FRED (10-year via API). Country analysis covers: Canada, Colombia, UK, Germany, South Africa, Australia, USA, Ukraine.
     </p>
-    </div>
 
     <div class="sec-title">Conclusions</div>
-    <div id="conclusionsList" style="max-width:900px"></div>
+    <div id="conclusionsList"></div>
   </div>
 
 </main>
@@ -486,7 +475,7 @@ function renderRiskRegister() {
     const status = f.active ? '● Active' : '○';
     const rationale = f.rationale ? `<div class="risk-rationale">${f.rationale}</div>` : '';
     return `<tr onclick="this.classList.toggle('open')">
-      <td><strong>${f.id}</strong> ${f.name}${rationale}</td>
+      <td><strong>${f.id}</strong> ${f.label}${rationale}</td>
       <td>${f.l}</td><td>${f.i}</td>
       <td><span class="risk-score ${cls}">${score}</span></td>
       <td style="font-family:var(--font-mono);font-size:11px">${status}</td>
@@ -623,39 +612,6 @@ function renderCharts() {
     ]},
     options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } },
       scales: { y: { ticks: { callback: v => '¥' + v, font: { family: "'JetBrains Mono'", size: 10 } } }, x: { ticks: { font: { family: "'JetBrains Mono'", size: 10 } } } } }
-  });
-
-  // SPR
-  const sprData = MARKET_HISTORY.map(m => m.spr || null);
-  const sprColors = sprData.map(v => v === null ? '#ccc' : v > 252.4 ? '#1a8a4a' : v > 150 ? '#e07020' : '#c0392b');
-  charts.spr = new Chart(document.getElementById('chartSPR'), {
-    type: 'bar',
-    data: { labels: mLabels, datasets: [
-      { label: 'SPR (mb)', data: sprData, backgroundColor: sprColors, borderRadius: 4 }
-    ]},
-    options: { responsive: true, maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        annotation: { annotations: {
-          legalMin: { type: 'line', yMin: 252.4, yMax: 252.4, borderColor: '#e07020', borderWidth: 2, borderDash: [6,3],
-            label: { display: true, content: 'DOE Legal Min 252.4mb', position: 'start', font: { family: "'JetBrains Mono'", size: 9 }, backgroundColor: 'rgba(224,112,32,0.85)' }},
-          cavernFloor: { type: 'line', yMin: 150, yMax: 150, borderColor: '#c0392b', borderWidth: 2, borderDash: [6,3],
-            label: { display: true, content: 'Cavern Integrity 150mb', position: 'start', font: { family: "'JetBrains Mono'", size: 9 }, backgroundColor: 'rgba(192,57,43,0.85)' }}
-        }}
-      },
-      scales: { y: { min: 100, max: 420, ticks: { callback: v => v + 'mb', font: { family: "'JetBrains Mono'", size: 10 } } }, x: { ticks: { font: { family: "'JetBrains Mono'", size: 10 } } } }
-    }
-  });
-
-  // Crack Spread (editorial data — 3:2:1 as % of barrel)
-  const crackData = [32, 34, 36, 30, 33, 38, 55, 70, 73, 75];
-  charts.crack = new Chart(document.getElementById('chartCrack'), {
-    type: 'line',
-    data: { labels: mLabels, datasets: [
-      { label: '3:2:1 Crack %', data: crackData, borderColor: '#c0392b', backgroundColor: 'rgba(192,57,43,0.1)', fill: true, tension: 0.3, pointRadius: 4 }
-    ]},
-    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } },
-      scales: { y: { min: 0, max: 100, ticks: { callback: v => v + '%', font: { family: "'JetBrains Mono'", size: 10 } } }, x: { ticks: { font: { family: "'JetBrains Mono'", size: 10 } } } } }
   });
 }
 
