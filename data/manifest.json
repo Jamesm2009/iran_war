@@ -1,21 +1,29 @@
 {
-  "latest": "a20",
+  "latest": "a21",
   "assessments": [
+    {
+      "id": "a19",
+      "number": 19,
+      "day": 133,
+      "date": "July 10, 2026",
+      "file": "a19.json",
+      "headline": "MOU collapse accelerating. IRGC field compliance zero."
+    },
     {
       "id": "a20",
       "number": 20,
       "day": 136,
       "date": "July 12, 2026",
       "file": "a20.json",
-      "headline": "IRGC declares Hormuz closed. Sc4 at 31% \u2014 briefing high. Institutional lock-in active."
+      "headline": "IRGC declares Hormuz closed. Sc4 at 31% (briefing high). Institutional lock-in."
     },
     {
-      "id": "a19",
-      "number": 19,
-      "day": 133,
-      "date": "July 9, 2026",
-      "file": "a19.json",
-      "headline": "Active combat Day 3. Dual supply shock. SPR chart added."
+      "id": "a21",
+      "number": 21,
+      "day": 137,
+      "date": "July 14, 2026",
+      "file": "a21.json",
+      "headline": "MOU dead. War restarted. Dual chokepoint. Blockade reimposed. Sc4 at 33% (new high)."
     },
     {
       "id": "a18",
