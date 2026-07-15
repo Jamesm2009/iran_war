@@ -277,10 +277,10 @@ body{background:var(--cream);color:var(--navy);font-family:var(--font-body);font
     </div>
 
     <div class="sec-title">Methodology</div>
-    <p style="font-size:12px;color:var(--text);line-height:1.6;max-width:720px;margin:0.5rem 0">
+    <p style="font-size:12px;color:var(--text);line-height:1.6;max-width:1080px;margin:0.5rem 0">
       This briefing tracks four scenarios for the Iran War 2026, weighted by probability and updated each assessment cycle. Probabilities are research-informed analyst judgement — treat as ordinal rankings, not statistical forecasts. The four-deal-gap framework (uranium, Lebanon/Hezbollah, frozen funds, GOP Senate hawks) provides the structural test: all four must close simultaneously for Scenario 1. The rotating-gap thesis holds that Iran deliberately cycles blocking conditions to buy time against Trump's political clock. Scenario 3 and Scenario 4 are a sequential continuum — Sc3 conditions naturally compound into Sc4 over time.
     </p>
-    <p style="font-size:12px;color:var(--text);line-height:1.6;max-width:720px;margin-bottom:1rem">
+    <p style="font-size:12px;color:var(--text);line-height:1.6;max-width:1080px;margin-bottom:1rem">
       Maritime data sourced from Windward AI (insights.windward.ai), cached hourly. Market data from CME Group (oil futures), Investing.com (yields), FRED (10-year via API). Country analysis covers: Canada, Colombia, UK, Germany, South Africa, Australia, USA, Ukraine.
     </p>
 
@@ -475,7 +475,7 @@ function renderRiskRegister() {
     const status = f.active ? '● Active' : '○';
     const rationale = f.rationale ? `<div class="risk-rationale">${f.rationale}</div>` : '';
     return `<tr onclick="this.classList.toggle('open')">
-      <td><strong>${f.id}</strong> ${f.label}${rationale}</td>
+      <td><strong>${f.id}</strong> ${f.name}${rationale}</td>
       <td>${f.l}</td><td>${f.i}</td>
       <td><span class="risk-score ${cls}">${score}</span></td>
       <td style="font-family:var(--font-mono);font-size:11px">${status}</td>
