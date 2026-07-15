@@ -38,30 +38,34 @@
     {
       "label": "First Oil Infrastructure Strike",
       "value": "Kharg Western Jetty Hit",
-      "sub": "First confirmed US strike on oil infrastructure at Kharg Island — western jetty pumping station and pipelines. Every previous strike deliberately spared oil infrastructure. Kish Island water/power infrastructure also struck. HIMARS/ATACMS fired from Bahrain into Iran — first surface-to-surface from host nation. UAE tankers struck by Iranian cruise missiles in Omani waters (1 killed). Kuwait intercepted 39 projectiles.",
+      "sub": "First confirmed US strike on oil infrastructure at Kharg Island — western jetty pumping station and pipelines. Every previous strike deliberately spared oil infrastructure. Kish Island water/power infrastructure also struck. HIMARS/ATACMS fired from Bahrain into Iran — first surface-to-surface from host nation. Iran retaliating with cluster munitions against Bahrain (first time — previously only against Israel). UAE tankers struck by Iranian cruise missiles in Omani waters (1 killed). Kuwait intercepted 39 projectiles. Chinese tanker Rich Starry defied blockade — first direct challenge.",
       "color": "red"
     }
   ],
   "priceMoves": [
     {
-      "asset": "Brent Crude",
-      "move": "+10.0%",
-      "detail": "Brent surged to ~$85-87 intraday Jul 14 from $75 pre-escalation, +19% from Jul 2 low of $68. Blockade reimposed. Kharg oil infrastructure struck. Dual chokepoint threat."
+      "label": "BRENT CRUDE",
+      "prewar": "$72/bbl",
+      "current": "$83/bbl",
+      "change": "+15.3% since pre-war baseline"
     },
     {
-      "asset": "10Y Yield",
-      "move": "4.58%",
-      "detail": "Dropped 2bp post-CPI to 4.583% but recovered. 30Y at 5.09%. Stagflation pricing: long-end selling despite CPI relief. Warsh: 'not mission accomplished.'"
+      "label": "WTI CRUDE",
+      "prewar": "$68/bbl",
+      "current": "$78/bbl",
+      "change": "+14.7% since pre-war baseline"
     },
     {
-      "asset": "USD/JPY",
-      "move": "162.4",
-      "detail": "Yen weakened on dollar strength from Middle East safe-haven flows. Japan PPI 7.1% YoY. Carry trade at extreme positioning. Katayama pension-fund comment briefly rallied yen."
+      "label": "10Y YIELD",
+      "prewar": "4.25%",
+      "current": "4.58%",
+      "change": "+33bp — stagflation pricing"
     },
     {
-      "asset": "Gold",
-      "move": "-3% to $4,005",
-      "detail": "Risk-off rotation into USD rather than gold. Dollar strength dominating. Gold fell from ~$4,130 to $4,005."
+      "label": "USD/JPY",
+      "prewar": "152.5",
+      "current": "162.4",
+      "change": "+6.5% — carry trade extreme"
     }
   ],
   "scenarios": [
@@ -409,7 +413,7 @@
       "i": 5,
       "status": "critical",
       "active": true,
-      "rationale": "UPDATED A20: 300+ targets struck across 3 nights (Jul 7-9) plus continued Jul 11-12 hitting Ahvaz Airport and southern coastline. Iran retaliated against 6 countries simultaneously (Qatar, Bahrain, UAE, Kuwait, Jordan, Oman) — widest geographic spread of the war. IRGC formally declared Hormuz closed Jul 11. Anti-ship cruise missiles fired from Sirik Jul 12. Iran parliament advancing 14-article Hormuz Management Bill. Duqm Port (Oman) struck 24h after hosting Araghchi — mediator immunity revoked. Iran retains >50% of pre-war missile stockpile plus tripled drone production. Score: L5 × I5 = 25 (Critical max)."
+      "rationale": "UPDATED A21: CENTCOM 4 consecutive strike nights. Blockade reimposed Jul 14. First oil infrastructure strike (Kharg western jetty). HIMARS/ATACMS fired from Bahrain. Iran retaliating with cluster munitions against Bahrain — first use outside Israel, maximises area damage. 3 more tankers attacked Jul 13 (JMIC: threat level 'severe'). Iran struck Kuwait (39 projectiles), Bahrain, Jordan. IRGC deploying 3,000 special forces to Iran-Iraq border. Only 5 vessels transiting Hormuz in 24h — all Chinese/Iranian. Chinese tanker Rich Starry defied blockade directly. Score: L5 × I5 = 25 (Critical max)."
     },
     {
       "id": "F2",
@@ -622,7 +626,7 @@
   "conclusions": [
     {
       "type": "critical",
-      "text": "MOU formally dead — war restarted on multiple fronts. Both sides confirm: Trump called it 'only a test,' Iran says it has 'no obligations.' War Powers notification filed. Blockade reimposed. Houthi declared full Bab el-Mandeb blockade. Iran Parliament moving to codify permanent Hormuz control — 180 MPs demanding end to all negotiations. Sc1 and Sc2 are functionally extinct. The analytical question is no longer whether escalation continues but whether the US wins the Battle of Hormuz before the mitigants run out."
+      "text": "MOU formally dead — war restarted on multiple fronts. Both sides confirm: Trump called it 'only a test,' Iran says it has 'no obligations.' War Powers notification filed. Blockade reimposed. Houthi declared full Bab el-Mandeb blockade. Iran Parliament moving to codify permanent Hormuz control. China directly challenging the blockade: tanker Rich Starry transited Hormuz with ~2M bbl Iranian oil. Chinese FM blamed the US for the crisis. Only 5 vessels transited in 24 hours — all Chinese and Iranian. The analytical question is no longer whether escalation continues but whether the US wins the Battle of Hormuz before the mitigants run out — and whether China will let it."
     },
     {
       "type": "critical",
@@ -650,6 +654,24 @@
     }
   ],
   "changeLog": [
+    {
+      "date": "Jul 14",
+      "assessment": 21,
+      "factor": "Chinese Tanker Rich Starry Transits Hormuz — First Direct Blockade Defiance. Chinese FM Blames US.",
+      "detail": "Rich Starry carried ~2M bbl Iranian oil through Hormuz defying US sanctions. Chinese FM: 'The Strait was open before the war. The root cause is your illegal operations against Iran.' Only 5 vessels transited in 24h — all Chinese and Iranian, using Iran's northern lane. China testing blockade enforcement directly.",
+      "dir": "worse",
+      "scope": "Geopolitical · Maritime",
+      "sig": "critical"
+    },
+    {
+      "date": "Jul 14",
+      "assessment": 21,
+      "factor": "ISW: Iran Used Cluster Munitions Against Bahrain (First Time). IRGC Deploying 3,000 to Iraq Border.",
+      "detail": "Cluster munition warhead against Bahrain — previously only used against Israel. Significant tactical escalation maximising area damage. IRGC deployed 3,000 special forces (Aerospace + Ground Forces) plus drones/artillery/tanks to Iran-Iraq border targeting Kurdish opposition. US confirmed backing Saudi Sanaa airport strikes. Parliament Speaker Ghalibaf absent from first open session.",
+      "dir": "worse",
+      "scope": "Kinetic · Risk Register",
+      "sig": "critical"
+    },
     {
       "date": "Jul 14",
       "assessment": 21,
@@ -895,26 +917,28 @@
     }
   ],
   "maritime": {
-    "dataDate": "12 July 2026",
+    "dataDate": "13 July 2026",
     "source": "Kpler / Windward AI / CENTCOM",
-    "hormuzTransits": 25,
-    "hormuzInbound": 10,
-    "hormuzOutbound": 15,
-    "darkVessels": 12,
-    "corridorNorth": 25,
+    "hormuzTransits": 14,
+    "hormuzInbound": 5,
+    "hormuzOutbound": 9,
+    "darkVessels": 15,
+    "corridorNorth": 14,
     "corridorSouth": 0,
-    "gulfFleet": 850,
-    "highRisk": 145,
-    "moderate": 200,
-    "lowRisk": 505,
-    "darkEvents": 120,
-    "babElMandeb": 30,
-    "babInbound": 17,
+    "gulfFleet": 820,
+    "highRisk": 160,
+    "moderate": 190,
+    "lowRisk": 470,
+    "darkEvents": 135,
+    "babElMandeb": 28,
+    "babInbound": 15,
     "babOutbound": 13,
-    "suezInbound": 20,
-    "suezOutbound": 18,
-    "cargoValueM": 58,
-    "topFlags": "Iran (160), Panama (98), Comoros (90)",
-    "gpsJammed": 95
+    "suezInbound": 18,
+    "suezOutbound": 16,
+    "cargoValueM": 42,
+    "topFlags": "Iran (155), Panama (92), Comoros (85)",
+    "gpsJamming": true,
+    "spoofing": true,
+    "notes": "Hormuz transits at 5-week low (14 on Jul 12 per Kpler). 52% WoW decline. Omani corridor abandoned. Jul 14: only 5 merchant vessels transited in 24h — all Chinese and Iranian — using Iran's northern lane. Chinese tanker Rich Starry carried ~2M bbl Iranian oil through Hormuz defying US sanctions. Zero LNG carriers through Hormuz since Jul 11. LVision: minimum HYA exports at 79% of pre-war level via dark/escorted routes. Blockade reimposed Jul 14 20:00 GMT. JMIC raised threat level to 'severe' — 4 tanker attacks logged Jul 13."
   }
 }
