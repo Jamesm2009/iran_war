@@ -1,0 +1,101 @@
+{
+  "latest": "a22",
+  "assessments": [
+    {
+      "id": "a22",
+      "number": 22,
+      "day": 142,
+      "date": "July 19, 2026",
+      "file": "a22.json",
+      "headline": "MOU collapse mechanism confirmed. First US casualties (Jordan). First strike on nuclear infrastructure. Sc4 at 38% (new high)."
+    },
+    {
+      "id": "a19",
+      "number": 19,
+      "day": 133,
+      "date": "July 10, 2026",
+      "file": "a19.json",
+      "headline": "MOU collapse accelerating. IRGC field compliance zero."
+    },
+    {
+      "id": "a20",
+      "number": 20,
+      "day": 136,
+      "date": "July 12, 2026",
+      "file": "a20.json",
+      "headline": "IRGC declares Hormuz closed. Sc4 at 31% (briefing high). Institutional lock-in."
+    },
+    {
+      "id": "a21",
+      "number": 21,
+      "day": 137,
+      "date": "July 14, 2026",
+      "file": "a21.json",
+      "headline": "MOU dead. War restarted. Dual chokepoint. Blockade reimposed. Sc4 at 33% (new high)."
+    },
+    {
+      "id": "a18",
+      "number": 18,
+      "day": 131,
+      "date": "July 8, 2026",
+      "file": "a18.json",
+      "headline": "MOU declared dead. Trump: It is over. US struck 80+ targets. Iran retaliates against 85 US sites."
+    },
+    {
+      "id": "a17",
+      "number": 17,
+      "day": 129,
+      "date": "July 6, 2026",
+      "file": "a17.json",
+      "headline": "Sc4 largest single-cycle move. Market mispricing at historic extremes."
+    },
+    {
+      "id": "a16",
+      "number": 16,
+      "day": 118,
+      "date": "June 25, 2026",
+      "file": "a16.json",
+      "headline": "MOU implementation stalling. Hormuz transit fragile."
+    },
+    {
+      "id": "a15",
+      "number": 15,
+      "day": 113,
+      "date": "June 20, 2026",
+      "file": "a15.json",
+      "headline": "MOU signed. Largest scenario shift in series."
+    },
+    {
+      "id": "a14",
+      "number": 14,
+      "day": 111,
+      "date": "June 18, 2026",
+      "file": "a14.json",
+      "headline": "Pre-MOU optimism. Four deal gaps all open."
+    },
+    {
+      "id": "a13",
+      "number": 13,
+      "day": 107,
+      "date": "June 15, 2026",
+      "file": "a13.json",
+      "headline": "MOU agreed. Markets trading headline not arithmetic."
+    },
+    {
+      "id": "a12",
+      "number": 12,
+      "day": 103,
+      "date": "June 10, 2026",
+      "file": "a12.json",
+      "headline": "Direct kinetic exchange. First US-Iran fire since ceasefire."
+    },
+    {
+      "id": "a11",
+      "number": 11,
+      "day": 101,
+      "date": "June 7, 2026",
+      "file": "a11.json",
+      "headline": "Four deal gaps framework established."
+    }
+  ]
+}
